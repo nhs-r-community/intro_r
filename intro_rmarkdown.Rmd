@@ -20,13 +20,13 @@ You can name a chunk (optional), like so
 
 ```
 
-Typically, the first code chunk would be a "setup" chunk (this name is important). This may include global settings (explained later) and perhaps a list of libraries used:
+Typically, the first code chunk would be a "setup" chunk (the name is important). This may include global settings (explained later) and perhaps a list of libraries used:
 
 
 ```{r setup}
 
 # Global chunk settings. Explained later.
-# knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 
 library(tidyverse)
 
