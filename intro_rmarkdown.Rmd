@@ -7,7 +7,7 @@ output: html_document
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-The document can include text, embedded R code, and graphics. You can insert an R code chunk by using the "insert" button above. A code chunk looks like this:
+The document can include text, embedded R code, and graphics. You can insert an R code chunk by using the **insert** button above. A code chunk looks like this:
 
 
 ```{r}
@@ -20,7 +20,7 @@ You can name a chunk (optional), like so
 
 ```
 
-Typically, the first code chunk would be a "setup" chunk (the name is important). This may include global settings (explained later) and perhaps a list of libraries used:
+Typically, the first code chunk would be a "setup" chunk (this particular name is important). The "setup" chunk may include global settings (explained later), and perhaps a list of libraries used:
 
 
 ```{r setup}
@@ -46,7 +46,7 @@ beds_data <- read_csv("beds_data.csv",
 ```
 
 
-The "play" button in the top right-hand corner of a chunk, will execute the "setup" chunk, together with the contents of the current chunk. Alternatively, we can select the lines we wish to execute and press Ctrl + Enter.
+The "play" button in the top right-hand corner of a chunk will execute the "setup" chunk, together with the contents of the current chunk. Alternatively, we can select the lines we wish to execute and press Ctrl + Enter.
 
 ### Text
 
@@ -75,13 +75,13 @@ ggplot(beds_ts) +
 
 ### Generate document
 
-Let's produce a report. By clicking on the drop down menu beside the **Knit** button, you can choose the output format. When you click **Knit**, a document will be generated (note: first time you do this, you'll be prompted to name your file. Try "test_rmarkdown"). As PDF requires additional software, we will knit to HTML (web page), which is the default.
+Let's produce a report. By clicking on the drop down menu beside the **Knit** button, you can choose the output format. When you click **Knit**, a document will be generated (note: first time you do this, you'll be prompted to name your file. Try "test_rmarkdown"). As PDF requires additional installations, we will knit to HTML (web page) for now, which is the default.
 
 **! GO AHEAD AND KNIT THIS DOCUMENT !**
 
-You will immediately notice that the document includes both the code, and the console output for code chunks. In many cases, we won't want to include code, or the corresponding R output. 
+You will immediately notice that the document includes both the code, and the console output for code chunks. In many cases, we won't want to include this code, or the corresponding R output. 
 
-We can remove these unnecessary sections by setting our chunk options correctly. Chunk options are set in the braces, like so
+We can remove these unnecessary sections by setting our chunk options correctly. Chunk options are set within the braces, after the chunk name, like so
 
 ```{r options1, echo=FALSE}
 
@@ -92,13 +92,13 @@ ggplot(beds_ts) +
 
 ```
 
-The `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+The `echo = FALSE` parameter was added to the code chunk to prevent printing the R code that generated the plot.
 
 We can also make use of the `include = FALSE` option, which means neither code nor the result are displayed in the document . 
 
 ```{r options2, include=FALSE}
 
-# This colourful plot will not be shown, because of the option include=FALSE
+# This colourful plot will not be shown, due to the option include=FALSE
 # (the code will still be executed)
 
 ggplot(beds_ts) +
