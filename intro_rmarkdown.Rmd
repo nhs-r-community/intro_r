@@ -1,16 +1,17 @@
 ---
 title: "Introduction to R Markdown"
-output: html_document
+output:
+  word_document: default
+  html_document: default
 ---
 
-## 
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 The document can include text, embedded R code, and graphics. You can insert an R code chunk by using the **insert** button above. A code chunk looks like this:
 
 
-```{r}
+```{r name}
 
 ```
 
@@ -26,7 +27,7 @@ Typically, the first code chunk would be a "setup" chunk (this particular name i
 ```{r setup}
 
 # Global chunk settings. Explained later.
-knitr::opts_chunk$set(echo = FALSE)
+ knitr::opts_chunk$set(echo = FALSE)
 
 library(tidyverse)
 
