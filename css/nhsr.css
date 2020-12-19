@@ -152,7 +152,7 @@ blockquote {
 .title-slide {
   background-image:    url(../img/nhsr-logo.png);
   background-position: 95% 10%;
-  background-size:     200px;
+  background-size:     400px;
 }
 
 /*-- Headings --*/
@@ -171,3 +171,5 @@ blockquote {
 .pink       { color:   #AE2573 }
 .red        { color:   #DA291C }
 .warmyellow { color:   #FFB81C }
+
+
