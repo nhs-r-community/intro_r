@@ -152,7 +152,7 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 .left-col[
 
-<img src="img/heatmap_colin_angus.PNG" width="1000%"/>
+<img src="img/heatmap_colin_angus.PNG"/>
 ]
 
 ---
@@ -176,7 +176,7 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ---
 
-<img src="img/automated_reports.PNG" width="1000%"/>
+<img src="img/automated_reports.PNG"/>
 
 ---
 
@@ -184,7 +184,7 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 [Mental Health Surge Modelling](https://strategyunit.shinyapps.io/MH_Surge_Modelling/)
 
-<img src="img/mental_health_modelling.PNG" width="1000%"/>
+<img src="img/mental_health_modelling.PNG"/>
 
 
 ---
@@ -195,17 +195,17 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 [NHS-R Community Webinar](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar)
 
-<img src="img/webinar_nhsr.PNG" width="1000%"/>
+<img src="img/webinar_nhsr.PNG"/>
 
 ---
 
 [Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/)
 
-<img src="img/twitter_dash.PNG" width="1000%"/>
+<img src="img/twitter_dash.PNG"/>
 
 ---
 
-<img src="img/stackoverflow_example.PNG" width="1000%"/>
+<img src="img/stackoverflow_example.PNG"/>
 
 ---
 
