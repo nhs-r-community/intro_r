@@ -1,0 +1,26 @@
+---
+title: "01-workshopv2_intro"
+author: "Zoë Turner"
+date: "19/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(pdftools)
+
+slide1 <- pdf_text("01-workshopv2_intro.pdf")
+
+```
+
+## R Markdown
+
+
+```{r}
+# first page text
+cat(slide1[8])
+
+knitr::include_graphics("img/github_download.PNG")
+
+```
