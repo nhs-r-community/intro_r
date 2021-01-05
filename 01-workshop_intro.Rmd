@@ -34,6 +34,8 @@ library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
 
+xaringanExtra::use_share_again()
+
 # Packages not on CRAN
 
 # install.packages("remotes")
