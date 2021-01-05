@@ -11,6 +11,7 @@ output:
       - css/nhsr-fonts.css
     lib_dir: libs
     seal: false
+    self-contained: true
     nature:
       highlightStyle: googlecode
       highlightLines: true
