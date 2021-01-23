@@ -11,7 +11,7 @@ output:
       - css/nhsr-fonts.css
     lib_dir: libs
     seal: false
-    self-contained: true
+    self-contained: false
     nature:
       highlightStyle: googlecode
       highlightLines: true
@@ -24,6 +24,7 @@ output:
 ---
 
 class: title-slide, left, bottom
+
 ```{r libs, include=FALSE}
 
 #knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = 'asis')
@@ -55,14 +56,6 @@ scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
 scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
 scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
 scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
-
-```
-
-```{r echo=FALSE}
-xaringanExtra::use_logo(
-  image_url = "img/nhsr-logo.png",
-  exclude_class = c("title-slide", "inverse", "hide-logo")
-)
 ```
 
 # `r rmarkdown::metadata$title`
@@ -155,12 +148,12 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 .left-col[
 
-<img src="img/heatmap_colin_angus.PNG"/>
+<img src="img/session01/heatmap_colin_angus.PNG"/>
 ]
 
 ---
 
-<img src="img/london_cycle_routes.PNG" width="90%"/>
+<img src="img/session01/london_cycle_routes.PNG" width="90%"/>
 
 ---
 
@@ -179,7 +172,7 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ---
 
-<img src="img/automated_reports.PNG"/>
+<img src="img/session01/automated_reports.PNG"/>
 
 ---
 
@@ -187,7 +180,7 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 [Mental Health Surge Modelling](https://strategyunit.shinyapps.io/MH_Surge_Modelling/)
 
-<img src="img/mental_health_modelling.PNG"/>
+<img src="img/session01/mental_health_modelling.PNG"/>
 
 
 ---
@@ -198,17 +191,17 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 [NHS-R Community Webinar](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar)
 
-<img src="img/webinar_nhsr.PNG"/>
+<img src="img/session01/webinar_nhsr.PNG"/>
 
 ---
 
 [Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/)
 
-<img src="img/twitter_dash.PNG"/>
+<img src="img/session01/twitter_dash.PNG"/>
 
 ---
 
-<img src="img/stackoverflow_example.PNG"/>
+<img src="img/session01/stackoverflow_example.PNG"/>
 
 ---
 
@@ -218,9 +211,9 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ```{r inclusive}
 
-rladies <- image_read('img/r_ladies_twitter.PNG')
-mir <- image_read('img/mir_twitter.PNG')
-nhsr <- image_read('img/nhsr_twitter.PNG')
+rladies <- image_read('img/session01/r_ladies_twitter.PNG')
+mir <- image_read('img/session01/mir_twitter.PNG')
+nhsr <- image_read('img/session01/nhsr_twitter.PNG')
 
 img <- c(rladies, mir, nhsr)
 
@@ -243,7 +236,7 @@ _elegant_
 [Minimum Viable Product](https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp)
 
 .left-col[.center[
-<img src="img/mvp.PNG" width="75%"/>
+<img src="img/session01/mvp.PNG" width="75%"/>
 ]]
 
 ---
@@ -281,11 +274,11 @@ improve your programming experience
 
 ---
 
-<img src="img/race_car.PNG"/>
+<img src="img/session01/race_car.PNG"/>
 
 ---
 
-<img src="img/roberto-nickson-unsplash.PNG"/>
+<img src="img/session01/roberto-nickson-unsplash.PNG"/>
 
 ---
 
@@ -341,7 +334,7 @@ pi*2 [Enter]
 
 .right-column[
 
-<img src="img/rstudio_console.PNG"/>
+<img src="img/session01/rstudio_console.PNG"/>
 
 ]
 
@@ -366,7 +359,7 @@ Ctrl+ Shift+ N
 
 .pull-right[
 
-<img src="img/new_file.PNG"/>
+<img src="img/session01/new_file.PNG"/>
 
 ]
 ---
@@ -389,7 +382,7 @@ code to Console)
 ]
 
 .right-column[
-<img src="img/editor.PNG"/>
+<img src="img/session01/editor.PNG"/>
 ]
 
 ---
@@ -403,7 +396,7 @@ bad idea
 ]
 
 .right-column[
-<img src="img/editor.PNG"/>
+<img src="img/session01/editor.PNG"/>
 ]
 
 ---
@@ -411,7 +404,7 @@ bad idea
 .left-col[.center[
 # Tools -> Options
 
-<img src="img/global_options.PNG"/>
+<img src="img/session01/global_options.PNG"/>
 ]]
 
 ---
@@ -419,7 +412,7 @@ bad idea
 .left-col[.center[
 # Tools -> Options
 
-<img src="img/appearance.PNG"/>
+<img src="img/session01/appearance.PNG"/>
 ]]
 
 ---
@@ -445,7 +438,7 @@ with extra functions, datasets, documentation.
 
 .left-col[.center[
 
-<img src="img/app_analogy.PNG"/>
+<img src="img/session01/app_analogy.PNG"/>
 ]]
 
 ---
@@ -493,7 +486,7 @@ create PowerPoint docs, maps…
 
 .left-col[.center[
 
-<img src="img/tidyverse.PNG"/>
+<img src="img/session01/tidyverse.PNG"/>
 ]]
 
 ---
