@@ -1,0 +1,194 @@
+---
+title: "Importing Data"
+subtitle: "Session 3"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+
+
+```{r libs, include=FALSE}
+
+#knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = 'asis')
+
+#Runs packages if available
+library(knitr)
+library(magick)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+
+# Packages not on CRAN
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(echo = FALSE,
+               fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"))
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+]
+
+---
+
+class: center, middle
+
+# Import data to R
+
+</br> There are R packages to import all types of data. 
+</br> In this course, we’ll cover the most
+</br> common imports: 
+</br>
+</br> csvs and Excel workbooks
+
+--
+
+</br> We’d like to import the .blue[capacity_ae.csv] file. </br> 
+
+</br> While we could write code from scratch to do this,
+</br> it’s often easier to get the import wizard to do this
+</br> for you.
+
+---
+
+class: center, middle
+
+# Import data to R
+
+We will use the "Import Dataset" button (but you can also click on the file itself):
+
+</br> <img class="center" src="img/session03/import-screenshot.PNG" width="80%"/>
+
+---
+
+# Import data to R
+
+We will use the "Import Dataset" button:
+
+</br> <img class="center" src="img/session03/drop-down-import.PNG" width="60%"/>
+
+---
+
+# Import data to R
+
+The package used to install csvs is {readr} which is loaded with the {tidyverse} package.
+
+Excel workbooks require the package {readxl}.
+
+</br> <img class="center" src="img/session03/drop-down-import-csv.PNG" width="60%"/>
+
+---
+
+# Import wizard
+
+Locate the file capacity_ae.csv
+
+</br> <img src="img/session03/wizard.PNG"/>
+
+---
+
+# Import wizard
+
+</br> <img src="img/session03/capacity-ae-preview.PNG"/>
+
+---
+
+# Import wizard
+
+</br> <img src="img/session03/import-button.PNG"/>
+
+---
+
+# Import wizard
+
+</br> <img src="img/session03/copy-wizard-code.PNG"/>
+
+---
+
+# Import wizard
+
+</br> <img src="img/session03/copy-code-preview.PNG"/>
+
+---
+
+# Import wizard
+
+Once copied then select .green[Cancel] and then .green[Paste].
+
+.left-col[.left[
+
+From the clipboard:
+<img class="center" src="img/session03/paste-code.PNG"/>
+
+]]
+
+--
+
+.right-col-.right[
+
+Just one line copied:
+<img src="img/session03/paste-selected-code.PNG"/>
+
+]]
+
+
+---
+
+# Run code from the editor
+
+</br> <img class="center" src="img/session03/run-code.PNG"/>
+
+No need to highlight all code to run.
+
+</br>  Put the cursor in the line you want to run then select the button to Run or .blue[Ctrl + Return]
+
+
+---
+
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by sa/4.0/
