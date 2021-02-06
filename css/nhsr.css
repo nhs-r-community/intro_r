@@ -14,20 +14,17 @@ a:hover {
   color:              #005EB8;
   font-size:          45px;
   line-height:        1em;
-  text-align:         center;
 }
 
 .remark-slide-content h2 {
   font-size:          35px;
   color:              #005EB8;
   line-height:        1em;
-  text-align:         center;
 }
 
 .remark-slide-content h3 {
   font-size:          25px;
   color:              #005EB8;
-  text-align:         center;
 }
 
 /*-- PARAGRAPH TEXT --*/
