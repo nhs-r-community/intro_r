@@ -104,6 +104,8 @@ Answers: Reports (Powerpoint and Word) and presentations
 
 ---
 
+class: center, middle
+
 # Assumptions about you
 
 What is the nature of your work? <br/>
@@ -116,6 +118,9 @@ What is the nature of your work? <br/>
 <br/> Will shape what you want from today.
 
 ---
+
+class: center, middle
+
 
 # Agenda
 
@@ -131,7 +136,7 @@ What is the nature of your work? <br/>
 
 ---
 
-
+class: center, middle
 
 # Course Aims
 </br>
@@ -165,7 +170,7 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ---
 
-
+class: center, middle
 
 # Collaboration
 <br/>
@@ -244,6 +249,8 @@ _elegant_
 
 ---
 
+class: center, middle
+
 # Course philosophy
 
 </br> Relaxed and informal </br>
@@ -258,6 +265,8 @@ class: inverse, middle
 # Let's begin
 
 ---
+
+class: center, middle
 
 ## R vs. RStudio
 </br> R is a programming language </br>
@@ -287,6 +296,8 @@ Opening R Studio opens an R session. </br>
 [www.moderndive.com](www.moderndive.com)
 
 ---
+
+class: center, middle
 
 # Open RStudio
 
@@ -381,6 +392,8 @@ bad idea
 
 ---
 
+class: center, middle
+
 # Packages
 
 --
@@ -398,6 +411,8 @@ with extra functions, datasets, documentation.
 
 ---
 
+class: center, middle
+
 # Packages
 
 </br> install.packages("tidyverse") </br>
@@ -409,6 +424,8 @@ with extra functions, datasets, documentation.
 _(Needed for every new session)_]
 
 ---
+
+class: center, middle
 
 ## CRAN repository
 
@@ -429,6 +446,8 @@ _(Needed for every new session)_]
 
 ---
 
+class: center, middle
+
 ## What is the tidyverse?
 </br>
 
@@ -441,6 +460,8 @@ R packages into one. </br>
 be used together to help solve complex problems.
 
 ---
+
+class: center, middle
 
 ## What is the tidyverse?
 </br>
