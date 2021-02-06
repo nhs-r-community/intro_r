@@ -1,5 +1,5 @@
 ---
-title: "intro-rmarkdown"
+title: "Introduction to RMarkdown"
 author: "Zoë Turner"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
@@ -172,3 +172,7 @@ Just note the name of the chunk is made into a string with "" quotes.
 # Comments don't show up in the html
 
 ```
+
+#### Acknowledgements
+
+I combined Andrew Jones's original [RMarkdown](https://github.com/nhs-r-community/intro_r/blob/master/intro_rmarkdown.Rmd) training report with some of Simon Wellesley-Miller's code for this RMarkdown example report. I thoroughly recommend running Simon's more detailed [RMarkdown](https://github.com/SimonW-M/Markdown/blob/main/R-Training-v5.Rmd) to learn more, as this is just a brief introduction.
