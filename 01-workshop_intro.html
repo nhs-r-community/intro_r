@@ -4,6 +4,7 @@
     <title>Introduction to R and Rstudio</title>
     <meta charset="utf-8" />
     <meta name="author" content="Zoë Turner" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
     <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
@@ -17,42 +18,11 @@
     <textarea id="source">
 
 
+
+
+
+
 class: title-slide, left, bottom
-
-
-<div>
-<style type="text/css">.xaringan-extra-logo {
-width: 110px;
-height: 128px;
-z-index: 0;
-background-image: url(img/nhsr-logo.png);
-background-size: contain;
-background-repeat: no-repeat;
-position: absolute;
-top:1em;right:1em;
-}
-</style>
-<script>(function () {
-  let tries = 0
-  function addLogo () {
-    if (typeof slideshow === 'undefined') {
-      tries += 1
-      if (tries < 10) {
-        setTimeout(addLogo, 100)
-      }
-    } else {
-      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide-logo)')
-        .forEach(function (slide) {
-          const logo = document.createElement('div')
-          logo.classList = 'xaringan-extra-logo'
-          logo.href = null
-          slide.appendChild(logo)
-        })
-    }
-  }
-  document.addEventListener('DOMContentLoaded', addLogo)
-})()</script>
-</div>
 
 # Introduction to R and Rstudio
 ----
@@ -63,71 +33,72 @@ top:1em;right:1em;
 ---
 
 # 1-2-4
-
 &lt;br/&gt;
 &lt;br/&gt;
 
-###1. (Name)
-###2. What would be a good result today?
+.left-col[.left[
+.blue[ 
+1. (Name)
+2. What would be a good result today?]
+]]
 
 .left-col[.right[3:00 minutes]]
 
 ---
 
+.left-col[.left[
 # Our work
-
 &lt;/br&gt;
+
 * Describe paediatric services across the region.
 * Did such and such mental health intervention work?
 * What influences demand for elective treatment?
-
+]]
 &lt;/br&gt;  
-.left-col[.center[
+
 Tools: R, Excel, SQL, QGIS….
-]]   
 
 &lt;/br&gt;
 Answers: Reports (Powerpoint and Word) and presentations
 
 ---
+
 # Assumptions about you
 
-.left-col[.center[What is the nature of your work? &lt;br/&gt;
-Reporting? &lt;br/&gt; 
+What is the nature of your work? &lt;br/&gt;
+&lt;br/&gt; Reporting? &lt;br/&gt; 
 &lt;br/&gt; Project based? &lt;br/&gt;
 &lt;br/&gt; Data reconciliation? Statistics? &lt;br/&gt;
 &lt;br/&gt; Collaboration? &lt;br/&gt;
 &lt;br/&gt; Tools – Excel, SQL, Power BI? Tableau? &lt;br/&gt;
 &lt;br/&gt; Answers – Reports? Presentations? &lt;br/&gt;
-&lt;br/&gt; Will shape what you want from today.]]
+&lt;br/&gt; Will shape what you want from today.
 
 ---
 
 # Agenda
 
-.left-col[.center[
 ###“Adjusting the seat and mirrors”:&lt;br/&gt;
-&lt;br/&gt;Intro + Setup + Import data&lt;br/&gt;
-&lt;br/&gt;Graphics with ggplot2&lt;br/&gt;
-&lt;br/&gt;Break 15 mins&lt;br/&gt;
-&lt;br/&gt;Data wrangling with dplyr&lt;br/&gt;
-&lt;br/&gt;--------- Lunch -----------&lt;br/&gt;
-&lt;br/&gt;Demo&lt;br/&gt;
-&lt;br/&gt;Naming objects | Joins&lt;br/&gt;
-&lt;br/&gt;R Markdown
-]]  
+&lt;br/&gt; Intro + Setup + Import data &lt;br/&gt;
+&lt;br/&gt; Graphics with ggplot2 &lt;br/&gt;
+&lt;br/&gt; Break 15 mins&lt;br/&gt;
+&lt;br/ &gt;Data wrangling with dplyr &lt;br/&gt;
+&lt;br/ &gt;--------- Lunch ----------- &lt;br/&gt;
+&lt;br/ &gt;Demo &lt;br/&gt;
+&lt;br/&gt; Naming objects | Joins &lt;br/&gt;
+&lt;br/&gt; R Markdown
+
 ---
 
 
 
-.left-col[.center[
 # Course Aims
 &lt;/br&gt;
 ####1. To show you some of the possibilities:
 ####2. To give you a feel for how R works.
 ####3. To show you enough for you to begin teaching yourself
 _(Excellent free resources available)_
-]]
+
 
 ---
 
@@ -144,19 +115,19 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 .left-col[
 
-&lt;img src="img/heatmap_colin_angus.PNG"/&gt;
+&lt;img class="center" src="img/session01/heatmap_colin_angus.PNG"/&gt;
 ]
 
 ---
 
-&lt;img src="img/london_cycle_routes.PNG" width="90%"/&gt;
+&lt;img class="center" src="img/session01/london_cycle_routes.PNG" width="90%"/&gt;
 
 ---
 
+
+
 # Collaboration
-
-
-.left-col[.center[
+&lt;br/&gt;
 
 ## Reproducibility
 
@@ -164,11 +135,9 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ### R Markdown
 
-]]
-
 ---
 
-&lt;img src="img/automated_reports.PNG"/&gt;
+&lt;img class="center" src="img/session01/automated_reports.PNG"/&gt;
 
 ---
 
@@ -176,38 +145,35 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 [Mental Health Surge Modelling](https://strategyunit.shinyapps.io/MH_Surge_Modelling/)
 
-&lt;img src="img/mental_health_modelling.PNG"/&gt;
-
+&lt;img src="img/session01/mental_health_modelling.PNG"/&gt;
 
 ---
 
-.left-col[.center[
 # R to SQL connection
-]]
+
 
 [NHS-R Community Webinar](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar)
 
-&lt;img src="img/webinar_nhsr.PNG"/&gt;
+&lt;img src="img/session01/webinar_nhsr.PNG"/&gt;
 
 ---
 
 [Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/)
 
-&lt;img src="img/twitter_dash.PNG"/&gt;
+&lt;img src="img/session01/twitter_dash.PNG"/&gt;
 
 ---
 
-&lt;img src="img/stackoverflow_example.PNG"/&gt;
+&lt;img class="center" src="img/session01/stackoverflow_example.PNG"/&gt;
 
 ---
+
+class: center, middle
 
 # Inclusivity
 
-.left-col[.center[
-
 ![](01-workshop_intro_files/figure-html/inclusive-1.gif)&lt;!-- --&gt;
 
-]]
 ---
 
 class: inverse, middle, center
@@ -222,314 +188,228 @@ _elegant_
 [Minimum Viable Product](https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp)
 
 .left-col[.center[
-&lt;img src="img/mvp.PNG" width="75%"/&gt;
+&lt;img src="img/session01/mvp.PNG" width="75%"/&gt;
 ]]
 
 ---
 
-.left-col[.center[
 # Course philosophy
 
 &lt;/br&gt; Relaxed and informal &lt;/br&gt;
 &lt;/br&gt; (Slides and code are available [online](https://github.com/nhs-r-community/intro_r)) &lt;/br&gt;
 &lt;/br&gt; The truth; but it can’t be the whole truth… &lt;/br&gt;
 &lt;/br&gt; too much to cover in a day)&lt;/br&gt;
-]]
 
 ---
 
-class: inverse, middle, center
+class: inverse, middle
 
-
-.left-col[.center[
 # Let's begin
-]]
 
 ---
 
-.left-col[.center[
 ## R vs. RStudio
-R is a programming language
-&lt;/br&gt;
-&lt;/br&gt;
-RStudio is a software application with tools to
-&lt;/br&gt;
-&lt;/br&gt;
-improve your programming experience
-]]
+&lt;/br&gt; R is a programming language &lt;/br&gt;
+&lt;/br&gt; RStudio is a software application with tools to &lt;/br&gt;
+&lt;/br&gt; improve your programming experience
 
 ---
 
-&lt;img src="img/race_car.PNG"/&gt;
+&lt;img class="center" src="img/session01/race_car.PNG"/&gt;
 
 ---
 
-&lt;img src="img/roberto-nickson-unsplash.PNG"/&gt;
+&lt;img class="center" src="img/session01/roberto-nickson-unsplash.PNG"/&gt;
 
 ---
-
-.left-col[.center[
 
 # RStudio 
 
 &lt;/br&gt;
-&lt;/br&gt;
-Many excellent features to help you with your analyses.
 
-&lt;/br&gt;
-&lt;/br&gt;
-Never again have to think about R and RStudio as separate:
-Opening R Studio opens an R session.
+&lt;/br&gt; Many excellent features to help you with your analyses. &lt;/br&gt;
 
-&lt;/br&gt;
-&lt;/br&gt;
-Analogy from the book Modern Dive:
+&lt;/br&gt; Never again have to think about R and RStudio as separate:
+Opening R Studio opens an R session. &lt;/br&gt;
+
+&lt;/br&gt; Analogy from the book Modern Dive:
 [www.moderndive.com](www.moderndive.com)
-]]
 
 ---
 
-.left-col[.center[
 # Open RStudio
 
 &lt;/br&gt;
-&lt;/br&gt;
-Opening R
+&lt;/br&gt; Opening R &lt;/br&gt; 
 
-&lt;/br&gt;
 Studio opens an R session.
-]]
 
 ---
 
 .left-column[
-The Console is your window to R. 
-&lt;/br&gt;
-&lt;/br&gt;
-You can code directly in the console… 
-&lt;/br&gt;
-&lt;/br&gt;
-pi*2 [Enter] 
-&lt;/br&gt;
-&lt;/br&gt;
-37/12 [Enter] 
-&lt;/br&gt;
-&lt;/br&gt;
-… but there is a better way…
+The Console is your window to R. &lt;/br&gt;
+
+&lt;/br&gt; You can code directly in the console… &lt;/br&gt;
+
+&lt;/br&gt; pi*2 [Enter] &lt;/br&gt;
+&lt;/br&gt; 37/12 [Enter] &lt;/br&gt;
+&lt;/br&gt; … but there is a better way…
 ]
 
 .right-column[
 
-&lt;img src="img/rstudio_console.PNG"/&gt;
+&lt;img src="img/session01/rstudio_console.PNG"/&gt;
 
 ]
 
 ---
 
 .left-column[
+
 #### The Editor
 &lt;/br&gt;
-&lt;/br&gt;
-If you don’t see the Editor pane, click top right button
-&lt;/br&gt;
-&lt;/br&gt;
-And choose "R Script" from the drop down. 
-&lt;/br&gt;
-&lt;/br&gt;
-Or, shortcut: 
-&lt;/br&gt;
-Ctrl+ Shift+ N
-&lt;/br&gt;
+
+&lt;/br&gt; If you don’t see the Editor pane, click top right button &lt;/br&gt;
+
+&lt;/br&gt; And choose "R Script" from the drop down.  &lt;/br&gt;
+
+&lt;/br&gt; Or, shortcut:  &lt;/br&gt;
+Ctrl+ Shift+ N &lt;/br&gt;
 .blue[_won't work on the cloud_]
 ]
 
 .pull-right[
 
-&lt;img src="img/new_file.PNG"/&gt;
+&lt;img src="img/session01/new_file.PNG"/&gt;
 
 ]
 ---
 
 .left-column[
 The Editor is just like any other text
-editor: you can copy, paste, and save text.
-&lt;/br&gt;
-&lt;/br&gt;
-More forgiving R Syntax
-highlighting
-&lt;/br&gt;
-&lt;/br&gt;
-Autocomplete (use it!)
-&lt;/br&gt;
-&lt;/br&gt;
-Ctrl + Enter
+editor: you can copy, paste, and save text. &lt;/br&gt;
+
+&lt;/br&gt; More forgiving R Syntax
+highlighting &lt;/br&gt;
+
+&lt;/br&gt; Autocomplete (use it!) &lt;/br&gt;
+
+&lt;/br&gt; Ctrl + Enter
 (sends line of
 code to Console)
 ]
 
 .right-column[
-&lt;img src="img/editor.PNG"/&gt;
+&lt;img src="img/session01/editor.PNG"/&gt;
 ]
 
 ---
 
 .left-column[
-Comment code with a #
-&lt;/br&gt;
-&lt;/br&gt;
-E.g # this was a
+Comment code with a # &lt;/br&gt;
+
+&lt;/br&gt; E.g # this was a
 bad idea
 ]
 
 .right-column[
-&lt;img src="img/editor.PNG"/&gt;
+&lt;img src="img/session01/editor.PNG"/&gt;
 ]
 
 ---
 
-.left-col[.center[
 # Tools -&gt; Options
 
-&lt;img src="img/global_options.PNG"/&gt;
-]]
+&lt;img class="center" src="img/session01/global_options.PNG"/&gt;
 
 ---
 
-.left-col[.center[
 # Tools -&gt; Options
 
-&lt;img src="img/appearance.PNG"/&gt;
-]]
+&lt;img class="center" src="img/session01/appearance.PNG"/&gt;
 
 ---
 
-.left-col[.center[
 # Packages
-]]
 
----
+--
 
-.left-col[.center[
-# Packages
 &lt;/br&gt;
-#### R packages are like apps for your phone:
+### R packages are like apps for your phone:
 &lt;/br&gt;
-&lt;/br&gt;
-Extend the capabilities of the basic or "base R"
-&lt;/br&gt;
+
+&lt;/br&gt; Extend the capabilities of the basic or "base R" &lt;/br&gt;
 with extra functions, datasets, documentation.
 
-]]
 ---
 
-.left-col[.center[
-
-&lt;img src="img/app_analogy.PNG"/&gt;
-]]
+&lt;img class="center" src="img/session01/app_analogy.PNG"/&gt;
 
 ---
 
-.left-col[.center[
 # Packages
-&lt;/br&gt;
-install.packages("tidyverse")
-&lt;/br&gt;
-&lt;/br&gt;
-.green[will download a package to your personal library. Then:]
-&lt;/br&gt;
-&lt;/br&gt;
-library(tidyverse)
-&lt;/br&gt;
-&lt;/br&gt;
-.green[tells R to load the tidyverse package from your personal library.
+
+&lt;/br&gt; install.packages("tidyverse") &lt;/br&gt;
+&lt;/br&gt; .green[will download a package to your personal library. Then:] &lt;/br&gt;
+
+&lt;/br&gt; library(tidyverse) &lt;/br&gt;
+
+&lt;/br&gt; .green[tells R to load the tidyverse package from your personal library.
 _(Needed for every new session)_]
-]]
 
 ---
-
-.left-col[.center[
 
 ## CRAN repository
-&lt;/br&gt;
-&lt;/br&gt;
-14,000+ packages. Free. Peer reviewed.
-&lt;/br&gt;
-&lt;/br&gt;
-(Manifold possibilities) eg. interactive graphics and
-&lt;/br&gt;
-&lt;/br&gt;
-dashboards, machine learning, mine twitter data,
-&lt;/br&gt;
-&lt;/br&gt;
-create PowerPoint docs, maps…
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-.blue[Other ways to get packages (eg. GitHub, …)]
-]]
----
 
-.left-col[.center[
+&lt;/br&gt;
+&lt;/br&gt; 14,000+ packages. Free. Peer reviewed. &lt;/br&gt;
 
-&lt;img src="img/tidyverse.PNG"/&gt;
-]]
+&lt;/br&gt; (Manifold possibilities) eg. interactive graphics and &lt;/br&gt;
+&lt;/br&gt; dashboards, machine learning, mine twitter data, &lt;/br&gt;
+&lt;/br&gt; create PowerPoint docs, maps… &lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+
+&lt;/br&gt;.blue[Other ways to get packages (eg. GitHub, …)]
 
 ---
 
-.left-col[.center[
+&lt;img class="center" src="img/session01/tidyverse.PNG"/&gt;
+
+---
 
 ## What is the tidyverse?
 &lt;/br&gt;
-&lt;/br&gt;
-The tidyverse package collects (some of) the most popular 
-&lt;/br&gt;
-R packages into one.
-&lt;/br&gt;
-&lt;/br&gt;
-All have the same underlying principles:
-&lt;/br&gt;
-&lt;/br&gt;
-Provide simple tools (with consistent structure) which may 
-&lt;/br&gt;
+
+&lt;/br&gt; The tidyverse package collects (some of) the most popular &lt;/br&gt;
+R packages into one. &lt;/br&gt;
+
+&lt;/br&gt; All have the same underlying principles: &lt;/br&gt;
+
+&lt;/br&gt; Provide simple tools (with consistent structure) which may &lt;/br&gt;
 be used together to help solve complex problems.
-]]
 
 ---
-
-.left-col[.center[
 
 ## What is the tidyverse?
 &lt;/br&gt;
+
+&lt;/br&gt; During the workshop we will use the .blue[ggplot2], .blue[dplyr], &lt;/br&gt;
+and .blue[readr] packages. These are bundled up in the &lt;/br&gt;
+tidyverse package. We load it by running: &lt;/br&gt;
 &lt;/br&gt;
-During the workshop we will use the .blue[ggplot2], .blue[dplyr],
-&lt;/br&gt;
-and .blue[readr] packages. These are bundled up in the
-&lt;/br&gt;
-tidyverse package. We load it by running:
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-library(tidyverse)
-]]
+
+&lt;/br&gt; library(tidyverse)
 
 ---
 
-.left-col[.center[
 #### This work is licensed as
-&lt;/br&gt;
-Creative Commons
-&lt;/br&gt;
-Attribution
-&lt;/br&gt;
-ShareAlike 4.0
-&lt;/br&gt;
-International
-&lt;/br&gt;
-To view a copy of this license, visit
-&lt;/br&gt;
-https://creativecommons.org/licenses/by sa/4.0/
-]]
+&lt;/br&gt; Creative Commons
+&lt;/br&gt; Attribution
+&lt;/br&gt; ShareAlike 4.0
+&lt;/br&gt; International
+&lt;/br&gt; To view a copy of this license, visit
+&lt;/br&gt; https://creativecommons.org/licenses/by sa/4.0/
 
 ---
 
@@ -537,9 +417,8 @@ name: goodbye
 class: middle, inverse
 
 # **Thank you!**
-&lt;br/&gt;
 
-Acknowledgements: for creating the original training slides and delivering training:
+&lt;br/&gt; Acknowledgements: for creating the original training slides and delivering training:
 
 Andrew Jones | Ozayr Mohammed &lt;br/&gt;
 Healthcare Analysts | The Strategy Unit
@@ -552,7 +431,7 @@ And to Silvia Canelón who created the Xaringan presentation using NHS and NHR-R
 
 Details of the workshops she ran at the [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html).
 
-And to Zoë Turner who converted the presentation to Xaringan. [&lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"&gt;&lt;/path&gt;&lt;/svg&gt; zoe.turner2@notthshc.nhs.uk](mailto:zoe.turner2@nottshc.nhs.uk)
+And to Zoë Turner who converted the presentation to Xaringan. [&lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"&gt;&lt;/path&gt;&lt;/svg&gt; zoe.turner2@notthshc.nhs.uk](mailto:zoe.turner2@nottshc.nhs.uk) 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -654,8 +533,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     position: absolute;
     top: 1em;
     right: 1em;
-    width: 110px;
-    height: 128px;
+    width: 100px;
+    height: 118px;
     z-index: 0;
   }
 </style>

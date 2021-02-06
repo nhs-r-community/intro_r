@@ -14,17 +14,20 @@ a:hover {
   color:              #005EB8;
   font-size:          45px;
   line-height:        1em;
+  text-align:         center;
 }
 
 .remark-slide-content h2 {
   font-size:          35px;
   color:              #005EB8;
   line-height:        1em;
+  text-align:         center;
 }
 
 .remark-slide-content h3 {
   font-size:          25px;
   color:              #005EB8;
+  text-align:         center;
 }
 
 /*-- PARAGRAPH TEXT --*/
@@ -171,5 +174,12 @@ blockquote {
 .pink       { color:   #AE2573 }
 .red        { color:   #DA291C }
 .warmyellow { color:   #FFB81C }
+.black      { color:   #000000 }
+.darkgrey   { color:   #A9A9A9 }
+/*-- CUSTOM CLASSES FOR IMAGES --*/
 
-
+img.center{
+  display: block;
+  margin: 0 auto;
+}
+}

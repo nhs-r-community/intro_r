@@ -23,7 +23,7 @@ output:
 
 ---
 
-class: title-slide, left, bottom
+
 
 ```{r libs, include=FALSE}
 
@@ -45,6 +45,11 @@ xaringanExtra::use_share_again()
 library(icon) # icons need to be loaded to view so run following code if not already done
 # icon::download_fontawesome()
 
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
 opts_chunk$set(echo = FALSE,
                fig.width = 7.252,
                fig.height = 4,
@@ -58,6 +63,8 @@ scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
 scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 ```
 
+class: title-slide, left, bottom
+
 # `r rmarkdown::metadata$title`
 ----
 ## **`r rmarkdown::metadata$subtitle`**
@@ -67,71 +74,72 @@ scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 ---
 
 # 1-2-4
-
 <br/>
 <br/>
 
-###1. (Name)
-###2. What would be a good result today?
+.left-col[.left[
+.blue[ 
+1. (Name)
+2. What would be a good result today?]
+]]
 
 .left-col[.right[3:00 minutes]]
 
 ---
 
+.left-col[.left[
 # Our work
-
 </br>
+
 * Describe paediatric services across the region.
 * Did such and such mental health intervention work?
 * What influences demand for elective treatment?
-
+]]
 </br>  
-.left-col[.center[
+
 Tools: R, Excel, SQL, QGIS….
-]]   
 
 </br>
 Answers: Reports (Powerpoint and Word) and presentations
 
 ---
+
 # Assumptions about you
 
-.left-col[.center[What is the nature of your work? <br/>
-Reporting? <br/> 
+What is the nature of your work? <br/>
+<br/> Reporting? <br/> 
 <br/> Project based? <br/>
 <br/> Data reconciliation? Statistics? <br/>
 <br/> Collaboration? <br/>
 <br/> Tools – Excel, SQL, Power BI? Tableau? <br/>
 <br/> Answers – Reports? Presentations? <br/>
-<br/> Will shape what you want from today.]]
+<br/> Will shape what you want from today.
 
 ---
 
 # Agenda
 
-.left-col[.center[
 ###“Adjusting the seat and mirrors”:<br/>
-<br/>Intro + Setup + Import data<br/>
-<br/>Graphics with ggplot2<br/>
-<br/>Break 15 mins<br/>
-<br/>Data wrangling with dplyr<br/>
-<br/>--------- Lunch -----------<br/>
-<br/>Demo<br/>
-<br/>Naming objects | Joins<br/>
-<br/>R Markdown
-]]  
+<br/> Intro + Setup + Import data <br/>
+<br/> Graphics with ggplot2 <br/>
+<br/> Break 15 mins<br/>
+<br/ >Data wrangling with dplyr <br/>
+<br/ >--------- Lunch ----------- <br/>
+<br/ >Demo <br/>
+<br/> Naming objects | Joins <br/>
+<br/> R Markdown
+
 ---
 
 
 
-.left-col[.center[
 # Course Aims
 </br>
 ####1. To show you some of the possibilities:
 ####2. To give you a feel for how R works.
 ####3. To show you enough for you to begin teaching yourself
 _(Excellent free resources available)_
-]]
+
 
 ---
 
@@ -148,19 +156,19 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 .left-col[
 
-<img src="img/session01/heatmap_colin_angus.PNG"/>
+<img class="center" src="img/session01/heatmap_colin_angus.PNG"/>
 ]
 
 ---
 
-<img src="img/session01/london_cycle_routes.PNG" width="90%"/>
+<img class="center" src="img/session01/london_cycle_routes.PNG" width="90%"/>
 
 ---
 
+
+
 # Collaboration
-
-
-.left-col[.center[
+<br/>
 
 ## Reproducibility
 
@@ -168,11 +176,9 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ### R Markdown
 
-]]
-
 ---
 
-<img src="img/session01/automated_reports.PNG"/>
+<img class="center" src="img/session01/automated_reports.PNG"/>
 
 ---
 
@@ -182,12 +188,10 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 <img src="img/session01/mental_health_modelling.PNG"/>
 
-
 ---
 
-.left-col[.center[
 # R to SQL connection
-]]
+
 
 [NHS-R Community Webinar](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar)
 
@@ -201,13 +205,13 @@ Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
 ---
 
-<img src="img/session01/stackoverflow_example.PNG"/>
+<img class="center" src="img/session01/stackoverflow_example.PNG"/>
 
 ---
 
-# Inclusivity
+class: center, middle
 
-.left-col[.center[
+# Inclusivity
 
 ```{r inclusive}
 
@@ -221,7 +225,6 @@ image_animate(image_scale(img, "600x600"), fps = 1, dispose = "previous")
 
 ```
 
-]]
 ---
 
 class: inverse, middle, center
@@ -241,95 +244,67 @@ _elegant_
 
 ---
 
-.left-col[.center[
 # Course philosophy
 
 </br> Relaxed and informal </br>
 </br> (Slides and code are available [online](https://github.com/nhs-r-community/intro_r)) </br>
 </br> The truth; but it can’t be the whole truth… </br>
 </br> too much to cover in a day)</br>
-]]
 
 ---
 
-class: inverse, middle, center
+class: inverse, middle
 
-
-.left-col[.center[
 # Let's begin
-]]
 
 ---
 
-.left-col[.center[
 ## R vs. RStudio
-R is a programming language
-</br>
-</br>
-RStudio is a software application with tools to
-</br>
-</br>
-improve your programming experience
-]]
+</br> R is a programming language </br>
+</br> RStudio is a software application with tools to </br>
+</br> improve your programming experience
 
 ---
 
-<img src="img/session01/race_car.PNG"/>
+<img class="center" src="img/session01/race_car.PNG"/>
 
 ---
 
-<img src="img/session01/roberto-nickson-unsplash.PNG"/>
+<img class="center" src="img/session01/roberto-nickson-unsplash.PNG"/>
 
 ---
-
-.left-col[.center[
 
 # RStudio 
 
 </br>
-</br>
-Many excellent features to help you with your analyses.
 
-</br>
-</br>
-Never again have to think about R and RStudio as separate:
-Opening R Studio opens an R session.
+</br> Many excellent features to help you with your analyses. </br>
 
-</br>
-</br>
-Analogy from the book Modern Dive:
+</br> Never again have to think about R and RStudio as separate:
+Opening R Studio opens an R session. </br>
+
+</br> Analogy from the book Modern Dive:
 [www.moderndive.com](www.moderndive.com)
-]]
 
 ---
 
-.left-col[.center[
 # Open RStudio
 
 </br>
-</br>
-Opening R
+</br> Opening R </br> 
 
-</br>
 Studio opens an R session.
-]]
 
 ---
 
 .left-column[
-The Console is your window to R. 
-</br>
-</br>
-You can code directly in the console… 
-</br>
-</br>
-pi*2 [Enter] 
-</br>
-</br>
-37/12 [Enter] 
-</br>
-</br>
-… but there is a better way…
+The Console is your window to R. </br>
+
+</br> You can code directly in the console… </br>
+
+</br> pi*2 [Enter] </br>
+</br> 37/12 [Enter] </br>
+</br> … but there is a better way…
 ]
 
 .right-column[
@@ -341,19 +316,16 @@ pi*2 [Enter]
 ---
 
 .left-column[
+
 #### The Editor
 </br>
-</br>
-If you don’t see the Editor pane, click top right button
-</br>
-</br>
-And choose "R Script" from the drop down. 
-</br>
-</br>
-Or, shortcut: 
-</br>
-Ctrl+ Shift+ N
-</br>
+
+</br> If you don’t see the Editor pane, click top right button </br>
+
+</br> And choose "R Script" from the drop down.  </br>
+
+</br> Or, shortcut:  </br>
+Ctrl+ Shift+ N </br>
 .blue[_won't work on the cloud_]
 ]
 
@@ -366,17 +338,14 @@ Ctrl+ Shift+ N
 
 .left-column[
 The Editor is just like any other text
-editor: you can copy, paste, and save text.
-</br>
-</br>
-More forgiving R Syntax
-highlighting
-</br>
-</br>
-Autocomplete (use it!)
-</br>
-</br>
-Ctrl + Enter
+editor: you can copy, paste, and save text. </br>
+
+</br> More forgiving R Syntax
+highlighting </br>
+
+</br> Autocomplete (use it!) </br>
+
+</br> Ctrl + Enter
 (sends line of
 code to Console)
 ]
@@ -388,10 +357,9 @@ code to Console)
 ---
 
 .left-column[
-Comment code with a #
-</br>
-</br>
-E.g # this was a
+Comment code with a # </br>
+
+</br> E.g # this was a
 bad idea
 ]
 
@@ -401,149 +369,98 @@ bad idea
 
 ---
 
-.left-col[.center[
 # Tools -> Options
 
-<img src="img/session01/global_options.PNG"/>
-]]
+<img class="center" src="img/session01/global_options.PNG"/>
 
 ---
 
-.left-col[.center[
 # Tools -> Options
 
-<img src="img/session01/appearance.PNG"/>
-]]
+<img class="center" src="img/session01/appearance.PNG"/>
 
 ---
 
-.left-col[.center[
 # Packages
-]]
 
----
+--
 
-.left-col[.center[
-# Packages
 </br>
-#### R packages are like apps for your phone:
+### R packages are like apps for your phone:
 </br>
-</br>
-Extend the capabilities of the basic or "base R"
-</br>
+
+</br> Extend the capabilities of the basic or "base R" </br>
 with extra functions, datasets, documentation.
 
-]]
 ---
 
-.left-col[.center[
-
-<img src="img/session01/app_analogy.PNG"/>
-]]
+<img class="center" src="img/session01/app_analogy.PNG"/>
 
 ---
 
-.left-col[.center[
 # Packages
-</br>
-install.packages("tidyverse")
-</br>
-</br>
-.green[will download a package to your personal library. Then:]
-</br>
-</br>
-library(tidyverse)
-</br>
-</br>
-.green[tells R to load the tidyverse package from your personal library.
+
+</br> install.packages("tidyverse") </br>
+</br> .green[will download a package to your personal library. Then:] </br>
+
+</br> library(tidyverse) </br>
+
+</br> .green[tells R to load the tidyverse package from your personal library.
 _(Needed for every new session)_]
-]]
 
 ---
-
-.left-col[.center[
 
 ## CRAN repository
-</br>
-</br>
-14,000+ packages. Free. Peer reviewed.
-</br>
-</br>
-(Manifold possibilities) eg. interactive graphics and
-</br>
-</br>
-dashboards, machine learning, mine twitter data,
-</br>
-</br>
-create PowerPoint docs, maps…
-</br>
-</br>
-</br>
-</br>
-.blue[Other ways to get packages (eg. GitHub, …)]
-]]
----
 
-.left-col[.center[
+</br>
+</br> 14,000+ packages. Free. Peer reviewed. </br>
 
-<img src="img/session01/tidyverse.PNG"/>
-]]
+</br> (Manifold possibilities) eg. interactive graphics and </br>
+</br> dashboards, machine learning, mine twitter data, </br>
+</br> create PowerPoint docs, maps… </br>
+</br>
+</br>
+
+</br>.blue[Other ways to get packages (eg. GitHub, …)]
 
 ---
 
-.left-col[.center[
+<img class="center" src="img/session01/tidyverse.PNG"/>
+
+---
 
 ## What is the tidyverse?
 </br>
-</br>
-The tidyverse package collects (some of) the most popular 
-</br>
-R packages into one.
-</br>
-</br>
-All have the same underlying principles:
-</br>
-</br>
-Provide simple tools (with consistent structure) which may 
-</br>
+
+</br> The tidyverse package collects (some of) the most popular </br>
+R packages into one. </br>
+
+</br> All have the same underlying principles: </br>
+
+</br> Provide simple tools (with consistent structure) which may </br>
 be used together to help solve complex problems.
-]]
 
 ---
-
-.left-col[.center[
 
 ## What is the tidyverse?
 </br>
+
+</br> During the workshop we will use the .blue[ggplot2], .blue[dplyr], </br>
+and .blue[readr] packages. These are bundled up in the </br>
+tidyverse package. We load it by running: </br>
 </br>
-During the workshop we will use the .blue[ggplot2], .blue[dplyr],
-</br>
-and .blue[readr] packages. These are bundled up in the
-</br>
-tidyverse package. We load it by running:
-</br>
-</br>
-</br>
-library(tidyverse)
-]]
+
+</br> library(tidyverse)
 
 ---
 
-.left-col[.center[
 #### This work is licensed as
-</br>
-Creative Commons
-</br>
-Attribution
-</br>
-ShareAlike 4.0
-</br>
-International
-</br>
-To view a copy of this license, visit
-</br>
-https://creativecommons.org/licenses/by sa/4.0/
-]]
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by sa/4.0/
 
 ---
 
@@ -551,9 +468,8 @@ name: goodbye
 class: middle, inverse
 
 # **Thank you!**
-<br/>
 
-Acknowledgements: for creating the original training slides and delivering training:
+<br/> Acknowledgements: for creating the original training slides and delivering training:
 
 Andrew Jones | Ozayr Mohammed <br/>
 Healthcare Analysts | The Strategy Unit
