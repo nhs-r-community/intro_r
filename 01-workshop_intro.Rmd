@@ -11,7 +11,7 @@ output:
       - css/nhsr-fonts.css
     lib_dir: libs
     seal: false
-    self-contained: false
+    self-contained: true
     nature:
       highlightStyle: googlecode
       highlightLines: true
@@ -36,8 +36,6 @@ library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
 
-xaringanExtra::use_share_again()
-
 # Packages not on CRAN
 
 # install.packages("remotes")
@@ -48,6 +46,7 @@ library(icon) # icons need to be loaded to view so run following code if not alr
 # install.packages("devtools")
 #devtools::install_github("gadenbuie/xaringanExtra")
 library(xaringanExtra)
+
 xaringanExtra::use_share_again() # need to get the slide button on html view
 
 opts_chunk$set(echo = FALSE,
