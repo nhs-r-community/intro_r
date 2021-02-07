@@ -480,7 +480,7 @@ tidyverse package. We load it by running: </br>
 </br> ShareAlike 4.0
 </br> International
 </br> To view a copy of this license, visit
-</br> https://creativecommons.org/licenses/by sa/4.0/
+</br> https://creativecommons.org/licenses/by/4.0/
 
 ---
 
