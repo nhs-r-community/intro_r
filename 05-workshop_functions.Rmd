@@ -1,0 +1,149 @@
+---
+title: "What does this function do?"
+subtitle: "Session 5"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r libs, include=FALSE}
+
+#Runs packages if available
+library(knitr)
+library(magick)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+library(kableExtra)
+
+xaringanExtra::use_share_again()
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icon")
+library(icon) # icons need to be loaded to view so run following code if not already done
+# icon::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"),
+               eval = FALSE, 
+               echo = TRUE)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+]
+
+---
+
+# What does this function do?
+
+<img class="center" src="img/session05/f1-for-help.PNG"/>
+
+---
+
+# In the console
+
+Either in the script or in the console, typing ? before the function and run if the package is loaded:
+
+```{r}
+?ggsave
+```
+
+Or if the package hasn't been loaded using the package::function() format:
+
+```{r}
+??ggplot2::ggsave
+```
+
+---
+
+class: center, middle
+
+# Save your script!
+
+Think of your script (rather than the objects) as the "real" part of your analysis.
+
+File `r icon::fontawesome("arrow-right")` Save As… `r icon::fontawesome("arrow-right")` ggplot_intro.R
+
+Or shortcut <kbd>Ctrl + S</kbd> 
+
+---
+
+# Recommended Reading
+
+<img class="center" src="img/session05/recommended-reading.PNG"/>
+
+http://socviz.co/
+</br> https://serialmentor.com/dataviz/
+</br> https://r4ds.had.co.nz/
+
+All free online as well as available to buy as hardcopies
+
+---
+
+# Art
+
+https://twitter.com/accidental__aRt
+
+</br> 
+
+--
+
+</br> 
+
+## Computational aRt 
+
+https://ijeamaka-anyene.netlify.app/posts/2021-01-14-art-ggplot-exploring-radial-visualizations/ 
+
+https://art.djnavarro.net/
+
+---
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/

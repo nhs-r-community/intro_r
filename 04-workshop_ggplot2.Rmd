@@ -1,0 +1,866 @@
+---
+title: "Introduction to ggplot2"
+subtitle: "Session 4"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r libs, include=FALSE}
+
+#Runs packages if available
+library(knitr)
+library(magick)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+library(kableExtra)
+
+xaringanExtra::use_share_again()
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icon")
+library(icon) # icons need to be loaded to view so run following code if not already done
+# icon::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"),
+               eval = FALSE, 
+               echo = TRUE)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+# load data
+capacity_ae <- read_csv("capacity_ae.csv") %>% 
+  mutate(outliers = case_when(site %in% c(42, 25) ~ 1,
+                              TRUE ~ 0))
+
+```
+
+class: title-slide, left, bottom
+
+<img src="img/session04/ggplot2_masterpiece.PNG" width="40%"/>
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+]
+
+.footnote[Artwork by @allison_horst]
+
+---
+
+# Acknowledgement
+
+This session shadows [Chapter 3](https://r4ds.had.co.nz/data-visualisation.html) of the excellent:
+
+<img class="center" src="img/session04/r-for-data-science.PNG" width="40%"/>
+
+---
+
+# ggplot2
+
+Is one of several plotting systems in R
+
+<img class="center" src="img/session04/tweet-poll.PNG" width="40%"/>
+
+---
+
+# Why is ggplot popular?
+</br>
+
+</br> 1. Well designed and supported </br> 
+</br> 2. Highly versatile </br> 
+</br> 3. Attractive graphics (with a little
+
+.footnote[1. Why start with ggplot : http://varianceexplained.org/r/teach_ggplot2_to_beginners/
+2. Argument against:
+https://simplystatistics.org/2016/02/11/why i dont use ggplot2/]
+
+---
+
+# ggplot2
+</br>
+
+</br> ggplot2 is part of the tidyverse. </br>
+</br> So, at the top of your script type:
+
+###library(tidyverse)
+
+---
+
+class: inverse, middle, center
+
+## Project 1: </br>
+</br> Let’s explore a perennial </br>
+</br> challenge for the NHS:
+
+---
+
+# Pressures in A&E
+
+</br> <img class="center" src="img/session04/demand-and-capacity.PNG"/>
+
+.footnote[
+1. [This Photo](https://www.deviantart.com/luckymarine577/art/Animated-Ambulance-338970039) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+2. [This Photo](https://creativecommons.org/licenses/by-nc-sa/3.0/) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+]
+
+---
+
+# Data: Capacity in A&E
+</br>
+
+The dataset we loaded earlier, .green[capacity_ae], shows </br>
+</br> changes in the capacity of A&E departments from </br>
+</br> 2017 to 2018
+
+.footnote[Closely based on datasets collected by the NHS Benchmarking Network]
+
+--
+</br>
+
+</br> The object named .green[capacity_ae] is a data frame
+
+---
+
+## What is a data frame?
+
+A data frame stores tabular data:
+
+<img class="center" src="img/session04/tidydata_1.JPG" width="90%"/>
+
+.footnote[Artwork by @allison_horst]
+
+
+---
+
+## tibble = data frame
+
+In the tidyverse you may see the term "tibble" </br>
+</br> We’ll take "tibble" to be synonymous with "data frame"
+
+</br>
+>A tibble... is a modern reimagining of the data.frame...
+>
+>Tibbles are data.frames that are .blue[lazy and surly]: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and .blue[complain more] (e.g. when a variable does not exist). 
+>
+> This forces you to confront problems earlier, typically leading to cleaner, more expressive code. 
+
+.footnote[emphasis added to [quote](https://tibble.tidyverse.org/)]
+
+---
+
+## Viewing the data frame
+
+### Option 1
+
+<img class="center" src="img/session04/view-data-frame.PNG" width="90%"/>
+
+---
+
+## Viewing the data frame
+
+This brings up a view of the data in a new tab:
+
+<img class="center" src="img/session04/view-capacity-ae.PNG" width="90%"/>
+
+---
+
+## Viewing the data frame
+
+Click here to show the data frame in a new window
+
+<img class="center" src="img/session04/open-view-window.PNG" width="90%"/>
+
+Useful when using multiple monitors
+
+---
+
+## Viewing the data frame
+
+### Option 2
+
+Type the name of the dataset in editor/console, and
+run the line (Ctrl + Enter)
+
+<img class="center" src="img/session04/view-data-frame2.PNG" width="60%"/>
+
+---
+
+## Q1. How many sites?
+
+## Q2. Do we understand the variable names?
+
+_(and what they mean)_
+
+--
+
+<img class="center" src="img/session04/variable-names.PNG" width="60%"/>
+
+---
+
+### "The simple graph has brought more information to the data analyst's mind than any other device"
+
+<img class="center" src="img/session04/ggplot2_exploratory.PNG" width="50%">
+
+.footnote[John Tukey, quoted in [R for Data Science](https://r4ds.had.co.nz/data-visualisation.html)]
+
+---
+
+# Graphs with ggplot2
+
+--
+</br>
+
+## Q. Is a change in the number of cubicles available in A&E associated with a change in length of attendance?
+
+--
+
+<img class="center" src="img/session04/axes-description.PNG">
+
+---
+
+# Q. Is a change in the number of cubicles available in A&E associated with a change in length of attendance?
+
+.panelset[
+.panel[.panel-name[ggplot2]
+
+Note that R is case sensitive.
+
+```{r}
+
+ggplot(data = capacity_ae) +
+  geom_point(aes(x = dcubicles, y = dwait))
+
+```
+] <!--end-->
+
+.panel[.panel-name[Let's explain the code]
+
+1. We begin our plot with ggplot2
+1. Inside ggplot() we can specify the dataset
+1. Next, we add layer(s) with + at the end
+
+```{r }
+
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait))
+
+```
+
+] <!--end-->
+] <!--end of panelset-->
+
+---
+
+# How do we move from data to graphic?
+
+.panelset[
+.panel[.panel-name[exercise]
+
+Create a graphic from the data below:
+(using paper and pen)
+
+```{r paper-exercise, eval=TRUE, echo=FALSE}
+
+df <- tibble::tribble(
+         ~year, ~`time (sec)`,
+        "1930", "12.0",
+        "1960", "11.3",
+        "1990", "10.5"
+  )
+
+kableExtra::kbl(df)
+
+```
+
+] <!--end-->
+
+.panel[.panel-name[code]
+
+```{r ref.label="paper-exercise"}
+
+```
+
+] <!--end-->
+] <!--end of panelset-->
+
+---
+
+class: center, middle
+
+# Choices
+
+<img class="center" src="img/session04/pie_charts.JPG" width="80%"/>
+
+---
+
+class: center, middle
+
+# Choices
+
+</br> 
+
+</br> 1. What shape will represent the data points?
+</br> 
+</br> 
+
+# .black[`r icon::icon_style(fontawesome("square-full"), scale = 2)`]
+
+---
+
+class: center, middle
+
+# Choices
+</br> 
+
+</br> 1. What shape will represent the data points?
+</br>
+</br> 
+
+# .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+
+.pull-right[
+.blue[**geom**]etric 
+object]
+
+---
+
+class: center, middle
+
+# Choices
+
+.darkgrey[
+1\. What shape will represent the data? .blue[geom]] 
+2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
+
+# .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+
+---
+
+class: center, middle
+
+# Choices
+
+.darkgrey[
+1\. What shape will represent the data? .blue[geom]] 
+
+2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
+
+# .black[`r icon::icon_style(fontawesome("circle", style = "solid"))`]
+
+.pull-right[
+## .blue[size]
+]
+
+---
+
+class: center, middle
+
+# Choices
+
+.darkgrey[
+1\. What shape will represent the data? .blue[geom]] 
+
+2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
+
+# `r icon::icon_style(fontawesome("arrows-alt-h"), scale = 2)` .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+
+.pull-right[
+## position (x axis)
+]
+
+---
+
+class: center, middle
+
+# Choices
+
+.darkgrey[
+1\. What shape will represent the data? .blue[geom]] 
+
+2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
+
+# `r icon::icon_style(fontawesome("arrows-alt-v"), scale = 2)` .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+
+.pull-right[
+## position (y axis)
+]
+
+---
+
+class: center, middle
+
+# Choices
+
+.darkgrey[
+1\. What shape will represent the data? .blue[geom]] 
+
+2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
+
+# `r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`
+
+.pull-right[
+## colour
+]
+
+---
+
+class: center, middle
+
+# A statistical graphic
+</br> 
+
+.pull-right[
+.blue[(**aes**thetic
+</br> attributes of)]
+]
+
+Data variables `r icon::fontawesome("arrow-right")` .blue[**geom**]etric objects
+
+# `r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`
+
+---
+
+# A statistical graphic
+
+</br> 
+
+.pull-right[
+.blue[(**aes**thetic
+</br> attributes of)]
+]
+
+Data variables `r icon::fontawesome("arrow-right")` .blue[**geom**]etric objects
+
+
+```{r }
+
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait))#<<
+
+```
+
+.blue[Here, other aesthetic properties (size, colour, etc) are set by default]
+
+---
+
+class: middle, center
+
+# Functions ()
+
+ggplot(), geom_point(), and aes() are functions </br> 
+
+</br> Running a function does something </br> 
+</br> Functions are given zero or more inputs (arguments) </br> 
+</br> Arguments of a function are separated by commas
+
+---
+
+class: center
+
+# Functions ()
+
+</br> You can explicitly name arguments; </br> 
+
+</br> ggplot(data = capacity_ae) + </br> 
+</br> Or not: </br> 
+</br> ggplot(capacity_ae) + </br> 
+</br> (provided you have the arguments in the correct order!)
+
+---
+
+# Functions ()
+
+Here, we have provided ggplot with one named argument
+
+.pull-right[
+.darkgrey[ggplot(.blue[**data = capacity_ae**]) + 
+</br>
+geom_point(.blue[**aes(x = dcubicles, y = dwait)**])]
+]
+
+
+And given **aes()** two named arguments </br>
+
+</br> Unspecified (yet required) arguments will often revert to default values
+
+---
+
+# Shorthand
+
+Since ggplot2 knows the order of essential arguments, it is not necessary to name arguments:
+
+.green[data = can be omitted </br>]
+
+```{r}
+
+ggplot(capacity_ae) + 
+  geom_point(aes(dcubicles, dwait)) #<<
+
+```
+
+</br>
+.green[x goes first and y second]
+
+---
+
+# geoms
+
+We tend to describe plots in terms of the geom used:
+
+</br> <img class="center" src="img/session04/geoms.PNG" width="80%"/>
+
+---
+
+# Layering geoms
+
+We can display more than one geom in a plot:
+
+.pull-right[
+.blue[+] to add a layer
+]
+
+ggplot(data = capacity_ae) .blue[\+]
+</br> .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[\+]
+</br> .blue[geom_...] aes(x = dcubicles, y = dwait))
+
+.blue[then specify another geom...]
+  
+---
+
+# Your turn
+
+This is our current plot:
+
+```{r plot-capacity-ae}
+
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait))
+
+```
+
+</br> Add a geom_smooth layer (to help identify patterns)
+
+</br> Hint: Don't forget the .blue[+] and aes() values in the new layer
+
+---
+
+# Your turn - Answer
+
+```{r }
+
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait)) +
+  geom_smooth(aes(x = dcubicles, y = dwait))
+
+```
+
+---
+
+# One more thing
+
+We'd probably prefer a linear fit rather than a non linear fit:
+
+```{r plot-lm-fit}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait)) +
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") #<<
+```
+
+---
+
+```{r ref.label="plot-capacity-ae", echo=FALSE, eval=TRUE}
+
+```
+
+---
+
+```{r ref.label="plot-lm-fit", echo=FALSE, eval=TRUE}
+
+```
+
+# What is happening here?
+
+```{r plot-outliers}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait, colour = outliers), show.legend = FALSE) +
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm", colour = "grey") +
+  scale_color_gradient(low = "grey", high = "black")
+```
+
+---
+class: center, middle
+
+# Hypothesis
+
+</br> The two sites have seen staffing increases
+
+</br> We can map point .blue[colour] (aesthetic attribute) to the staff_increase variable to find out.
+
+</br> So each point is given a colour which will depend on the value of staff_increase
+
+---
+
+# Adding another dimension
+
+Put an argument **inside** aes() if you want a visual attribute to change with different values of a variable.
+
+```{r plot-colour-staff}
+
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait, 
+                 colour = staff_increase)) + #<<
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") 
+```
+
+We could have equally have chosen size or shape but these make graphic less clear
+
+---
+
+# Outcome
+
+The two sites in question have indeed seen an increase in staff levels which has had an effect on the dwait even though dcubicles are relatively low.
+
+---
+
+# Important distinction
+
+If you want a visual attribute to be applied across the whole plot, the argument goes **outside** aes():
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait), #<<
+                 colour = "red") + 
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") 
+```
+
+</br> This works too because the colour is generically applied:
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait, #<<
+                 colour = "red")) + 
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") 
+```
+
+---
+
+# Important distinction
+
+Or apply a size globally:
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait), #<<
+                 size = "4") +#<<
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") 
+```
+
+---
+
+# Layering geoms
+
+To avoid duplication, we can pass the common local aes() arguments to ggplot to make them global. Instead of duplicating the same aes(dcublicles, dwait):
+
+```{r}
+ggplot(data = capacity_ae) +
+  geom_point(aes(dcubicles, dwait)) + #<<
+  geom_smooth(aes(dcubicles, dwait)) #<<
+```
+
+</br> Move the aes to the "global":
+
+```{r}
+ggplot(data = capacity_ae, aes(dcubicles, dwait)) +
+  geom_point() + #<<
+  geom_smooth() #<<
+```
+
+---
+
+# Small multiples
+
+Another way to visualise the relationship between multiple variables is with a facet_wrap() layer:
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait)) +
+  facet_wrap(~ staff_increase) #<<
+
+```
+
+---
+
+# Small multiples
+
+Another way to visualise the relationship between multiple variables is with a facet_wrap() layer:
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait)) +
+  facet_wrap(~ staff_increase,
+             ncol = 1) #<<
+```
+---
+
+class: center, middle
+
+# Demonstrating geom charts
+
+(note: these are simple,
+</br> unpolished graphics)
+
+---
+
+# Q. How are “wait” values distributed?
+
+## Histogram
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_histogram(aes(dwait)
+                 )
+```
+
+---
+
+# Q. How are “wait” values distributed?
+
+## Histogram
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_histogram(aes(dwait),
+                 binwidth = 10)
+```
+
+</br> With "bins" set so more uniformed in spread:
+
+
+---
+
+# Q. Number of attendances by site?
+
+## Bar plot
+
+```{r}
+ggplot(data = capacity_ae) +
+  geom_col(aes (x = site,
+                y = attendance2018))
+```
+
+--
+
+</br> Reorder site __by__ attendances
+
+```{r}
+ggplot(data = capacity_ae) +
+  geom_col(aes (x = reorder(site, attendance2018), #<<
+                y = attendance2018))
+```
+
+---
+
+# Q. Number of attendances by site?
+
+## Boxplot
+
+```{r}
+ggplot(data = capacity_ae) +
+  geom_boxplot(aes(staff_increase, dwait))
+```
+
+--
+
+### Plot labels
+
+Can be applied to all types of charts:
+
+```{r}
+ggplot(data = capacity_ae) +
+  geom_boxplot(aes(staff_increase, dwait)) +
+  labs(title = "Do changes in staffing...", #<<
+       y = "Waiting") #<<
+```
+
+---
+
+# To save a plot
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait)) + 
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") +
+  ggsave(plot_name.png) #<<
+```
+
+---
+
+# To save a plot
+
+```{r}
+ggplot(data = capacity_ae) + 
+  geom_point(aes(x = dcubicles, y = dwait)) + 
+  geom_smooth(aes(x = dcubicles, y = dwait),
+              method = "lm") +
+  ggsave(plot_name.png, units = "cm", #<<
+         height = 10, width = 8) #<<
+```
+
+</br> By default saves a plot in the same dimensions as plot window.
+
+In future, you'll wish to add height, width and "units" arguments to specify plot dimensions.
+
+---
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/
