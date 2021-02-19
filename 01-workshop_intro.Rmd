@@ -156,12 +156,8 @@ class: inverse, middle, center
 ]]
 
 ---
-Credit: [Colin Angus](https://github.com/VictimOfMaths/COVID-19)
 
-.left-col[
-
-<img class="center" src="img/session01/heatmap_colin_angus.PNG"/>
-]
+[<img class="center" src="img/session01/heatmap_colin_angus.PNG"/>](https://github.com/VictimOfMaths/COVID-19)
 
 ---
 
@@ -203,13 +199,9 @@ class: center, middle
 
 ---
 
-[Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/)
+[Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/) and the main [site](https://www.trafforddatalab.io/)
 
 <img src="img/session01/twitter_dash.PNG"/>
-
----
-
-<img class="center" src="img/session01/stackoverflow_example.PNG"/>
 
 ---
 
