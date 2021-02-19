@@ -107,11 +107,11 @@ Is one of several plotting systems in R
 
 </br> 1. Well designed and supported </br> 
 </br> 2. Highly versatile </br> 
-</br> 3. Attractive graphics (with a little
+</br> 3. Attractive graphics (with a little work)
 
 .footnote[1. Why start with ggplot : http://varianceexplained.org/r/teach_ggplot2_to_beginners/
 2. Argument against:
-https://simplystatistics.org/2016/02/11/why i dont use ggplot2/]
+https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/]
 
 ---
 
@@ -618,6 +618,8 @@ ggplot(data = capacity_ae) +
 
 ```
 
+---
+
 # What is happening here?
 
 ```{r plot-outliers}
@@ -629,6 +631,7 @@ ggplot(data = capacity_ae) +
 ```
 
 ---
+
 class: center, middle
 
 # Hypothesis
