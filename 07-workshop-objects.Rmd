@@ -1,0 +1,281 @@
+---
+title: "Naming objects"
+subtitle: "Session 7"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r libs, include=FALSE}
+
+#Runs packages if available
+library(knitr)
+library(magick)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+library(kableExtra)
+
+xaringanExtra::use_share_again()
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icon")
+library(icon) # icons need to be loaded to view so run following code if not already done
+# icon::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"),
+               eval = FALSE, 
+               echo = TRUE)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+
+beds_data <- read_csv("beds_data.csv", col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+    skip = 3)
+
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+]
+
+---
+
+# Let's revisit our dplyr session:
+
+</br> The mean number of beds available by date
+
+```{r eval=TRUE}
+beds_data %>% 
+  group_by(date) %>% 
+  summarise(mean_beds = mean(beds_av, na.rm = TRUE))
+
+```
+
+</br> Output = Object = New data frame!
+
+---
+
+class: inverse, middle, center
+
+# Next step: Visualise
+
+---
+
+# Piecing it together
+
+We can put the output...
+
+```{r }
+
+    beds_data %>%
+         group_by(date) %>% 
+         summarise(mean_beds = mean(beds_av, na.rm = TRUE)) 
+
+```
+
+</br> ... into ggplot2 code...
+
+```{r}
+ggplot(
+         beds_data %>% #<<
+         group_by(date) %>% #<<
+         summarise(mean_beds = mean(beds_av, na.rm = TRUE)) #<<
+) + 
+   geom_point(aes(x = date, y = mean_beds))
+
+```
+
+---
+
+class: center, middle
+
+# But, it's often better to:
+
+## Keep wrangling separate
+
+---
+
+class: center, middle
+
+# And it's <ins>always</ins> better to:
+
+## Keep your code .green[as] readable .green[as possible]
+
+---
+
+# Solution:
+
+This whole 'chunk' of code can be named
+
+```{r}
+# name = 
+
+beds_data %>% 
+  group_by(date) %>% 
+  summarise(mean_beds = mean(beds_av, na.rm = TRUE))
+
+```
+
+--
+
+</br> With this:
+
+```{r}
+beds_ts <- beds_data %>% #<<
+  group_by(date) %>% 
+  summarise(mean_beds = mean(beds_av, na.rm = TRUE))
+
+```
+
+---
+
+# Good (object) names are:
+
+</br> 1. Descriptive
+</br>
+</br> 2. Short.blue[(ish)]
+</br>
+</br> 3. Consistent .blue[with other names]
+
+--
+
+</br> 
+</br> Whilst = will work, R convention is to use the following assignment operator:
+
+```{r eval=FALSE}
+<- 
+```
+
+Shortcut: <kbd> Alt - </kbd>
+---
+
+# What happens when the code is run?
+
+The code creates an object which can be seen in the top right quadrant Environment pane
+
+<img class="center" src="img/session07/object-creation.PNG" width="40%"/>
+
+And this can be viewed by running the code line:
+
+```{r}
+beds_ts
+```
+
+---
+# Returning to the plot
+
+The long code used to create the dataset
+
+```{r}
+ggplot(data = beds_data %>% #<<
+         group_by(date) %>% #<<
+         summarise(mean_beds = mean(beds_av, na.rm = TRUE))) + #<<
+     geom_point(aes(x = date, y = mean_beds)) #<<
+```
+
+--
+
+</br> 
+Becomes...
+
+```{r}
+ggplot(data = beds_ts) + #<<
+     geom_point(aes(x = date, y = mean_beds))
+```
+
+---
+
+# Your turn
+
+Give your plot a name
+
+```{r}
+# plot = 
+
+ggplot(data = beds_ts) +
+     geom_point(aes(x = date, y = mean_beds))
+
+```
+
+Then run your plot
+
+```{r}
+# plot
+```
+
+---
+
+# Solution
+
+```{r}
+
+plot <- ggplot(data = beds_ts) + #<<
+     geom_point(aes(x = date, y = mean_beds))
+
+plot #<<
+```
+
+---
+
+# Naming style
+
+The way names are written out is a question of style but it's best to be consistent. 
+
+The two common forms in R are:
+
+```{r}
+camelCase 
+
+snake_case 
+```
+
+---
+
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/
