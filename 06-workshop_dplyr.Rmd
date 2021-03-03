@@ -231,7 +231,7 @@ dplyr::summarise()
 
 These verbs aren't used independently of each other. Each can be a step in the code, like a recipe for mashed potato:
 
-.blue[Starts with a...:]
+.blue[Starts with an...]
 
 </br> potato then 
 </br> peel then
@@ -299,10 +299,9 @@ These verbs aren't used independently of each other. Each can be a step in the c
 
 # Building with steps
 
-</br> 
-</br> 
-</br> 
-</br> .blue[input object]
+.grey[These verbs aren't used independently of each other. Each can be a step in the code, like a recipe for mashed potato:]
+
+.blue[input object]
 
 </br> **potato** %>% 
 </br> **peel()** %>%
@@ -383,7 +382,7 @@ Reorder rows based on select variable...
 defaults to ascending order
 
 
-```{r ref.label="arrange", echo=FALSE, eval=TRUE}
+```{r ref.label="arrange", echo=TRUE, eval=TRUE}
 
 ```
 
@@ -393,7 +392,7 @@ defaults to ascending order
 
 We need descending order:
 
-```{r}
+```{r eval=TRUE}
 
 beds_data %>% 
   arrange(desc(beds_av)) #<<
@@ -446,6 +445,8 @@ beds_data %>%
 ```
 
 The expression inside brackets should return TRUE or FALSE.
+
+We are choosing rows where this expression is TRUE.
 
 ---
 
@@ -596,20 +597,20 @@ This code produces a single summary value for the whole dataset
 
 class: inverse, middle, center
 
-# Q4. Qhat was the mean number of beds (across all trusts) for each value of date?
+# Q4. What was the mean number of beds (across all trusts) for each value of date?
 
 ---
 
 class: middle, center
 
-.darkgrey[# Q4. Qhat was the mean number of beds (across all trusts) for each value of date?]
+.darkgrey[# Q4. What was the mean number of beds (across all trusts) for each value of date?]
 
 Now we know how to use summarise...
 ---
 
 class: middle, center
 
-.darkgrey[# Q4. Qhat was the mean number of beds (across all trusts) .blue[for each value of date?]]
+.darkgrey[# Q4. What was the mean number of beds (across all trusts) .blue[for each value of date?]]
 
 Now we know how to use summarise...
 
@@ -676,7 +677,7 @@ class: inverse, middle, center
 # Q5. Which 5 organisations have the highest mean % bed occupancy? 
 </br>
 --
-# .darkgrey[(over the 5 year period)]
+.darkgrey[# (over the 5 year period)]
 
 ---
 
@@ -684,7 +685,7 @@ class: middle, center
 
 # .darkgrey[Q5. Which 5 organisations have the highest mean .blue[% bed occupancy]?] 
 
-Create a new variable mutate()
+.blue[Create a new variable mutate()]
 
 ---
 
@@ -736,18 +737,18 @@ the output you'd expect.]
 
 class: inverse, middle, center
 
-Over to you...
+# Over to you...
 
 ---
 
 class: middle, center
 
-# .darkgrey[Q5. Which 5 organisations have the highest mean % bed occupancy?] 
+# Q5. Which 5 organisations have the highest mean % bed occupancy?
 
-.darkgrey[Create a new variable mutate() </br> 
+Create a new variable mutate() </br> 
 </br> Then, for each of the organisations group_by() </br> 
 </br> Summary statistic using summarise() </br> 
-</br> Order to find highest by using arrange()] </br> 
+</br> Order to find highest by using arrange() </br> 
 
 .pull-left[
 .blue[Tip: Run the code after each 
