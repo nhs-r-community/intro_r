@@ -1,0 +1,247 @@
+---
+title: "Relational data"
+subtitle: "Session 8"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r libs, include=FALSE}
+
+#Runs packages if available
+library(knitr)
+library(magick)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+library(kableExtra)
+
+xaringanExtra::use_share_again()
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icon")
+library(icon) # icons need to be loaded to view so run following code if not already done
+# icon::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"),
+               eval = FALSE, 
+               echo = TRUE)
+
+# uncomment the following lines if you want to use the NHS-R theme colours by default
+scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
+scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
+scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
+scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+
+
+tb_cases <- read_csv("tb_cases.csv")
+tb_pop <- read_csv("tb_pop.csv")
+
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+]
+
+---
+
+# Relational data
+
+It's rare to find all the data you need for an analysis in a single table.
+
+</br> Typically, you'll have to link two (or more) tables together by matching on common "key" variable(s).
+
+.green[We use joins in SQL or R, VLOOKUPs in Excel]
+
+---
+
+# Relational data
+
+Here, we'll focus on left (outer) joins.
+
+</br> The syntax is similar for other types of joins.
+
+---
+
+# left_join()
+
+Keep structure of table x
+
+…and match to observations in table y
+
+"key" variable (common to both tables)
+
+```{r}
+x %>% 
+  left_join(y, by = "id")
+```
+
+<img class="center" src="img/session08/left-join.gif" width="40%"/>
+
+source: https://github.com/gadenbuie/tidyexplain
+---
+
+# Relational Data
+
+We're going to join two tables one with cases of tuberculosis by country, one with population by country.
+
+</br> From this new table we can derive a rate.
+
+---
+
+class: center, middle
+
+# Please Import
+
+.blue[tb_cases.csv]
+
+and
+
+.blue[tb_pop.csv]
+
+---
+
+# left_join
+
+Keep the original structure of the tb_cases data frame
+
+…then match to rows in tb_pop
+
+based on "country" value
+
+```{r population}
+tb_cases %>% 
+  left_join(tb_pop, by = "country")
+```
+
+---
+
+# Duplicates!
+
+For every value of Afghanistan in tb_cases, there are 4 in tb_pop
+
+```{r ref.label="population", echo=FALSE, eval=TRUE}
+
+```
+
+---
+
+# Join on multiple rows
+
+match on two (or more) variables
+
+```{r }
+tb_cases %>% 
+  left_join(tb_pop, by = c("country", "year"))
+```
+
+--
+
+</br>
+</br>
+### You may recall from an earlier slide
+
+You can create a vector with function: c() for concatenate/combine
+
+```{r}
+c(100, 80, 200)
+
+c("beds", "staff", "patients")
+```
+
+---
+
+# Default combine
+
+Dplyr join verbs find the same named columns and list in the output what it has joined on ## Joining, by = c("country", "year")
+
+This can be copied from the console
+
+```{r eval=TRUE}
+tb_cases %>% 
+  left_join(tb_pop)
+```
+
+---
+
+# Joining with different names
+
+If two tables have .blue[different] names for .blue[same] variable:
+
+```{r}
+tb_cases %>% 
+  left_join(new_table, by = c("country" == "Place",
+                              "year" = "Yr"))
+```
+
+new_table is an imaginary table 
+
+new_table has columns named Place and Yr that match the tb_cases columns country and year
+
+---
+
+# Other joins
+
+Like SQL, dplyr has left_join, inner_join and full_join. Joins that are slightly different to SQL are:
+
+--
+
+### Semi-join
+
+All rows from x where there are matching values in y, keeping just columns from x.
+
+<img class="center" src="img/session08/semi-join.gif" width="40%"/>
+
+---
+
+### Anti-join
+
+All rows from x where there are not matching values in y, keeping just columns from x.
+
+<img class="center" src="img/session08/anti-join.gif" width="40%"/>
+
+---
+
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/
