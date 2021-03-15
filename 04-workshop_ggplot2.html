@@ -6,16 +6,16 @@
     <meta name="author" content="Zoë Turner" />
     <script src="libs/header-attrs-2.7/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/panelset-0.2.4/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.4/panelset.js"></script>
     <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
     <script src="libs/shareon-1.4.1/shareon.min.js"></script>
     <link href="libs/xaringanExtra-shareagain-0.2.4/shareagain.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-shareagain-0.2.4/shareagain.js"></script>
-    <link href="libs/panelset-0.2.4/panelset.css" rel="stylesheet" />
-    <script src="libs/panelset-0.2.4/panelset.js"></script>
-    <link href="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
-    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <script src="libs/kePrint-0.0.1/kePrint.js"></script>
     <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
@@ -59,6 +59,7 @@ Is one of several plotting systems in R
 
 &lt;img class="center" src="img/session04/tweet-poll.PNG" width="40%"/&gt;
 
+{plotly} is used by [Public Health Scotland](https://github.com/Public-Health-Scotland/scotpho-plotly-charts/blob/master/plotly_chart_functions.R)
 ---
 
 # Why is ggplot popular?
@@ -74,13 +75,20 @@ https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/]
 
 ---
 
+[&lt;/br&gt; &lt;img class="center" src="img/session04/bbc-plots.PNG"/&gt;](https://bbc.github.io/rcookbook/#left-alignright-align_text)
+
+---
+
 # ggplot2
 &lt;/br&gt;
 
 &lt;/br&gt; ggplot2 is part of the tidyverse. &lt;/br&gt;
 &lt;/br&gt; So, at the top of your script type:
 
-###library(tidyverse)
+
+```r
+library(tidyverse)
+```
 
 ---
 
@@ -97,8 +105,8 @@ class: inverse, middle, center
 &lt;/br&gt; &lt;img class="center" src="img/session04/demand-and-capacity.PNG"/&gt;
 
 .footnote[
-1. [This Photo](https://www.deviantart.com/luckymarine577/art/Animated-Ambulance-338970039) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
-2. [This Photo](https://creativecommons.org/licenses/by-nc-sa/3.0/) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+1. [Picture 1](https://www.deviantart.com/luckymarine577/art/Animated-Ambulance-338970039) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+2. [Picture 2](https://creativecommons.org/licenses/by-nc-sa/3.0/) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
 ]
 
 ---
@@ -106,7 +114,7 @@ class: inverse, middle, center
 # Data: Capacity in A&amp;E
 &lt;/br&gt;
 
-The dataset we loaded earlier, .green[capacity_ae], shows &lt;/br&gt;
+The dataset we loaded earlier, `capacity_ae`, shows &lt;/br&gt;
 &lt;/br&gt; changes in the capacity of A&amp;E departments from &lt;/br&gt;
 &lt;/br&gt; 2017 to 2018
 
@@ -177,15 +185,15 @@ Useful when using multiple monitors
 ### Option 2
 
 Type the name of the dataset in editor/console, and
-run the line (Ctrl + Enter)
+run the line (shortcut &lt;kbd&gt; Ctrl + Enter&lt;/kbd&gt;)
 
 &lt;img class="center" src="img/session04/view-data-frame2.PNG" width="60%"/&gt;
 
 ---
 
-## Q1. How many sites?
+class: inverse, center, middle
 
-## Q2. Do we understand the variable names?
+## Q. Do we understand the variable names?
 
 _(and what they mean)_
 
@@ -205,7 +213,6 @@ _(and what they mean)_
 
 # Graphs with ggplot2
 
---
 &lt;/br&gt;
 
 ## Q. Is a change in the number of cubicles available in A&amp;E associated with a change in length of attendance?
@@ -218,9 +225,6 @@ _(and what they mean)_
 
 # Q. Is a change in the number of cubicles available in A&amp;E associated with a change in length of attendance?
 
-.panelset[
-.panel[.panel-name[ggplot2]
-
 Note that R is case sensitive.
 
 
@@ -228,12 +232,39 @@ Note that R is case sensitive.
 ggplot(data = capacity_ae) +
   geom_point(aes(x = dcubicles, y = dwait))
 ```
-] &lt;!--end--&gt;
 
-.panel[.panel-name[Let's explain the code]
+---
+
+# Let's explain the code
 
 1. We begin our plot with ggplot2
+
+
+```r
+ggplot() + 
+```
+
+---
+
+# Let's explain the code
+
+1. We begin our plot with ggplot2
+
 1. Inside ggplot() we can specify the dataset
+
+
+```r
+ggplot(data = capacity_ae)  
+```
+
+---
+
+# Let's explain the code
+
+1. We begin our plot with ggplot2
+
+1. Inside ggplot() we can specify the dataset
+
 1. Next, we add layer(s) with + at the end
 
 
@@ -241,9 +272,6 @@ ggplot(data = capacity_ae) +
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait))
 ```
-
-] &lt;!--end--&gt;
-] &lt;!--end of panelset--&gt;
 
 ---
 
@@ -280,19 +308,9 @@ Create a graphic from the data below:
 
 ] &lt;!--end--&gt;
 
-.panel[.panel-name[code]
+.panel[.panel-name[plot]
 
-
-```r
-df &lt;- tibble::tribble(
-         ~year, ~`time (sec)`,
-        "1930", "12.0",
-        "1960", "11.3",
-        "1990", "10.5"
-  )
-
-kableExtra::kbl(df)
-```
+![](04-workshop_ggplot2_files/figure-html/plot-1.png)&lt;!-- --&gt;
 
 ] &lt;!--end--&gt;
 ] &lt;!--end of panelset--&gt;
@@ -302,6 +320,8 @@ kableExtra::kbl(df)
 class: center, middle
 
 # Choices
+
+There are choices about the chart to use but also the details of the chart
 
 &lt;img class="center" src="img/session04/pie_charts.JPG" width="80%"/&gt;
 
@@ -418,41 +438,15 @@ class: center, middle
 
 ---
 
-class: center, middle
-
-# A statistical graphic
-&lt;/br&gt; 
-
-.pull-right[
-.blue[(**aes**thetic
-&lt;/br&gt; attributes of)]
-]
-
-Data variables &lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; .blue[**geom**]etric objects
-
-# &lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="fill:currentColor;position:relative;display:inline-block;top:.1em;height:2em;"&gt;  [ comment ]  &lt;path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"&gt;&lt;/path&gt;&lt;/svg&gt;
-
----
-
 # A statistical graphic
 
-&lt;/br&gt; 
-
-.pull-right[
-.blue[(**aes**thetic
-&lt;/br&gt; attributes of)]
-]
-
-Data variables &lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; .blue[**geom**]etric objects
-
+Shape/colour/size &lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"&gt;&lt;/path&gt;&lt;/svg&gt; geom all default
 
 
 ```r
 ggplot(data = capacity_ae) + 
 * geom_point(aes(x = dcubicles, y = dwait))
 ```
-
-.blue[Here, other aesthetic properties (size, colour, etc) are set by default]
 
 ---
 
@@ -474,16 +468,44 @@ class: center
 
 &lt;/br&gt; You can explicitly name arguments; &lt;/br&gt; 
 
-&lt;/br&gt; ggplot(data = capacity_ae) + &lt;/br&gt; 
+
+```r
+ggplot(data = capacity_ae) +
+```
+
 &lt;/br&gt; Or not: &lt;/br&gt; 
-&lt;/br&gt; ggplot(capacity_ae) + &lt;/br&gt; 
-&lt;/br&gt; (provided you have the arguments in the correct order!)
+
+
+```r
+ggplot(capacity_ae) +
+```
 
 ---
 
 # Functions ()
 
-Here, we have provided ggplot with one named argument
+&lt;/br&gt; Other arguments like axes x and y are in a particular order; &lt;/br&gt; 
+
+
+```r
+ggplot(data = capacity_ae) + 
+* geom_point(aes(x = dcubicles, y = dwait))
+```
+
+&lt;/br&gt; It is possible to write it like:
+
+
+```r
+ggplot(data = capacity_ae) + 
+* geom_point(aes(y = dwait, x = dcubicles))
+```
+
+But could be confusing.
+---
+
+# Functions ()
+
+Here, we have provided **ggplot()** with one named argument
 
 .pull-right[
 .darkgrey[ggplot(.blue[**data = capacity_ae**]) + 
@@ -494,7 +516,7 @@ geom_point(.blue[**aes(x = dcubicles, y = dwait)**])]
 
 And given **aes()** two named arguments &lt;/br&gt;
 
-&lt;/br&gt; Unspecified (yet required) arguments will often revert to default values
+&lt;/br&gt; Unspecified (yet required) arguments will often revert to .green[default values]
 
 ---
 
@@ -502,7 +524,11 @@ And given **aes()** two named arguments &lt;/br&gt;
 
 Since ggplot2 knows the order of essential arguments, it is not necessary to name arguments:
 
-.green[data = can be omitted &lt;/br&gt;]
+.green[data = can be omitted &lt;/br&gt;] 
+
+and 
+
+.green[x = goes first and y = goes second]
 
 
 ```r
@@ -510,8 +536,7 @@ ggplot(capacity_ae) +
 * geom_point(aes(dcubicles, dwait))
 ```
 
-&lt;/br&gt;
-.green[x goes first and y second]
+
 
 ---
 
@@ -527,13 +552,15 @@ We tend to describe plots in terms of the geom used:
 
 We can display more than one geom in a plot:
 
-.pull-right[
-.blue[+] to add a layer
-]
+.blue[&lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"&gt;&lt;/path&gt;&lt;/svg&gt;] to add a layer
 
-ggplot(data = capacity_ae) .blue[\+]
-&lt;/br&gt; .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[\+]
+&lt;/br&gt;
+
+ggplot(data = capacity_ae) .blue[&lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"&gt;&lt;/path&gt;&lt;/svg&gt;] 
+&lt;/br&gt; .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[&lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"&gt;&lt;/path&gt;&lt;/svg&gt;] 
 &lt;/br&gt; .blue[geom_...] aes(x = dcubicles, y = dwait))
+
+&lt;/br&gt;
 
 .blue[then specify another geom...]
   
@@ -566,6 +593,10 @@ ggplot(data = capacity_ae) +
 
 ---
 
+![](04-workshop_ggplot2_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+---
+
 # One more thing
 
 We'd probably prefer a linear fit rather than a non linear fit:
@@ -580,29 +611,13 @@ ggplot(data = capacity_ae) +
 
 ---
 
-![](04-workshop_ggplot2_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
-
----
-
-
-```
-## `geom_smooth()` using formula 'y ~ x'
-```
-
-![](04-workshop_ggplot2_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](04-workshop_ggplot2_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 
 ---
 
 # What is happening here?
 
-
-```r
-ggplot(data = capacity_ae) + 
-  geom_point(aes(x = dcubicles, y = dwait, colour = outliers), show.legend = FALSE) +
-  geom_smooth(aes(x = dcubicles, y = dwait),
-              method = "lm", colour = "grey") +
-  scale_color_gradient(low = "grey", high = "black")
-```
+![](04-workshop_ggplot2_files/figure-html/plot-outliers-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -612,9 +627,9 @@ class: center, middle
 
 &lt;/br&gt; The two sites have seen staffing increases
 
-&lt;/br&gt; We can map point .blue[colour] (aesthetic attribute) to the staff_increase variable to find out.
+&lt;/br&gt; We can map point .blue[colour] (aesthetic attribute) to the staff_increase variable to find out
 
-&lt;/br&gt; So each point is given a colour which will depend on the value of staff_increase
+&lt;/br&gt; We will add colour to the chart depending on the value of staff_increase (TRUE or FALSE, 1 or 0)
 
 ---
 
@@ -631,13 +646,15 @@ ggplot(data = capacity_ae) +
               method = "lm") 
 ```
 
-We could have equally have chosen size or shape but these make graphic less clear
+&lt;/br&gt; We could have equally have chosen size or shape but these make graphic less clear
 
 ---
 
-# Outcome
+# What is happening here? - Answer
 
-The two sites in question have indeed seen an increase in staff levels which has had an effect on the dwait even though dcubicles are relatively low.
+The two sites have indeed seen an increase in staff levels which has had an effect on the dwait even though dcubicles are relatively low.
+
+&lt;img src="04-workshop_ggplot2_files/figure-html/unnamed-chunk-15-1.png" width="50%" /&gt;
 
 ---
 
@@ -704,7 +721,7 @@ ggplot(data = capacity_ae, aes(dcubicles, dwait)) +
 
 ---
 
-# Small multiples
+# Small multiples magic
 
 Another way to visualise the relationship between multiple variables is with a facet_wrap() layer:
 
@@ -717,7 +734,7 @@ ggplot(data = capacity_ae) +
 
 ---
 
-# Small multiples
+# Small multiples 
 
 Another way to visualise the relationship between multiple variables is with a facet_wrap() layer:
 
@@ -746,8 +763,7 @@ class: center, middle
 
 ```r
 ggplot(data = capacity_ae) + 
-  geom_histogram(aes(dwait)
-                 )
+  geom_histogram(aes(dwait))
 ```
 
 ---

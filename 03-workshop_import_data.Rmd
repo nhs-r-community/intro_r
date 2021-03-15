@@ -30,7 +30,6 @@ output:
 
 #Runs packages if available
 library(knitr)
-library(magick)
 library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
@@ -48,13 +47,6 @@ opts_chunk$set(echo = FALSE,
                fig.height = 4,
                dpi = 300,
                dev.args = list(type = "cairo"))
-
-# uncomment the following lines if you want to use the NHS-R theme colours by default
-scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
-scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
-scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
-scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
-
 ```
 
 class: title-slide, left, bottom
@@ -76,17 +68,17 @@ class: center, middle
 # Import data to R
 
 </br> There are R packages to import all types of data. 
-</br> In this course, we’ll cover the most
+</br> In this course, we'll cover the most
 </br> common imports: 
 </br>
 </br> csvs and Excel workbooks
 
 --
 
-</br> We’d like to import the .blue[capacity_ae.csv] file. </br> 
+</br> We'd like to import the `capacity_ae.csv` file. </br> 
 
 </br> While we could write code from scratch to do this,
-</br> it’s often easier to get the import wizard to do this
+</br> it's often easier to get the import wizard to do this
 </br> for you.
 
 ---
@@ -166,10 +158,10 @@ From the clipboard:
 
 .right-col-.right[
 
-Just one line copied:
+Where just one line copied:
 <img src="img/session03/paste-selected-code.PNG"/>
 
-]]
+]
 
 
 ---
@@ -180,7 +172,7 @@ Just one line copied:
 
 No need to highlight all code to run.
 
-</br>  Put the cursor in the line you want to run then select the button to Run or .blue[Ctrl + Return]
+</br>  Put the cursor in the line you want to run then select the button to Run or <kbd> Ctrl + Return </kbd>
 
 
 ---

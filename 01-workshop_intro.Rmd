@@ -27,11 +27,10 @@ output:
 
 ```{r libs, include=FALSE}
 
-#knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = 'asis')
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
 
 #Runs packages if available
 library(knitr)
-library(magick)
 library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
@@ -55,11 +54,6 @@ opts_chunk$set(echo = FALSE,
                dpi = 300,
                dev.args = list(type = "cairo"))
 
-# uncomment the following lines if you want to use the NHS-R theme colours by default
-scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
-scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
-scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
-scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 ```
 
 class: title-slide, left, bottom
@@ -126,10 +120,10 @@ class: center, middle
 ###“Adjusting the seat and mirrors”:<br/>
 <br/> Intro + Setup + Import data <br/>
 <br/> Graphics with ggplot2 <br/>
-<br/> Break 15 mins<br/>
-<br/ >Data wrangling with dplyr <br/>
-<br/ >--------- Lunch ----------- <br/>
-<br/ >Demo <br/>
+<br/> Break 15 mins <br/>
+<br/> Data wrangling with dplyr <br/>
+<br/> --------- Lunch ----------- <br/>
+<br/> Demo <br/>
 <br/> Naming objects | Joins <br/>
 <br/> R Markdown
 
@@ -160,6 +154,7 @@ class: inverse, middle, center
 [<img class="center" src="img/session01/heatmap_colin_angus.PNG"/>](https://github.com/VictimOfMaths/COVID-19)
 
 ---
+The original blog is no longer available that featured this
 
 <img class="center" src="img/session01/london_cycle_routes.PNG" width="90%"/>
 
@@ -169,6 +164,8 @@ class: center, middle
 
 # Collaboration
 <br/>
+
+`r icon::fontawesome("arrow-down")`
 
 ## Reproducibility
 
@@ -190,18 +187,18 @@ class: center, middle
 
 ---
 
+[Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/) and the main [site](https://www.trafforddatalab.io/)
+
+<img src="img/session01/twitter_dash.PNG"/>
+
+---
+
 # R to SQL connection
 
 
 [NHS-R Community Webinar](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar)
 
 <img src="img/session01/webinar_nhsr.PNG"/>
-
----
-
-[Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/) and the main [site](https://www.trafforddatalab.io/)
-
-<img src="img/session01/twitter_dash.PNG"/>
 
 ---
 
@@ -245,9 +242,9 @@ class: center, middle
 # Course philosophy
 
 </br> Relaxed and informal </br>
-</br> (Slides and code are available [online](https://github.com/nhs-r-community/intro_r)) </br>
+</br> Slides and code are available on [`r icon::fontawesome("github")` original](https://github.com/nhs-r-community/intro_r) and [`r icon::fontawesome("github")` updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion)) </br>
 </br> The truth; but it can’t be the whole truth… </br>
-</br> too much to cover in a day)</br>
+</br> too much to cover in a day</br>
 
 ---
 
@@ -293,9 +290,7 @@ class: center, middle
 # Open RStudio
 
 </br>
-</br> Opening R </br> 
-
-Studio opens an R session.
+</br> R Studio opens an R session.
 
 ---
 
@@ -304,8 +299,8 @@ The Console is your window to R. </br>
 
 </br> You can code directly in the console… </br>
 
-</br> pi*2 [Enter] </br>
-</br> 37/12 [Enter] </br>
+</br> pi*2 <kbd> Enter </kbd> </br>
+</br> 37/12 <kbd> Enter <kbd> </br>
 </br> … but there is a better way…
 ]
 
@@ -327,8 +322,8 @@ The Console is your window to R. </br>
 </br> And choose "R Script" from the drop down.  </br>
 
 </br> Or, shortcut:  </br>
-Ctrl+ Shift+ N </br>
-.blue[_won't work on the cloud_]
+<kbd> Ctrl + Shift + N </kbd> </br>
+</br> .blue[_The cloud shortcut is <kbd> Ctrl + Shift + Alt + N </kbd>_]
 ]
 
 .pull-right[
@@ -342,12 +337,16 @@ Ctrl+ Shift+ N </br>
 The Editor is just like any other text
 editor: you can copy, paste, and save text. </br>
 
-</br> More forgiving R Syntax
-highlighting </br>
+</br> <kbd> Ctrl + Z </kbd> undoes *but*
+</br> <kbd> Ctrl + Shift + Z </kbd> to redo 
+</br> (_not <kbd> Ctrl + y</kbd>_)
 
-</br> Autocomplete (use it!) </br>
+</br> Different text is coloured
+(the console is uniform) </br>
 
-</br> Ctrl + Enter
+</br> Autocomplete </br>
+
+</br> <kbd>Ctrl + Enter </kbd>
 (sends line of
 code to Console)
 ]
@@ -363,6 +362,9 @@ Comment code with a # </br>
 
 </br> E.g # this was a
 bad idea
+
+Comment frequently, at least in the beginning
+
 ]
 
 .right-column[
@@ -373,11 +375,15 @@ bad idea
 
 # Tools -> Options
 
+[Reasons why this is default](https://community.rstudio.com/t/defaults-of-saving-and-restoring-workspace/939)
+
 <img class="center" src="img/session01/global_options.PNG"/>
 
 ---
 
 # Tools -> Options
+
+Accessbility and comfort for all
 
 <img class="center" src="img/session01/appearance.PNG"/>
 
@@ -387,11 +393,11 @@ class: center, middle
 
 # Packages
 
---
-
 </br>
 ### R packages are like apps for your phone:
 </br>
+
+--
 
 </br> Extend the capabilities of the basic or "base R" </br>
 with extra functions, datasets, documentation.
@@ -402,17 +408,22 @@ with extra functions, datasets, documentation.
 
 ---
 
-class: center, middle
-
 # Packages
 
-</br> install.packages("tidyverse") </br>
-</br> .green[will download a package to your personal library. Then:] </br>
 
-</br> library(tidyverse) </br>
+```{r}
+install.packages("tidyverse")
 
-</br> .green[tells R to load the tidyverse package from your personal library.
-_(Needed for every new session)_]
+install.packages('tidyverse')
+```
+
+</br> will download a package to your personal library. Then: </br>
+
+```{r}
+library(tidyverse) 
+```
+
+This tells R to load the package from your personal library and is _needed for every new session/script_]
 
 ---
 
@@ -420,8 +431,8 @@ class: center, middle
 
 ## CRAN repository
 
-</br>
-</br> 14,000+ packages. Free. Peer reviewed. </br>
+</br> [Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
+</br> 17,306 packages (March 20201). Free. Peer reviewed. </br>
 
 </br> (Manifold possibilities) eg. interactive graphics and </br>
 </br> dashboards, machine learning, mine twitter data, </br>
@@ -429,7 +440,7 @@ class: center, middle
 </br>
 </br>
 
-</br>.blue[Other ways to get packages (eg. GitHub, …)]
+</br>.blue[Other ways to get packages (eg. GitHub `r icon::fontawesome("github")`)]
 
 ---
 
@@ -442,7 +453,7 @@ class: center, middle
 ## What is the tidyverse?
 </br>
 
-</br> The tidyverse package collects (some of) the most popular </br>
+</br> The [tidyverse package](https://www.tidyverse.org/) collects (some of) the most popular </br>
 R packages into one. </br>
 
 </br> All have the same underlying principles: </br>
@@ -457,12 +468,43 @@ class: center, middle
 ## What is the tidyverse?
 </br>
 
-</br> During the workshop we will use the .blue[ggplot2], .blue[dplyr], </br>
-and .blue[readr] packages. These are bundled up in the </br>
-tidyverse package. We load it by running: </br>
+</br> During the workshop we will use the [ggplot2](https://ggplot2.tidyverse.org/), [dplyr](https://dplyr.tidyverse.org/), </br>
+and [readr](https://readr.tidyverse.org/) packages. These are bundled up in the </br>
+tidyverse package. Load it by running: </br>
 </br>
 
-</br> library(tidyverse)
+```{r}
+library(tidyverse)
+```
+
+---
+
+# Output
+
+Information - what was loaded and potential conflicts
+
+```
+-- Attaching packages ------------------------------------------ tidyverse 1.3.0 --
+v ggplot2 3.3.3     v purrr   0.3.4
+v tibble  3.1.0     v dplyr   1.0.4
+v tidyr   1.1.2     v stringr 1.4.0
+v readr   1.4.0     v forcats 0.5.1
+-- Conflicts --------------------------------------------- tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+```
+
+Warnings - not errors, just information on versions
+
+```
+Warning messages:
+1: package ‘tidyverse’ was built under R version 4.0.4 
+2: package ‘tidyr’ was built under R version 4.0.3 
+3: package ‘readr’ was built under R version 4.0.3 
+4: package ‘purrr’ was built under R version 4.0.3 
+5: package ‘dplyr’ was built under R version 4.0.3 
+6: package ‘stringr’ was built under R version 4.0.3 
+```
 
 ---
 

@@ -117,24 +117,22 @@ is a language for data manipulation </br>
 
 # Project 2:
 
---
 ## Exploring Mental Health (MH) Inpatient Capacity
 --
 
-</br> We have been asked to conduct an analysis of Mental Health inpatient capacity in England.
+</br> The following is some analysis of Mental Health inpatient capacity in England.
 
-</br> As part of this, we will be looking at the changes in the number (and occupancy) of MH beds available in recent years.
+</br> As part of this, we will be looking at the changes in the number (and occupancy) of MH beds available.
 
----
+--
 
-# Background
+### Background
 
 Maintaining clinical effectiveness and safety when a
-ward is fully occupied is a serious challenge for staff. </br>
+ward is fully occupied is a serious challenge for staff. 
 
-</br> Inappropriate out of area placements mean
-individuals are separated from their social networks
-for the duration of their inpatient care.
+</br> Inappropriate out of area placements have an added cost and also mean
+patients are separated from their social support networks.
 
 ---
 
@@ -142,7 +140,7 @@ for the duration of their inpatient care.
 
 </br> KH03 returns (bed numbers and occupancy) by organisation, published by NHS England.
 
-</br> Scraped from the NHSE statistics website*:
+</br> Scraped from the NHSE statistics website:
 
 </br> https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/bed-data-overnight/
 
@@ -293,7 +291,8 @@ These verbs aren't used independently of each other. Each can be a step in the c
 </br> **peel()** then
 </br> **slice(size = "medium")** then
 </br> **boil(time = 25)** then
-</br> mash
+
+</br> .blue[output = mashed potato]
 
 ---
 
@@ -603,18 +602,18 @@ class: inverse, middle, center
 
 class: middle, center
 
-.darkgrey[# Q4. What was the mean number of beds (across all trusts) for each value of date?]
+#.darkgrey[Q4. What was the .blue[mean number of beds] (across all trusts) for each value of date?]
 
-Now we know how to use summarise...
+.blue[Now we know how to use summarise...]
 ---
 
 class: middle, center
 
-.darkgrey[# Q4. What was the mean number of beds (across all trusts) .blue[for each value of date?]]
+#.darkgrey[Q4. What was the mean number of beds (across all trusts) .blue[for each value of date?]]
 
-Now we know how to use summarise...
+.darkgrey[Now we know how to use summarise...]
 
-</br> We'll produce a summary value for **each value of date**
+</br> .blue[We'll produce a summary value for **each value of date**]
 
 ---
 
@@ -625,8 +624,8 @@ For each group...
 ```{r group-by}
 beds_data %>% 
   group_by(date) %>% #<<
-  summarise(mean_beds = beds_av, 
-            na.rm = TRUE)
+  summarise(mean_beds = mean(beds_av, 
+            na.rm = TRUE))
 ```
 
 For each value of date...
@@ -656,19 +655,20 @@ Often it's safest to remove the grouping after you've performed the required ope
 ```{r}
 beds_data %>% 
   group_by(date) %>% 
-  summarise(mean_beds = mean(beds_av, na.rm =))
+  summarise(mean_beds = mean(beds_av, na.rm =)) %>% 
+  ungroup()
 ```
 
 ---
 
 .blue[# 5. ungroup]
 
-</br> When used in conjunction with summarise() the following is a warning (not an error): 
+</br> When used in conjunction with summarise() the following is a message (not an error or warning): 
 
 </br> 
 > `summarise()` has grouped output by 'date'. You can override using the `.groups` argument.
 
-</br> This is warning you that the [last grouping has been removed](https://stackoverflow.com/questions/62140483/how-to-interpret-dplyr-message-summarise-regrouping-output-by-x-override)
+</br> This is message that the [last grouping has been removed](https://stackoverflow.com/questions/62140483/how-to-interpret-dplyr-message-summarise-regrouping-output-by-x-override)
 
 ---
 
@@ -676,8 +676,9 @@ class: inverse, middle, center
 
 # Q5. Which 5 organisations have the highest mean % bed occupancy? 
 </br>
+
 --
-.darkgrey[# (over the 5 year period)]
+# (over the 5 year period)
 
 ---
 
@@ -784,15 +785,14 @@ beds_data %>%
 
 # Extension
 
-How many columns associated with each observation?
-
-Adds another summary column.
+How many distinct organisation names are counted under the same organisation code? 
 
 ```{r eval=TRUE}
 beds_data %>% 
   mutate(perc_occ = occ_av/beds_av) %>% 
   group_by(org_name) %>% 
   summarise(mean_pocc = mean(perc_occ, na.rm = TRUE),
+            # Number of data points/rows by group
             number = n()) %>% #<< 
   arrange(desc(mean_pocc))
 ```
@@ -807,12 +807,11 @@ Adds another summary column.
 
 ```{r eval=TRUE}
 beds_data %>% 
-  mutate(perc_occ = occ_av/beds_av) %>% 
-  group_by(org_name) %>% 
-  summarise(mean_pocc = mean(perc_occ, na.rm = TRUE),
-            number = n(),
+  group_by(org_code) %>% 
+  summarise(# distinct number of org_name
             distinct_number = n_distinct(org_name)) %>% #<< 
-  arrange(desc(mean_pocc))
+  filter(distinct_number > 1) %>% 
+  arrange(desc(distinct_number))
 ```
 
 ---

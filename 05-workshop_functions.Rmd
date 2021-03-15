@@ -26,13 +26,10 @@ output:
 
 #Runs packages if available
 library(knitr)
-library(magick)
 library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
 library(kableExtra)
-
-xaringanExtra::use_share_again()
 
 # Packages not on CRAN
 
@@ -52,14 +49,8 @@ opts_chunk$set(fig.width = 7.252,
                fig.height = 4,
                dpi = 300,
                dev.args = list(type = "cairo"),
-               eval = FALSE, 
-               echo = TRUE)
-
-# uncomment the following lines if you want to use the NHS-R theme colours by default
-scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
-scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
-scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
-scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+               eval = TRUE, 
+               echo = FALSE)
 
 ```
 
@@ -94,7 +85,7 @@ Either in the script or in the console, typing ? before the function and run if 
 Or if the package hasn't been loaded using the package::function() format:
 
 ```{r}
-??ggplot2::ggsave
+??beepr::beep # loaded in the Cloud
 ```
 
 ---
@@ -103,7 +94,7 @@ Or if the package hasn't been loaded using the package::function() format:
 
 ... or [R Studio Community](https://community.rstudio.com/) or [NHS-R Slack group](nhsrcommunity.slack.com)
 
-<img class="center" src="img/session0/stackoverflow_example.PNG"/>
+<img class="center" src="img/session05/stackoverflow_example.PNG"/>
 
 ---
 
@@ -151,9 +142,50 @@ https://twitter.com/accidental__aRt
 
 ## Computational aRt 
 
-https://ijeamaka-anyene.netlify.app/posts/2021-01-14-art-ggplot-exploring-radial-visualizations/ 
-
 https://art.djnavarro.net/
+
+https://www.data-imaginist.com/art
+
+---
+
+```{r out.width="80%"}
+lines <- tibble(
+  x = seq(0, 19, by = .5),
+  xend = x,
+  y =  rep(0, 39),
+  yend = c(rep(c(5, 10), 19), 5))
+
+dots <- lines %>%
+  select(x, yend)
+
+ggplot() +
+  geom_segment(data = lines,
+               aes(x = x, xend = xend,
+                   y = y, yend = yend),
+               color = "white") +
+  geom_point(data = dots,
+             aes(x = x, y = yend),
+             color = "white") +
+  scale_y_continuous(limits = c(-5, 10)) +
+  coord_polar() +
+  theme(
+    plot.background = element_rect(
+      fill = "#75926f"),
+    panel.background = element_rect(
+      fill = "#75926f"),
+    panel.grid = element_blank(),
+    plot.caption = element_text(
+      family = "Open Sans",
+      size = 6,
+      color = "white"),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+```
+
+https://ijeamaka-anyene.netlify.app/posts/2021-01-14-art-ggplot-exploring-radial-visualizations/ 
 
 ---
 #### This work is licensed as

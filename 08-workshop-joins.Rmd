@@ -154,7 +154,7 @@ tb_cases %>%
 
 # Duplicates!
 
-For every value of Afghanistan in tb_cases, there are 4 in tb_pop
+For every country value in tb_cases, there are 4 in tb_pop
 
 ```{r ref.label="population", echo=FALSE, eval=TRUE}
 
@@ -222,15 +222,15 @@ Like SQL, dplyr has left_join, inner_join and full_join. Joins that are slightly
 
 --
 
-### Semi-join
+### [Semi-join](https://stackoverflow.com/questions/42249690/what-is-semi-join-in-database)
 
-All rows from x where there are matching values in y, keeping just columns from x.
+All rows from x where there are matching values in y, keeping just columns from x. 
 
 <img class="center" src="img/session08/semi-join.gif" width="40%"/>
 
 ---
 
-### Anti-join
+### [Anti-join](https://stackoverflow.com/questions/28702960/find-complement-of-a-data-frame-anti-join)
 
 All rows from x where there are not matching values in y, keeping just columns from x.
 
