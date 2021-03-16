@@ -139,7 +139,7 @@ https://twitter.com/accidental__aRt
 --
 
 </br> 
-
+</br> 
 ## Computational aRt 
 
 https://art.djnavarro.net/
@@ -148,8 +148,9 @@ https://www.data-imaginist.com/art
 
 ---
 
-```{r out.width="80%"}
+```{r out.width="80%", eval=TRUE}
 lines <- tibble(
+  
   x = seq(0, 19, by = .5),
   xend = x,
   y =  rep(0, 39),
