@@ -49,8 +49,7 @@ opts_chunk$set(fig.width = 7.252,
                fig.height = 4,
                dpi = 300,
                dev.args = list(type = "cairo"),
-               eval = TRUE, 
-               echo = FALSE)
+               echo = TRUE)
 
 ```
 
@@ -78,13 +77,13 @@ class: title-slide, left, bottom
 
 Either in the script or in the console, typing ? before the function and run if the package is loaded:
 
-```{r echo=TRUE, eval=FALSE}
+```{r eval=FALSE}
 ?ggsave
 ```
 
 Or if the package hasn't been loaded using the package::function() format:
 
-```{r echo=TRUE, eval=FALSE}
+```{r eval=FALSE}
 ??beepr::beep # loaded in the Cloud
 ```
 
@@ -148,7 +147,7 @@ https://www.data-imaginist.com/art
 
 ---
 
-```{r out.width="80%", eval=TRUE}
+```{r echo = FALSE, out.width="80%"}
 lines <- tibble(
   
   x = seq(0, 19, by = .5),
