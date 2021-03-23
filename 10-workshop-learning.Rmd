@@ -147,12 +147,10 @@ class: center
 
 # File and Project structures
 
-Jenny Bryan's Presentation on </br>
-[How to Name Files](https://speakerdeck.com/jennybc/how-to-name-files?slide=6) </br>
+Jenny Bryan's Presentation on [How to Name Files](https://speakerdeck.com/jennybc/how-to-name-files?slide=6) </br>
 
 </br>
-Danielle Navarro's Presentation (based on Jenny's) on </br>
-[Project Structure](https://slides.djnavarro.net/project-structure/#1) supported with [YouTube videos](https://www.youtube.com/playlist?reload=9&list=PLRPB0ZzEYegPiBteC2dRn95TX9YefYFyy)
+Danielle Navarro's Presentation (based on Jenny's) on [Project Structure](https://slides.djnavarro.net/project-structure/#1) supported with [YouTube videos](https://www.youtube.com/playlist?reload=9&list=PLRPB0ZzEYegPiBteC2dRn95TX9YefYFyy)
 
 <iframe src="https://slides.djnavarro.net/project-structure/#1" width="600" height="400" loading="lazy" allowfullscreen></iframe> <script>fitvids('.shareagain', {players: 'iframe'});</script>
 
