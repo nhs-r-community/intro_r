@@ -115,7 +115,7 @@ class: center
 
 ---
 
-# Longer term fixes - books
+# Longer term fixes - books (online and paper)
 
 --
 
@@ -126,6 +126,12 @@ class: center
 .pull-right[
 [<img class="center" src="img/session10/ggplot2-book.PNG"/>](https://ggplot2-book.org/) 
 ]
+---
+
+# Longer term fixes - books (online only)
+
+[<img class="center" src="img/session10/big-book-of-r.png"/>](https://www.bigbookofr.com/index.html)
+
 ---
 
 # Longer term fixes - blogs
