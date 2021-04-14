@@ -744,26 +744,15 @@ beds_data %&gt;%
 
 Often it's safest to remove the grouping after you've performed the required operation
 
-&lt;img class="center" src="img/session06/group_by_ungroup.PNG" width="40%"/&gt;
+&lt;img class="center" src="img/session06/group_by_ungroup.png" width="40%"/&gt;
 
 
 ```r
 beds_data %&gt;% 
   group_by(date) %&gt;% 
-  summarise(mean_beds = mean(beds_av, na.rm =)) %&gt;% 
+  summarise(mean_beds = mean(beds_av, na.rm = NA)) %&gt;% 
   ungroup()
 ```
-
----
-
-.blue[# 5. ungroup]
-
-&lt;/br&gt; When used in conjunction with summarise() the following is a message (not an error or warning): 
-
-&lt;/br&gt; 
-&gt; `summarise()` has grouped output by 'date'. You can override using the `.groups` argument.
-
-&lt;/br&gt; This is message that the [last grouping has been removed](https://stackoverflow.com/questions/62140483/how-to-interpret-dplyr-message-summarise-regrouping-output-by-x-override)
 
 ---
 

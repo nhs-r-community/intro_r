@@ -650,25 +650,14 @@ For each group... .darkgrey[summarise() produces a single summary value]
 
 Often it's safest to remove the grouping after you've performed the required operation
 
-<img class="center" src="img/session06/group_by_ungroup.PNG" width="40%"/>
+<img class="center" src="img/session06/group_by_ungroup.png" width="40%"/>
 
 ```{r}
 beds_data %>% 
   group_by(date) %>% 
-  summarise(mean_beds = mean(beds_av, na.rm =)) %>% 
+  summarise(mean_beds = mean(beds_av, na.rm = NA)) %>% 
   ungroup()
 ```
-
----
-
-.blue[# 5. ungroup]
-
-</br> When used in conjunction with summarise() the following is a message (not an error or warning): 
-
-</br> 
-> `summarise()` has grouped output by 'date'. You can override using the `.groups` argument.
-
-</br> This is message that the [last grouping has been removed](https://stackoverflow.com/questions/62140483/how-to-interpret-dplyr-message-summarise-regrouping-output-by-x-override)
 
 ---
 
