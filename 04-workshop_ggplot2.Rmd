@@ -252,7 +252,7 @@ _(and what they mean)_
 
 --
 
-<img class="center" src="img/session04/axes-description.PNG">
+<img class="center" src="img/session04/axes-description.">
 
 ---
 
@@ -331,7 +331,7 @@ kableExtra::kbl(df)
 
 .panel[.panel-name[plot]
 
-```{r plot, echo=FALSE, eval=TRUE}
+```{r plot, out.width="50%", echo=FALSE, eval=TRUE}
 ggplot(data = df) + 
   geom_point(aes(x = year, y = `time (sec)`))
 ```
@@ -580,7 +580,7 @@ We can display more than one geom in a plot:
 
 ggplot(data = capacity_ae) .blue[`r icon::fontawesome("plus")`] 
 </br> .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[`r icon::fontawesome("plus")`] 
-</br> .blue[geom_...] aes(x = dcubicles, y = dwait))
+</br> .blue[geom_smooth] aes(x = dcubicles, y = dwait))
 
 </br>
 
