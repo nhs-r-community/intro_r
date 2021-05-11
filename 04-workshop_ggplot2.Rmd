@@ -252,7 +252,7 @@ _(and what they mean)_
 
 --
 
-<img class="center" src="img/session04/axes-description.">
+<img class="center" src="img/session04/axes-description.png">
 
 ---
 

@@ -27,7 +27,7 @@ output:
 
 ```{r libs, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, warning = FALSE)
 
 #Runs packages if available
 library(knitr)
