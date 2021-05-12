@@ -842,7 +842,7 @@ ggplot(data = capacity_ae) +
   geom_point(aes(x = dcubicles, y = dwait)) + 
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") +
-* ggsave(plot_name.png)
+* ggsave("plot_name.png")
 ```
 
 ---
@@ -855,7 +855,7 @@ ggplot(data = capacity_ae) +
   geom_point(aes(x = dcubicles, y = dwait)) + 
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") +
-* ggsave(plot_name.png, units = "cm",
+* ggsave("plot_name.png", units = "cm",
 *        height = 10, width = 8)
 ```
 

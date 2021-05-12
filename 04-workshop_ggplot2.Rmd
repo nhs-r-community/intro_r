@@ -306,41 +306,6 @@ ggplot(data = capacity_ae) +
 
 ---
 
-# How do we move from data to graphic?
-
-.panelset[
-.panel[.panel-name[exercise]
-
-Create a graphic from the data below:
-(using paper and pen)
-
-```{r paper-exercise, eval=TRUE, echo=FALSE}
-
-df <- tibble::tribble(
-         ~year, ~`time (sec)`,
-        "1930", "12.0",
-        "1960", "11.3",
-        "1990", "10.5"
-  ) 
-
-kableExtra::kbl(df)
-
-```
-
-] <!--end-->
-
-.panel[.panel-name[plot]
-
-```{r plot, out.width="50%", echo=FALSE, eval=TRUE}
-ggplot(data = df) + 
-  geom_point(aes(x = year, y = `time (sec)`))
-```
-
-] <!--end-->
-] <!--end of panelset-->
-
----
-
 class: center, middle
 
 # Choices
@@ -863,7 +828,7 @@ ggplot(data = capacity_ae) +
   geom_point(aes(x = dcubicles, y = dwait)) + 
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") +
-  ggsave(plot_name.png) #<<
+  ggsave("plot_name.png") #<<
 ```
 
 ---
@@ -875,7 +840,7 @@ ggplot(data = capacity_ae) +
   geom_point(aes(x = dcubicles, y = dwait)) + 
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") +
-  ggsave(plot_name.png, units = "cm", #<<
+  ggsave("plot_name.png", units = "cm", #<<
          height = 10, width = 8) #<<
 ```
 

@@ -34,6 +34,7 @@ library(knitr)
 library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
+library(magick)
 
 # Packages not on CRAN
 
@@ -66,66 +67,23 @@ class: title-slide, left, bottom
 
 ---
 
-# 1-2-4
-<br/>
-<br/>
-
-.left-col[.left[
-.blue[ 
-1. (Name)
-2. What would be a good result today?]
-]]
-
-.left-col[.right[3:00 minutes]]
-
----
-
-.left-col[.left[
-# Our work
-</br>
-
-* Describe paediatric services across the region.
-* Did such and such mental health intervention work?
-* What influences demand for elective treatment?
-]]
-</br>  
-
-Tools: R, Excel, SQL, QGIS….
-
-</br>
-Answers: Reports (Powerpoint and Word) and presentations
-
----
-
-class: center, middle
-
-# Assumptions about you
-
-What is the nature of your work? <br/>
-<br/> Reporting? <br/> 
-<br/> Project based? <br/>
-<br/> Data reconciliation? Statistics? <br/>
-<br/> Collaboration? <br/>
-<br/> Tools – Excel, SQL, Power BI? Tableau? <br/>
-<br/> Answers – Reports? Presentations? <br/>
-<br/> Will shape what you want from today.
-
----
-
 class: center, middle
 
 
 # Agenda
 
-###“Adjusting the seat and mirrors”:<br/>
-<br/> Intro + Setup + Import data <br/>
-<br/> Graphics with ggplot2 <br/>
-<br/> Break 15 mins <br/>
-<br/> Data wrangling with dplyr <br/>
+<br/> Using R Studio <br/>
+<br/> Importing data <br/>
+<br/> --------- Break --------- <br/>
+<br/> Introduction to ggplot2 <br/>
+<br/> What does this function do? <br/>
 <br/> --------- Lunch ----------- <br/>
-<br/> Demo <br/>
-<br/> Naming objects | Joins <br/>
-<br/> R Markdown
+<br/> Data wrangling with dplyr <br/>
+<br/> Naming objects | Relational data <br/>
+<br/> --------- Break --------- <br/>
+<br/> R Markdown <br/>
+<br/> Ongoing learning <br/>
+<br/> .green[Finish about 4 - 430pm] <br/>
 
 ---
 
@@ -206,15 +164,15 @@ class: center, middle
 
 # Inclusivity
 
-```{r inclusive}
+```{r inclusive, eval=TRUE}
 
-rladies <- image_read('img/session01/r_ladies_twitter.PNG')
-mir <- image_read('img/session01/mir_twitter.PNG')
-nhsr <- image_read('img/session01/nhsr_twitter.PNG')
+rladies <- magick::image_read('img/session01/r_ladies_twitter.PNG')
+mir <- magick::image_read('img/session01/mir_twitter.PNG')
+nhsr <- magick::image_read('img/session01/nhsr_twitter.PNG')
 
 img <- c(rladies, mir, nhsr)
 
-image_animate(image_scale(img, "600x600"), fps = 1, dispose = "previous")
+magick::image_animate(image_scale(img, "600x600"), fps = 1, dispose = "previous", loop = 2)
 
 ```
 
