@@ -132,9 +132,11 @@ class: center, middle
 
 .blue[tb_cases.csv]
 
+.blue[tb_pop.csv]
+
 and
 
-.blue[tb_pop.csv]
+.blud[tb_new_table.csv]
 
 ---
 
