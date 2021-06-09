@@ -64,6 +64,7 @@ scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 
 tb_cases <- read_csv("tb_cases.csv")
 tb_pop <- read_csv("tb_pop.csv")
+tb_new_table <- read_csv("tb_new_table.csv")
 
 ```
 
@@ -121,7 +122,7 @@ source: https://github.com/gadenbuie/tidyexplain
 
 We're going to join two tables one with cases of tuberculosis by country, one with population by country.
 
-</br> From this new table we can derive a rate.
+</br> From this new table we could derive a rate.
 
 ---
 
@@ -206,19 +207,19 @@ If two tables have .blue[different] names for .blue[same] variable:
 
 ```{r}
 tb_cases %>% 
-  left_join(new_table, by = c("country" == "Place",
+  left_join(tb_new_table, by = c("country" = "Place",
                               "year" = "Yr"))
 ```
 
-new_table is an imaginary table 
-
-new_table has columns named Place and Yr that match the tb_cases columns country and year
+tb_new_table is the same table as tb_cases but with a column Joined.
 
 ---
 
 # Other joins
 
-Like SQL, dplyr has left_join, inner_join and full_join. Joins that are slightly different to SQL are:
+Like SQL, dplyr has left_join, inner_join and full_join. 
+
+Joins that are slightly different to SQL are:
 
 --
 
@@ -230,11 +231,48 @@ All rows from x where there are matching values in y, keeping just columns from 
 
 ---
 
+# Use Case
+
+Finding hospital patients who have had a Covid-19 test but only bring back the information on the hospital, nothing about the test.
+
+Join to the tb_new_table and bring back only those records where the column FirstLetter is 'A' but nothing from tb_new_table.
+
+```{r eval=TRUE}
+
+tb_cases %>% 
+  semi_join(tb_new_table %>% 
+              filter(FirstLetter == "A"), by = c("country" = "Place",
+                              "year" = "Yr"))
+
+```
+
+
+---
+
 ### [Anti-join](https://stackoverflow.com/questions/28702960/find-complement-of-a-data-frame-anti-join)
 
 All rows from x where there are not matching values in y, keeping just columns from x.
 
 <img class="center" src="img/session08/anti-join.gif" width="40%"/>
+
+---
+
+# Use Case
+
+In text mining, exclude 'stop words' (but, and, or) which are kept in a separate table for reference.
+
+Join to the tb_new_table and exclude only those records where the column FirstLetter is 'A' .
+
+```{r eval=TRUE}
+
+tb_cases %>% 
+  anti_join(tb_new_table %>% 
+              filter(FirstLetter == "A"), by = c("country" = "Place",
+                              "year" = "Yr"))
+
+```
+
+
 
 ---
 

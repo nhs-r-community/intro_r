@@ -71,8 +71,7 @@ class: center, middle
 
 
 # Agenda
-
-<br/> Using R Studio <br/>
+Using R Studio <br/>
 <br/> Importing data <br/>
 <br/> --------- Break --------- <br/>
 <br/> Introduction to ggplot2 <br/>
@@ -172,7 +171,7 @@ nhsr <- magick::image_read('img/session01/nhsr_twitter.PNG')
 
 img <- c(rladies, mir, nhsr)
 
-magick::image_animate(image_scale(img, "600x600"), fps = 1, dispose = "previous", loop = 2)
+magick::image_animate(image_scale(img, "600x600"), fps = 1, dispose = "previous", loop = 6)
 
 ```
 

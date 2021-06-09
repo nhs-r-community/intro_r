@@ -812,7 +812,7 @@ select a subset of variables .darkgrey[from a existing data set]
 ```{r}
 beds_data %>% 
   select(org_code, 
-         org_code)
+         org_name)
 ```
 
 ---
@@ -877,9 +877,9 @@ c("beds", "staff", "patients")
 
 # Very useful in these circumstances
 
-```{r eval=TRUE}
+```{r}
 
-lookup <- c("Bradford District Care", "Bradford District Care Trust")
+c("Bradford District Care", "Bradford District Care Trust")
 
 ```
 
@@ -887,15 +887,38 @@ lookup <- c("Bradford District Care", "Bradford District Care Trust")
 
 ```{r }
 beds_data %>% 
-  filter(org_name %in% lookup) #<<
+  filter(org_name %in% c("Bradford District Care", "Bradford District Care Trust")) #<<
 ```
 
 </br> Filter by org_name NOT IN the lookup list.
 
 ```{r }
 beds_data %>% 
-  filter(!org_name %in% lookup) #<<
+  filter(!org_name %in% c("Bradford District Care", "Bradford District Care Trust")) #<<
 ```
+
+---
+
+# For SQL users
+
+Code would look like this in SQL
+
+```{sql }
+
+SELECT *
+FROM Table
+WHERE Colm IN ('Bradford District Care', 'Bradford District Care Trust')
+
+```
+
+And
+
+```{sql}
+SELECT *
+FROM Table
+WHERE Colm NOT IN ('Bradford District Care', 'Bradford District Care Trust')
+```
+
 
 ---
 

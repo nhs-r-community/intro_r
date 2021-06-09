@@ -262,12 +262,16 @@ plot #<<
 
 The way names are written out is a question of style but it's best to be consistent. 
 
-The two common forms in R are:
+The two common forms in R are camelCase and snake_case but others are:
 
 ```{r}
-camelCase 
+camelCase # first letter is small case
 
-snake_case 
+PascalCase # every letter is capital
+
+snake_case # lower case and words are separated with underline
+
+kebab-case # lower case and hyphen, used in RMarkdown but not R scripts
 ```
 
 ---

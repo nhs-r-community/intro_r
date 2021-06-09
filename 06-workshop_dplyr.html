@@ -963,7 +963,7 @@ select a subset of variables .darkgrey[from a existing data set]
 ```r
 beds_data %&gt;% 
   select(org_code, 
-         org_code)
+         org_name)
 ```
 
 ---
@@ -1034,7 +1034,7 @@ c("beds", "staff", "patients")
 
 
 ```r
-lookup &lt;- c("Bradford District Care", "Bradford District Care Trust")
+c("Bradford District Care", "Bradford District Care Trust")
 ```
 
 &lt;/br&gt; Filter by org_name IN the lookup list.
@@ -1042,7 +1042,7 @@ lookup &lt;- c("Bradford District Care", "Bradford District Care Trust")
 
 ```r
 beds_data %&gt;% 
-* filter(org_name %in% lookup)
+* filter(org_name %in% c("Bradford District Care", "Bradford District Care Trust"))
 ```
 
 &lt;/br&gt; Filter by org_name NOT IN the lookup list.
@@ -1050,8 +1050,33 @@ beds_data %&gt;%
 
 ```r
 beds_data %&gt;% 
-* filter(!org_name %in% lookup)
+* filter(!org_name %in% c("Bradford District Care", "Bradford District Care Trust"))
 ```
+
+---
+
+# For SQL users
+
+Code would look like this in SQL
+
+
+```sql
+
+SELECT *
+FROM Table
+WHERE Colm IN ('Bradford District Care', 'Bradford District Care Trust')
+
+```
+
+And
+
+
+```sql
+SELECT *
+FROM Table
+WHERE Colm NOT IN ('Bradford District Care', 'Bradford District Care Trust')
+```
+
 
 ---
 
