@@ -1,0 +1,174 @@
+---
+title: "Using R Studio Projects"
+subtitle: "Session 2"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r libs, include=FALSE}
+
+#knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = 'asis')
+
+#Runs packages if available
+library(knitr)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icon")
+library(icon) # icons need to be loaded to view so run following code if not already done
+# icon::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(echo = FALSE,
+               fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"))
+
+```
+
+class: title-slide, left, bottom
+
+<img src="img/session02/cracked_setwd.PNG" width="40%"/>
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+.footnote[Artwork by @allison_horst]
+
+]
+
+---
+
+# Working Directory
+
+If you tell R/R Studio to look for a file, or save a plot, it will (by default) look in a place called the working
+directory (wd) </br>
+
+</br> <img class="center" src="img/session02/working-directory.PNG"/>
+
+</br> You can (usually) see your working directory path at the top of the console panel...</br>
+
+</br> ... it often defaults to the "Documents" folder. </br>
+
+</br> This example is ~/workshop-r/ and ~ is in Documents
+
+---
+
+# Browsing in RStudio
+
+If you click the arrow next to the file pathway ~/workshop-r/
+
+</br> <img src="img/session02/working-directory.PNG"/>
+
+it will return you to the working directory and you can see all the files in that folder:
+
+</br> <img class="center" src="img/session02/wd-files.PNG"/>
+
+---
+
+class: center, middle
+
+# Organisation
+
+</br> <img class="center"src="img/session02/cognitive-load.PNG" width="15%"/>
+
+</br> Sooner or later (but probably sooner) you will wish to change where files are saved (and loaded from). </br>
+
+</br> Being organised is key:</br>
+
+</br> Reduces cognitive load (and frustration).
+
+.footnote[Artwork by @allison_horst]
+
+---
+
+# RStudio Projects
+
+</br> make it *far easier* for you to: </br>
+
+</br> 1) .blue[*Organise*] files and workflow </br>
+</br> 2) .blue[*Switch*] between projects </br>
+</br> 3) .blue[*Share*] scripts / projects with others </br>
+
+
+</br> .green[(when collaborating or getting assistance)] </br>
+
+</br> Recommended for all tasks (large or small).
+
+---
+
+# Create a project
+
+</br> File `r icon::fontawesome("arrow-right")` New Project `r icon::fontawesome("arrow-right")` New Directory `r icon::fontawesome("arrow-right")` New Project
+
+</br> Name the directory "workshop-r" </br>
+</br> Create as a subdirectory somewhere useful for you </br>
+</br> Create project! </br>
+
+---
+
+# RStudio Projects
+
+Now your working directory is your project directory:
+
+</br> <img class="center" src="img/session02/workshop-r-project.PNG"/>
+
+</br> R will save and load files from here (by default). </br>
+</br> If starting another project, repeat this process.
+
+---
+
+class: middle, center
+
+# R Studio Projects
+
+Switching between projects is simple
+
+</br> <img class="center" src="img/session02/project-list.PNG"/>
+
+---
+
+# Acknowledgements
+
+Artwork by @allison_horst
+
+#### This work is licensed as
+
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/
