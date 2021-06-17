@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to R and Rstudio</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Zoë Turner" />
+    <script src="libs/header-attrs-2.8/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.4/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.4/shareagain.js"></script>
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, left, bottom
+
+# Introduction to R and Rstudio
+----
+## **Session 1**
+### Zoë Turner
+### 
+
+---
+
+class: center, middle
+
+
+# Agenda
+Using R Studio &lt;br/&gt;
+&lt;br/&gt; Importing data &lt;br/&gt;
+&lt;br/&gt; --------- Break --------- &lt;br/&gt;
+&lt;br/&gt; Introduction to ggplot2 &lt;br/&gt;
+&lt;br/&gt; What does this function do? &lt;br/&gt;
+&lt;br/&gt; --------- Lunch ----------- &lt;br/&gt;
+&lt;br/&gt; Data wrangling with dplyr &lt;br/&gt;
+&lt;br/&gt; Naming objects | Relational data &lt;br/&gt;
+&lt;br/&gt; --------- Break --------- &lt;br/&gt;
+&lt;br/&gt; R Markdown &lt;br/&gt;
+&lt;br/&gt; Ongoing learning &lt;br/&gt;
+&lt;br/&gt; .green[Finish about 4 - 430pm] &lt;br/&gt;
+
+---
+
+class: center, middle
+
+# Course Aims
+&lt;/br&gt;
+####1. To show you some of the possibilities:
+####2. To give you a feel for how R works.
+####3. To show you enough for you to begin teaching yourself
+_(Excellent free resources available)_
+
+
+---
+
+class: inverse, middle, center
+
+
+.left-col[.center[
+###_elegant_
+#Graphics
+]]
+
+---
+
+[&lt;img class="center" src="img/session01/heatmap_colin_angus.PNG"/&gt;](https://github.com/VictimOfMaths/COVID-19)
+
+---
+The original blog is no longer available that featured this
+
+&lt;img class="center" src="img/session01/london_cycle_routes.PNG" width="90%"/&gt;
+
+---
+
+class: center, middle
+
+# Collaboration
+&lt;br/&gt;
+
+&lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+## Reproducibility
+
+&lt;svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"&gt;&lt;/path&gt;&lt;/svg&gt;
+
+### R Markdown
+
+---
+
+&lt;img class="center" src="img/session01/automated_reports.PNG"/&gt;
+
+---
+
+# (Interactive) Dashboards
+
+[Mental Health Surge Modelling](https://strategyunit.shinyapps.io/MH_Surge_Modelling/)
+
+&lt;img src="img/session01/mental_health_modelling.PNG"/&gt;
+
+---
+
+[Trafford Data Lab](https://trafforddatalab.shinyapps.io/trafford-tweet-dash/) and the main [site](https://www.trafforddatalab.io/)
+
+&lt;img src="img/session01/twitter_dash.PNG"/&gt;
+
+---
+
+# R to SQL connection
+
+
+[NHS-R Community Webinar](https://nhsrcommunity.com/learn-r/workshops/database-connections-in-r-webinar)
+
+&lt;img src="img/session01/webinar_nhsr.PNG"/&gt;
+
+---
+
+class: center, middle
+
+# Inclusivity
+
+![](01-workshop_intro_files/figure-html/inclusive-1.gif)&lt;!-- --&gt;
+
+---
+
+class: inverse, middle, center
+
+.left-col[.center[
+_elegant_
+## Course Philosophy
+]]
+
+---
+
+[Minimum Viable Product](https://blog.crisp.se/2016/01/25/henrikkniberg/making-sense-of-mvp)
+
+.left-col[.center[
+&lt;img src="img/session01/mvp.PNG" width="75%"/&gt;
+]]
+
+---
+
+class: center, middle
+
+# Course philosophy
+
+&lt;/br&gt; Relaxed and informal &lt;/br&gt;
+&lt;/br&gt; Slides and code are available on [&lt;svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt; original](https://github.com/nhs-r-community/intro_r) and [&lt;svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt; updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion)) &lt;/br&gt;
+&lt;/br&gt; The truth; but it can’t be the whole truth… &lt;/br&gt;
+&lt;/br&gt; too much to cover in a day&lt;/br&gt;
+
+---
+
+class: inverse, middle, center
+
+# Let's begin
+
+---
+
+class: center, middle
+
+## R vs. RStudio
+&lt;/br&gt; R is a programming language &lt;/br&gt;
+&lt;/br&gt; RStudio is a software application with tools to &lt;/br&gt;
+&lt;/br&gt; improve your programming experience
+
+---
+
+&lt;img class="center" src="img/session01/race_car.PNG"/&gt;
+
+---
+
+&lt;img class="center" src="img/session01/roberto-nickson-unsplash.PNG"/&gt;
+
+---
+
+# RStudio 
+
+&lt;/br&gt;
+
+&lt;/br&gt; Many excellent features to help you with your analyses. &lt;/br&gt;
+
+&lt;/br&gt; Never again have to think about R and RStudio as separate:
+Opening R Studio opens an R session. &lt;/br&gt;
+
+&lt;/br&gt; Analogy from the book Modern Dive:
+[www.moderndive.com](www.moderndive.com)
+
+---
+
+class: center, middle
+
+# Open RStudio
+
+&lt;/br&gt;
+&lt;/br&gt; R Studio opens an R session.
+
+---
+
+.left-column[
+The Console is your window to R. &lt;/br&gt;
+
+&lt;/br&gt; You can code directly in the console… &lt;/br&gt;
+
+&lt;/br&gt; pi*2 &lt;kbd&gt; Enter &lt;/kbd&gt; &lt;/br&gt;
+&lt;/br&gt; 37/12 &lt;kbd&gt; Enter &lt;kbd&gt; &lt;/br&gt;
+&lt;/br&gt; … but there is a better way…
+]
+
+.right-column[
+
+&lt;img src="img/session01/rstudio_console.PNG"/&gt;
+
+]
+
+---
+
+.left-column[
+
+#### The Editor
+&lt;/br&gt;
+
+&lt;/br&gt; If you don’t see the Editor pane, click top right button &lt;/br&gt;
+
+&lt;/br&gt; And choose "R Script" from the drop down.  &lt;/br&gt;
+
+&lt;/br&gt; Or, shortcut:  &lt;/br&gt;
+&lt;kbd&gt; Ctrl + Shift + N &lt;/kbd&gt; &lt;/br&gt;
+&lt;/br&gt; .blue[_The cloud shortcut is &lt;kbd&gt; Ctrl + Shift + Alt + N &lt;/kbd&gt;_]
+]
+
+.pull-right[
+
+&lt;img src="img/session01/new_file.PNG"/&gt;
+
+]
+---
+
+.left-column[
+The Editor is just like any other text
+editor: you can copy, paste, and save text. &lt;/br&gt;
+
+&lt;/br&gt; &lt;kbd&gt; Ctrl + Z &lt;/kbd&gt; undoes *but*
+&lt;/br&gt; &lt;kbd&gt; Ctrl + Shift + Z &lt;/kbd&gt; to redo 
+&lt;/br&gt; (_not &lt;kbd&gt; Ctrl + y&lt;/kbd&gt;_)
+
+&lt;/br&gt; Different text is coloured
+(the console is uniform) &lt;/br&gt;
+
+&lt;/br&gt; Autocomplete &lt;/br&gt;
+
+&lt;/br&gt; &lt;kbd&gt;Ctrl + Enter &lt;/kbd&gt;
+(sends line of
+code to Console)
+]
+
+.right-column[
+&lt;img src="img/session01/editor.PNG"/&gt;
+]
+
+---
+
+.left-column[
+Comment code with a # &lt;/br&gt;
+
+&lt;/br&gt; E.g # this was a
+bad idea
+
+Comment frequently, at least in the beginning
+
+]
+
+.right-column[
+&lt;img src="img/session01/editor.PNG"/&gt;
+]
+
+---
+
+# Tools -&gt; Options
+
+[Reasons why this is default](https://community.rstudio.com/t/defaults-of-saving-and-restoring-workspace/939)
+
+&lt;img class="center" src="img/session01/global_options.PNG"/&gt;
+
+---
+
+# Tools -&gt; Options
+
+Accessbility and comfort for all
+
+&lt;img class="center" src="img/session01/appearance.PNG"/&gt;
+
+---
+
+class: center, middle
+
+# Packages
+
+&lt;/br&gt;
+### R packages are like apps for your phone:
+&lt;/br&gt;
+
+--
+
+&lt;/br&gt; Extend the capabilities of the basic or "base R" &lt;/br&gt;
+with extra functions, datasets, documentation.
+
+---
+
+&lt;img class="center" src="img/session01/app_analogy.PNG"/&gt;
+
+---
+
+# Packages
+
+
+
+
+&lt;/br&gt; will download a package to your personal library. Then: &lt;/br&gt;
+
+
+
+This tells R to load the package from your personal library and is _needed for every new session/script_]
+
+---
+
+class: center, middle
+
+## CRAN repository
+
+&lt;/br&gt; [Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
+&lt;/br&gt; 17,306 packages (March 20201). Free. Peer reviewed. &lt;/br&gt;
+
+&lt;/br&gt; (Manifold possibilities) eg. interactive graphics and &lt;/br&gt;
+&lt;/br&gt; dashboards, machine learning, mine twitter data, &lt;/br&gt;
+&lt;/br&gt; create PowerPoint docs, maps… &lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+
+&lt;/br&gt;.blue[Other ways to get packages (eg. GitHub &lt;svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt;)]
+
+---
+
+&lt;img class="center" src="img/session01/tidyverse.PNG"/&gt;
+
+---
+
+class: center, middle
+
+## What is the tidyverse?
+&lt;/br&gt;
+
+&lt;/br&gt; The [tidyverse package](https://www.tidyverse.org/) collects (some of) the most popular &lt;/br&gt;
+R packages into one. &lt;/br&gt;
+
+&lt;/br&gt; All have the same underlying principles: &lt;/br&gt;
+
+&lt;/br&gt; Provide simple tools (with consistent structure) which may &lt;/br&gt;
+be used together to help solve complex problems.
+
+---
+
+class: center, middle
+
+## What is the tidyverse?
+&lt;/br&gt;
+
+&lt;/br&gt; During the workshop we will use the [ggplot2](https://ggplot2.tidyverse.org/), [dplyr](https://dplyr.tidyverse.org/), &lt;/br&gt;
+and [readr](https://readr.tidyverse.org/) packages. These are bundled up in the &lt;/br&gt;
+tidyverse package. Load it by running: &lt;/br&gt;
+&lt;/br&gt;
+
+
+
+---
+
+# Output
+
+Information - what was loaded and potential conflicts
+
+```
+-- Attaching packages ------------------------------------------ tidyverse 1.3.0 --
+v ggplot2 3.3.3     v purrr   0.3.4
+v tibble  3.1.0     v dplyr   1.0.4
+v tidyr   1.1.2     v stringr 1.4.0
+v readr   1.4.0     v forcats 0.5.1
+-- Conflicts --------------------------------------------- tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+```
+
+Warnings - not errors, just information on versions
+
+```
+Warning messages:
+1: package ‘tidyverse’ was built under R version 4.0.4 
+2: package ‘tidyr’ was built under R version 4.0.3 
+3: package ‘readr’ was built under R version 4.0.3 
+4: package ‘purrr’ was built under R version 4.0.3 
+5: package ‘dplyr’ was built under R version 4.0.3 
+6: package ‘stringr’ was built under R version 4.0.3 
+```
+
+---
+
+#### This work is licensed as
+&lt;/br&gt; Creative Commons
+&lt;/br&gt; Attribution
+&lt;/br&gt; ShareAlike 4.0
+&lt;/br&gt; International
+&lt;/br&gt; To view a copy of this license, visit
+&lt;/br&gt; https://creativecommons.org/licenses/by/4.0/
+
+---
+
+name: goodbye
+class: middle, inverse
+
+# **Thank you!**
+
+&lt;br/&gt; Acknowledgements: for creating the original training slides and delivering training:
+
+Andrew Jones | Ozayr Mohammed &lt;br/&gt;
+Healthcare Analysts | The Strategy Unit
+
+[&lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"&gt;&lt;/path&gt;&lt;/svg&gt; andrew.jones40@nhs.net](mailto:andrew.jones40@nhs.net)&lt;br/&gt;
+
+[&lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"&gt;&lt;/path&gt;&lt;/svg&gt; ozayr.mohammed@nhs.net](mailto:ozayr.mohammed@nhs.net)
+
+And to Silvia Canelón who created the Xaringan presentation using NHS and NHR-R colour branding and shared this at the 2020 [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html). &lt;br/&gt;
+
+Details of the workshops she ran at the [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html).
+
+And to Zoë Turner who converted the presentation to Xaringan. [&lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;  [ comment ]  &lt;path d="M440 6.5L24 246.4c-34.4 19.9-31.1 70.8 5.7 85.9L144 379.6V464c0 46.4 59.2 65.5 86.6 28.6l43.8-59.1 111.9 46.2c5.9 2.4 12.1 3.6 18.3 3.6 8.2 0 16.3-2.1 23.6-6.2 12.8-7.2 21.6-20 23.9-34.5l59.4-387.2c6.1-40.1-36.9-68.8-71.5-48.9zM192 464v-64.6l36.6 15.1L192 464zm212.6-28.7l-153.8-63.5L391 169.5c10.7-15.5-9.5-33.5-23.7-21.2L155.8 332.6 48 288 464 48l-59.4 387.3z"&gt;&lt;/path&gt;&lt;/svg&gt; zoe.turner2@notthshc.nhs.uk](mailto:zoe.turner2@nottshc.nhs.uk) 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+  <style>
+  .logo {
+    background-image: url(img/logo-blue.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 100px;
+    height: 118px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+  ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

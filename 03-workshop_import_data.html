@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Importing Data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Zoë Turner" />
+    <script src="libs/header-attrs-2.7/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.4/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.4/shareagain.js"></script>
+    <link rel="stylesheet" href="css/nhsr.css" type="text/css" />
+    <link rel="stylesheet" href="css/nhsr-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, left, bottom
+
+# Importing Data
+----
+## **Session 3**
+### Zoë Turner
+### 
+
+.right-column[
+
+]
+
+---
+
+class: center, middle
+
+# Import data to R
+
+&lt;/br&gt; There are R packages to import all types of data. 
+&lt;/br&gt; In this course, we'll cover the most
+&lt;/br&gt; common imports: 
+&lt;/br&gt;
+&lt;/br&gt; csvs and Excel workbooks
+
+--
+
+&lt;/br&gt; We'd like to import the `capacity_ae.csv` file. &lt;/br&gt; 
+
+&lt;/br&gt; While we could write code from scratch to do this,
+&lt;/br&gt; it's often easier to get the import wizard to do this
+&lt;/br&gt; for you.
+
+---
+
+class: center, middle
+
+# Import data to R
+
+We will use the "Import Dataset" button (but you can also click on the file itself):
+
+&lt;/br&gt; &lt;img class="center" src="img/session03/import-screenshot.PNG" width="80%"/&gt;
+
+---
+
+# Import data to R
+
+We will use the "Import Dataset" button:
+
+&lt;/br&gt; &lt;img class="center" src="img/session03/drop-down-import.PNG" width="60%"/&gt;
+
+---
+
+# Import data to R
+
+The package used to install csvs is {readr} which is loaded with the {tidyverse} package.
+
+Excel workbooks require the package {readxl}.
+
+&lt;/br&gt; &lt;img class="center" src="img/session03/drop-down-import-csv.PNG" width="60%"/&gt;
+
+---
+
+# Import wizard
+
+Locate the file capacity_ae.csv
+
+&lt;/br&gt; &lt;img src="img/session03/wizard.PNG"/&gt;
+
+---
+
+# Import wizard
+
+&lt;/br&gt; &lt;img src="img/session03/capacity-ae-preview.PNG"/&gt;
+
+---
+
+# Import wizard
+
+&lt;/br&gt; &lt;img src="img/session03/import-button.PNG"/&gt;
+
+---
+
+# Import wizard
+
+&lt;/br&gt; &lt;img src="img/session03/copy-wizard-code.PNG"/&gt;
+
+---
+
+# Import wizard
+
+&lt;/br&gt; &lt;img src="img/session03/copy-code-preview.PNG"/&gt;
+
+---
+
+# Import wizard
+
+Once copied then select .green[Cancel] and then .green[Paste].
+
+.left-col[.left[
+
+From the clipboard:
+&lt;img class="center" src="img/session03/paste-code.PNG"/&gt;
+
+]]
+
+--
+
+.right-col-.right[
+
+Where just one line copied:
+&lt;img src="img/session03/paste-selected-code.PNG"/&gt;
+
+]
+
+
+---
+
+# Run code from the editor
+
+&lt;/br&gt; &lt;img class="center" src="img/session03/run-code.PNG"/&gt;
+
+No need to highlight all code to run.
+
+&lt;/br&gt;  Put the cursor in the line you want to run then select the button to Run or &lt;kbd&gt; Ctrl + Return &lt;/kbd&gt;
+
+
+---
+
+#### This work is licensed as
+&lt;/br&gt; Creative Commons
+&lt;/br&gt; Attribution
+&lt;/br&gt; ShareAlike 4.0
+&lt;/br&gt; International
+&lt;/br&gt; To view a copy of this license, visit
+&lt;/br&gt; https://creativecommons.org/licenses/by/4.0/
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "googlecode",
+"highlightLines": true,
+"highlightLanguage": "r",
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+<!--Hat-tip: https://www.garrickadenbuie.com/blog/xaringan-tip-logo-all-slides/-->
+  <style>
+  .logo {
+    background-image: url(img/logo-blue.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 100px;
+    height: 118px;
+    z-index: 0;
+  }
+</style>
+  
+  <script>
+  document
+.querySelectorAll(
+  '.remark-slide-content' +
+    ':not(.title-slide)' +
+    // add additional classes to exclude here, e.g.
+  ':not(.inverse)' +
+    ':not(.hide-logo)'
+)
+.forEach(el => {
+  el.innerHTML += '<div class="logo"></div>';
+});
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+---
+title: "What does this function do?"
+subtitle: "Session 5"
+author: "Zoë Turner"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+---
+
+```{r libs, include=FALSE}
+
+#Runs packages if available
+library(knitr)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+library(kableExtra)
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icon")
+library(icon) # icons need to be loaded to view so run following code if not already done
+# icon::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"),
+               echo = TRUE)
+
+```
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+.right-column[
+
+]
+
+---
+
+# What does this function do?
+
+<img class="center" src="img/session05/f1-for-help.PNG"/>
+
+---
+
+# In the console
+
+Either in the script or in the console, typing ? before the function and run if the package is loaded:
+
+```{r eval=FALSE}
+?ggsave
+```
+
+Or if the package hasn't been loaded using the package::function() format:
+
+```{r eval=FALSE}
+??beepr::beep # loaded in the Cloud
+```
+
+---
+
+# Getting help on Stackoverflow
+
+... or [R Studio Community](https://community.rstudio.com/) or [NHS-R Slack group](nhsrcommunity.slack.com)
+
+<img class="center" src="img/session05/stackoverflow_example.PNG"/>
+
+---
+
+# Cheat sheets
+
+Popular packages have cheat sheets and R Studio's can be found [here](https://rviews.rstudio.com/2021/03/10/rstudio-open-source-resorurces/) which download as a pdf.
+
+<img class="center" src="img/session05/cheat-sheets.PNG"/>
+
+---
+
+class: center, middle
+
+# Save your script!
+
+Think of your script (rather than the objects) as the "real" part of your analysis.
+
+File `r icon::fontawesome("arrow-right")` Save As… `r icon::fontawesome("arrow-right")` ggplot_intro.R
+
+Or shortcut <kbd>Ctrl + S</kbd> 
+
+---
+
+# Recommended Reading
+
+<img class="center" src="img/session05/recommended-reading.PNG"/>
+
+http://socviz.co/
+</br> https://serialmentor.com/dataviz/
+</br> https://r4ds.had.co.nz/
+
+All free online as well as available to buy as hardcopies
+
+---
+
+# Art interlude
+
+https://twitter.com/accidental__aRt
+
+</br> 
+
+--
+
+</br> 
+</br> 
+## Computational aRt 
+
+https://art.djnavarro.net/
+
+https://www.data-imaginist.com/art
+
+---
+
+```{r echo = FALSE, out.width="80%"}
+lines <- tibble(
+  
+  x = seq(0, 19, by = .5),
+  xend = x,
+  y =  rep(0, 39),
+  yend = c(rep(c(5, 10), 19), 5))
+
+dots <- lines %>%
+  select(x, yend)
+
+ggplot() +
+  geom_segment(data = lines,
+               aes(x = x, xend = xend,
+                   y = y, yend = yend),
+               color = "white") +
+  geom_point(data = dots,
+             aes(x = x, y = yend),
+             color = "white") +
+  scale_y_continuous(limits = c(-5, 10)) +
+  coord_polar() +
+  theme(
+    plot.background = element_rect(
+      fill = "#75926f"),
+    panel.background = element_rect(
+      fill = "#75926f"),
+    panel.grid = element_blank(),
+    plot.caption = element_text(
+      family = "Open Sans",
+      size = 6,
+      color = "white"),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  )
+
+```
+
+https://ijeamaka-anyene.netlify.app/posts/2021-01-14-art-ggplot-exploring-radial-visualizations/ 
+
+---
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/
