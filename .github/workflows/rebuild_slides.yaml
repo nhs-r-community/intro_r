@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [clean_up, main]
+    branches: [main]
 
 name: rebuild_slides
 
