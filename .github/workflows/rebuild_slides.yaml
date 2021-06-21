@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [clean_up, main, master]
+    branches: [clean_up, main]
 
 name: rebuild_slides
 
@@ -18,6 +18,7 @@ jobs:
           
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RSPM: ${{ matrix.config.rspm }}
       
     steps:
       - uses: actions/checkout@v2
