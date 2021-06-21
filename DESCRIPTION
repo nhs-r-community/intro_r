@@ -21,7 +21,13 @@ Imports:
     magick,
     icons,
     NHSRdatasets,
-    NHSRtheme
+    NHSRtheme,
+    rmarkdown
+Suggests:
+    callr,
+    withr,
+    fs,
+    here
 Remotes:
     gadenbuie/xaringanExtra,
     nhs-r-community/NHSRtheme,
