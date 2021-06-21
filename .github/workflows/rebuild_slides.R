@@ -1,3 +1,4 @@
+# this script is largely adapted from pkgdown::deploy_site_github()
 setwd(here::here())
 
 icons::download_fontawesome()
@@ -7,23 +8,25 @@ git <- function (..., echo_cmd = TRUE, echo = TRUE, error_on_status = TRUE)  {
              error_on_status = error_on_status)
 }
 
-dest_dir <- fs::dir_create(fs::file_temp())
-on.exit(fs::dir_delete(dest_dir))
-
-git("remote", "set-branches", "origin", "gh-pages")
-git("fetch", "origin", "gh-pages")
-git("worktree", "add", "--track", "-B", "gh-pages", dest_dir, "origin/gh-pages")
-on.exit(git("worktree", "remove", dest_dir))
-
-unlink(dir(dest_dir, full.names = TRUE), TRUE, TRUE)
-
-rmds <- dir(pattern = "(index|\\d{2}-.*)\\.Rmd")
-file.copy(c("libs", "css", "img", "data", rmds), dest_dir, TRUE, TRUE)
-
-withr::local_dir(dest_dir, {
-  sapply(rmds, rmarkdown::render)
-  unlink(c(rmds, "data"), TRUE, TRUE)
-  git("add", "-A", ".")
-  git("commit", "--allow-empty", "-m", "rebuilding slides")
-  git("push", "--force", "origin", "HEAD:gh-pages")
-})
+rebuild_slides <- function() {
+  dest_dir <- fs::dir_create(fs::file_temp())
+  on.exit(fs::dir_delete(dest_dir))
+  
+  git("remote", "set-branches", "origin", "gh-pages")
+  git("fetch", "origin", "gh-pages")
+  git("worktree", "add", "--track", "-B", "gh-pages", dest_dir, "origin/gh-pages")
+  on.exit(git("worktree", "remove", dest_dir))
+  
+  unlink(dir(dest_dir, full.names = TRUE), TRUE, TRUE)
+  
+  rmds <- dir(pattern = "(index|\\d{2}-.*)\\.Rmd")
+  file.copy(c("libs", "css", "img", "data", rmds), dest_dir, TRUE, TRUE)
+  
+  withr::local_dir(dest_dir, {
+    sapply(rmds, rmarkdown::render)
+    unlink(c(rmds, "data"), TRUE, TRUE)
+    git("add", "-A", ".")
+    git("commit", "--allow-empty", "-m", "rebuilding slides")
+    git("push", "--force", "origin", "HEAD:gh-pages")
+  })
+}
