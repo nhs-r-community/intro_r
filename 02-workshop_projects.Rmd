@@ -35,9 +35,9 @@ library(nhsrtheme)
 # Packages not on CRAN
 
 # install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icon")
-library(icon) # icons need to be loaded to view so run following code if not already done
-# icon::download_fontawesome()
+# remotes::install_github("mitchelloharawild/icons")
+library(icons) # icons need to be loaded to view so run following code if not already done
+# icons::download_fontawesome()
 
 # install.packages("devtools")
 #devtools::install_github("gadenbuie/xaringanExtra")
@@ -131,7 +131,7 @@ class: center, middle
 
 # Create a project
 
-</br> File `r icon::fontawesome("arrow-right")` New Project `r icon::fontawesome("arrow-right")` New Directory `r icon::fontawesome("arrow-right")` New Project
+</br> File `r icons::fontawesome("arrow-right")` New Project `r icons::fontawesome("arrow-right")` New Directory `r icons::fontawesome("arrow-right")` New Project
 
 </br> Name the directory "workshop-r" </br>
 </br> Create as a subdirectory somewhere useful for you </br>

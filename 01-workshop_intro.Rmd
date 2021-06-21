@@ -39,9 +39,9 @@ library(magick)
 # Packages not on CRAN
 
 # install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icon")
-library(icon) # icons need to be loaded to view so run following code if not already done
-# icon::download_fontawesome()
+# remotes::install_github("mitchelloharawild/icons")
+library(icons) # icons need to be loaded to view so run following code if not already done
+# icons::download_fontawesome()
 
 # install.packages("devtools")
 #devtools::install_github("gadenbuie/xaringanExtra")
@@ -122,11 +122,11 @@ class: center, middle
 # Collaboration
 <br/>
 
-`r icon::fontawesome("arrow-down")`
+`r icons::fontawesome("arrow-down")`
 
 ## Reproducibility
 
-`r icon::fontawesome("arrow-down")`
+`r icons::fontawesome("arrow-down")`
 
 ### R Markdown
 
@@ -199,7 +199,7 @@ class: center, middle
 # Course philosophy
 
 </br> Relaxed and informal </br>
-</br> Slides and code are available on [`r icon::fontawesome("github")` original](https://github.com/nhs-r-community/intro_r) and [`r icon::fontawesome("github")` updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion)) </br>
+</br> Slides and code are available on [`r icons::fontawesome("github")` original](https://github.com/nhs-r-community/intro_r) and [`r icons::fontawesome("github")` updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion)) </br>
 </br> The truth; but it can’t be the whole truth… </br>
 </br> too much to cover in a day</br>
 
@@ -397,7 +397,7 @@ class: center, middle
 </br>
 </br>
 
-</br>.blue[Other ways to get packages (eg. GitHub `r icon::fontawesome("github")`)]
+</br>.blue[Other ways to get packages (eg. GitHub `r icons::fontawesome("github")`)]
 
 ---
 
@@ -485,12 +485,12 @@ class: middle, inverse
 Andrew Jones | Ozayr Mohammed <br/>
 Healthcare Analysts | The Strategy Unit
 
-[`r icon::fontawesome("paper-plane")` andrew.jones40@nhs.net](mailto:andrew.jones40@nhs.net)<br/>
+[`r icons::fontawesome("paper-plane")` andrew.jones40@nhs.net](mailto:andrew.jones40@nhs.net)<br/>
 
-[`r icon::fontawesome("paper-plane")` ozayr.mohammed@nhs.net](mailto:ozayr.mohammed@nhs.net)
+[`r icons::fontawesome("paper-plane")` ozayr.mohammed@nhs.net](mailto:ozayr.mohammed@nhs.net)
 
 And to Silvia Canelón who created the Xaringan presentation using NHS and NHR-R colour branding and shared this at the 2020 [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html). <br/>
 
 Details of the workshops she ran at the [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html).
 
-And to Zoë Turner who converted the presentation to Xaringan. [`r icon::fontawesome("paper-plane")` zoe.turner2@notthshc.nhs.uk](mailto:zoe.turner2@nottshc.nhs.uk) 
+And to Zoë Turner who converted the presentation to Xaringan. [`r icons::fontawesome("paper-plane")` zoe.turner2@notthshc.nhs.uk](mailto:zoe.turner2@nottshc.nhs.uk) 

@@ -1,0 +1,28 @@
+Package: intro_r
+Title: Introduction to R
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given = "Zoë",
+           family = "Turner",
+           role = c("aut", "cre")),
+    person(given = "Andrew",
+           family = "Jones",
+           role = c("aut")),
+    person(given = "NHS-R Community",
+           role = c("cph")))
+Description: Materials for the NHS-R Introduction to R course
+License: MIT
+Encoding: UTF-8
+Imports:
+    tidyverse,
+    xaringan,
+    xaringanExtra,
+    kableExtra,
+    magick,
+    icons,
+    NHSRdatasets,
+    NHSRtheme
+Remotes:
+    gadenbuie/xaringanExtra,
+    nhs-r-community/NHSRtheme,
+    mitchelloharawild/icons

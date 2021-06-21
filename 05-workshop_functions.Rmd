@@ -34,9 +34,9 @@ library(kableExtra)
 # Packages not on CRAN
 
 # install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icon")
-library(icon) # icons need to be loaded to view so run following code if not already done
-# icon::download_fontawesome()
+# remotes::install_github("mitchelloharawild/icons")
+library(icons) # icons need to be loaded to view so run following code if not already done
+# icons::download_fontawesome()
 
 # install.packages("devtools")
 #devtools::install_github("gadenbuie/xaringanExtra")
@@ -111,7 +111,7 @@ class: center, middle
 
 Think of your script (rather than the objects) as the "real" part of your analysis.
 
-File `r icon::fontawesome("arrow-right")` Save As… `r icon::fontawesome("arrow-right")` ggplot_intro.R
+File `r icons::fontawesome("arrow-right")` Save As… `r icons::fontawesome("arrow-right")` ggplot_intro.R
 
 Or shortcut <kbd>Ctrl + S</kbd> 
 

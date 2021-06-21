@@ -1,0 +1,178 @@
+---
+title: "Introduction to RMarkdown"
+author: "Zoë Turner"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_download: yes
+    toc: true
+    toc_depth: 4
+    toc_float: true
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE, echo=FALSE)
+
+# Lots of YAML global settings, switches off any messages, warnings and stops sharing and code.
+
+library(tidyverse)
+
+```
+
+
+# Knit early. Knit often. 
+
+## The following section makes more sense in the code than in the html
+
+Insert an R code chunk by using the **insert** button above. Shortcut keys Ctrl+Alt+i should create a chunk but if not, this can be set by choosing your own shortcut in Tools/Keyboard Shortcuts Help.
+
+A code chunk looks like this:
+
+
+```{r}
+
+# This won't show in the output file. Naming chunks can help to locate sections.
+
+```
+
+You can name a chunk (optional), like so 
+
+```{r name-of-chunk}
+
+# Just ensure the names are different or it won't run. Spaces are ok, but not underscores between words
+
+```
+
+The next chunk should be familiar; it's the code to import the beds data. Code has been copied across but code can be written directly into the chunk.  
+
+```{r load-data}
+
+beds_data <- read_csv("data/beds_data.csv",
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")),
+                      skip = 3)
+
+
+```
+
+## Knit the file
+
+By clicking on the drop down menu beside the **Knit** button, a document will be generated (note: first time you do this, you'll be prompted to name your file. Try "test_rmarkdown"). As PDF requires additional installations, we will knit to HTML (web page) for now, which is the default and also better for accessbility.
+
+### Text
+
+# Markdown formatting
+
+## You can play with headers that get smaller
+
+### You can play with headers - and smaller
+
+#### You can play with headers  - and smaller
+
+##### You can play with headers  - and smallest
+
+You can make a line make a line break
+
+***
+
+You can do all the normal *italics* or _italics_ and **bold** and ^superscript^ and ~~strike-though~~
+
+> Things like block quotes look for quotes  
+> works really well if 
+> split over several lines
+
+Other things that are useful to code:
+
+* lists
+* putting stuff in lists
+  + putting stuff in sub lists
+  + such as this
+* did I say lists?
+
+You can also do numbered lists
+
+(@) Like this
+(@) Fine example of a list
+    + and do sub lists in a numbered list
+      i) and do sub sub lists  
+        A. and sub sub sub list
+
+Write some stuff in the middle of your list        
+        
+(@) and then go back to the list
+(@) NOTE: the numbers in the list are not specified, they are dynamic and if you go and edit one out it will adjust them automatically
+
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "blue">
+
+You can colour in a block to assist with highlighting an area.
+
+- This is my first conclusion
+- This is my second conclusion  
+
+</div>
+
+You can add footnotes[^1]
+
+[^1]:This is the footnote from the footnote added way way up above
+
+
+### Plotting Mental Health bed availabilty 
+
+If the chunk is run (not knitted), the plot will be displayed in line with the code (i.e. below the chunk). 
+
+Note the button to the left of "play" will run all the previous chunks above the current one. 
+
+```{r beds-plot}
+
+beds_ts <- beds_data %>%
+  group_by(date) %>%
+  summarise(
+    mean_beds = mean(beds_av, na.rm = T))
+
+
+ggplot(beds_ts) +
+  geom_line(aes(date, mean_beds))+
+  geom_point(aes(date, mean_beds))
+
+
+```
+
+
+You may want to show your code, either in the html reports or presentation slides. As the settings have been set globally you can set any chunk to deviate from the global:
+
+
+```{r options, echo=TRUE, eval=FALSE}
+
+# echo=TRUE means show this code
+# eval=FALSE means don't check this code. As it is a chunk that won't run correctly, eval=TRUE would result in an error.
+
+ggplot(beds_ts) +
+  geom_line(aes(date, mean_beds)) +
+  geom_point(aes(date, mean_beds)) +
+# This code hasn't been finished.
+
+```
+
+
+```{r options1}
+
+ggplot(beds_ts) +
+  geom_line(aes(date, mean_beds))+
+  geom_point(aes(date, mean_beds))+
+  ylim(0, 350)
+
+```
+
+This chunk refers to the previous chunk code and shows the code but not the chart. 
+Just note the name of the chunk is made into a string with "" quotes.
+
+```{r ref.label="options1", echo=TRUE, eval=FALSE}
+# Comments don't show up in the html
+
+```
+
+#### Acknowledgements
+
+I combined Andrew Jones's original [RMarkdown](https://github.com/nhs-r-community/intro_r/blob/master/intro_rmarkdown.Rmd) training report with some of Simon Wellesley-Miller's code for this RMarkdown example report. I thoroughly recommend running Simon's more detailed [RMarkdown](https://github.com/SimonW-M/Markdown/blob/main/R-Training-v5.Rmd) to learn more, as this is just a brief introduction.
