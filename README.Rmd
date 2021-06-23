@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+library(magrittr)
+library(stringr)
+```
+
+# intro_r
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## Installation of packages
+
+To install all of the required packages to run this project you can run
+
+``` r
+devtools::install_deps(dependencies = TRUE)
+```
+
+Or, install the following packages:
+
+```{r echo=FALSE, results="asis"}
+p <- desc::desc_get_deps()$package
+r <- desc::desc_get_remotes()
+
+cat(
+  "``` r",
+  paste0(
+    "install.packages(",
+    paste("\"", p[!p %in% str_extract(r, "(?<=/).*$")], "\"", collapse = ", ", sep = ""),
+    ")\n",
+    "devtools::install_github(",
+    paste("\"", r, "\"", collapse = ", ", sep = ""),
+    ")"
+  ),
+  "```",
+  sep = "\n"
+)
+```

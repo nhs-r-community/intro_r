@@ -37,9 +37,9 @@ xaringanExtra::use_share_again()
 # Packages not on CRAN
 
 # install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icon")
-library(icon) # icons need to be loaded to view so run following code if not already done
-# icon::download_fontawesome()
+# remotes::install_github("mitchelloharawild/icons")
+library(icons) # icons need to be loaded to view so run following code if not already done
+# icons::download_fontawesome()
 
 # install.packages("devtools")
 #devtools::install_github("gadenbuie/xaringanExtra")
@@ -62,7 +62,7 @@ scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
 scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
 
 
-beds_data <- read_csv("beds_data.csv", col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+beds_data <- read_csv("data/beds_data.csv", col_types = cols(date = col_date(format = "%d/%m/%Y")), 
     skip = 3)
 
 ```

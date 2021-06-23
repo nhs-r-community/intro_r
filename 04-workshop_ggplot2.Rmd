@@ -34,9 +34,9 @@ library(kableExtra)
 # Packages not on CRAN
 
 # install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icon")
-library(icon) # icons need to be loaded to view so run following code if not already done
-# icon::download_fontawesome()
+# remotes::install_github("mitchelloharawild/icons")
+library(icons) # icons need to be loaded to view so run following code if not already done
+# icons::download_fontawesome()
 
 # install.packages("devtools")
 #devtools::install_github("gadenbuie/xaringanExtra")
@@ -55,7 +55,7 @@ opts_chunk$set(fig.width = 7.252,
                message = FALSE)
 
 # load data
-capacity_ae <- read_csv("capacity_ae.csv") %>% 
+capacity_ae <- read_csv("data/capacity_ae.csv") %>% 
   mutate(outliers = case_when(site %in% c(42, 25) ~ 1,
                               TRUE ~ 0))
 
@@ -326,7 +326,7 @@ class: center, middle
 </br> 
 </br> 
 
-# .black[`r icon::icon_style(fontawesome("square-full"), scale = 2)`]
+# .black[`r icons::icon_style(fontawesome("square-full"), scale = 2)`]
 
 ---
 
@@ -339,7 +339,7 @@ class: center, middle
 </br>
 </br> 
 
-# .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+# .black[`r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
 
 .pull-right[
 .blue[**geom**]etric 
@@ -355,7 +355,7 @@ class: center, middle
 1\. What shape will represent the data? .blue[geom]] 
 2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
 
-# .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+# .black[`r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
 
 ---
 
@@ -368,7 +368,7 @@ class: center, middle
 
 2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
 
-# .black[`r icon::icon_style(fontawesome("circle", style = "solid"))`]
+# .black[`r icons::icon_style(fontawesome("circle", style = "solid"))`]
 
 .pull-right[
 ## .blue[size]
@@ -385,7 +385,7 @@ class: center, middle
 
 2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
 
-# `r icon::icon_style(fontawesome("arrows-alt-h"), scale = 2)` .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+# `r icons::icon_style(fontawesome("arrows-alt-h"), scale = 2)` .black[`r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
 
 .pull-right[
 ## position (x axis)
@@ -402,7 +402,7 @@ class: center, middle
 
 2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
 
-# `r icon::icon_style(fontawesome("arrows-alt-v"), scale = 2)` .black[`r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
+# `r icons::icon_style(fontawesome("arrows-alt-v"), scale = 2)` .black[`r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
 
 .pull-right[
 ## position (y axis)
@@ -419,7 +419,7 @@ class: center, middle
 
 2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
 
-# `r icon::icon_style(fontawesome("circle", style = "solid"), scale = 2)`
+# `r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`
 
 .pull-right[
 ## colour
@@ -429,7 +429,7 @@ class: center, middle
 
 # A statistical graphic
 
-Shape/colour/size `r icon::fontawesome("arrow-right")` geom all default
+Shape/colour/size `r icons::fontawesome("arrow-right")` geom all default
 
 ```{r }
 
@@ -539,12 +539,12 @@ We tend to describe plots in terms of the geom used:
 
 We can display more than one geom in a plot:
 
-.blue[`r icon::fontawesome("plus")`] to add a layer
+.blue[`r icons::fontawesome("plus")`] to add a layer
 
 </br>
 
-ggplot(data = capacity_ae) .blue[`r icon::fontawesome("plus")`] 
-</br> .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[`r icon::fontawesome("plus")`] 
+ggplot(data = capacity_ae) .blue[`r icons::fontawesome("plus")`] 
+</br> .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[`r icons::fontawesome("plus")`] 
 </br> .blue[geom_smooth] aes(x = dcubicles, y = dwait))
 
 </br>
