@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 
-.html
-*_files
+*.html
+*_files/
