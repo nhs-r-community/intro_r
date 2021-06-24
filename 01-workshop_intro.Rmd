@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session 1"
-author: "Zoë Turner"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:

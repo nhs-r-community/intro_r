@@ -1,7 +1,6 @@
 ---
 title: "Ongoing learning"
-subtitle: "Session 10"
-author: "Zoë Turner"
+subtitle: "Session 9"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:
