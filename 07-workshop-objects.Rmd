@@ -1,7 +1,6 @@
 ---
 title: "Naming objects"
 subtitle: "Session 7"
-author: "Zoë Turner"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:

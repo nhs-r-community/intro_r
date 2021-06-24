@@ -1,7 +1,6 @@
 ---
 title: "Using R Studio Projects"
 subtitle: "Session 2"
-author: "Zoë Turner"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:

@@ -1,7 +1,6 @@
 ---
 title: "Relational data"
 subtitle: "Session 8"
-author: "Zoë Turner"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:

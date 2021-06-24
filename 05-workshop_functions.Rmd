@@ -1,7 +1,6 @@
 ---
 title: "What does this function do?"
 subtitle: "Session 5"
-author: "Zoë Turner"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:

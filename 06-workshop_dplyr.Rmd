@@ -1,7 +1,6 @@
 ---
 title: "Data wrangling with dplyr"
 subtitle: "Session 6"
-author: "Zoë Turner"
 institute: "NHS-R Community"
 output:
   xaringan::moon_reader:
