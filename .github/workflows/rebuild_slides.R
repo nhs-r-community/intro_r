@@ -10,18 +10,12 @@ git <- function (..., echo_cmd = TRUE, echo = TRUE, error_on_status = TRUE)  {
 
 rebuild_slides <- function() {
   dest_dir <- fs::dir_create(fs::file_temp())
-  withr::defer({
-    fs::dir_delete(dest_dir)
-  }, priority = "last")
   
   git("remote", "set-branches", "origin", "gh-pages")
   git("fetch", "origin", "gh-pages")
   git("submodule", "init")
   git("submodule", "update")
   git("worktree", "add", "--track", "-B", "gh-pages", dest_dir, "origin/gh-pages")
-  withr::defer({
-    git("worktree", "remove", dest_dir)
-  }, priority = "first")
   
   unlink(dir(dest_dir, full.names = TRUE), TRUE, TRUE)
   
