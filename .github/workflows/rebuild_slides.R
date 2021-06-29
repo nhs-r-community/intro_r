@@ -14,7 +14,8 @@ rebuild_slides <- function() {
   
   git("remote", "set-branches", "origin", "gh-pages")
   git("fetch", "origin", "gh-pages")
-  git("submodule", "update", "--remote")
+  git("submodule", "init")
+  git("submodule", "update")
   git("worktree", "add", "--track", "-B", "gh-pages", dest_dir, "origin/gh-pages")
   on.exit(git("worktree", "remove", dest_dir))
   
