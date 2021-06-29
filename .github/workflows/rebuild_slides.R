@@ -30,3 +30,5 @@ rebuild_slides <- function() {
     git("push", "--force", "origin", "HEAD:gh-pages")
   })
 }
+
+rebuild_slides()
