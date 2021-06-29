@@ -22,13 +22,13 @@ rebuild_slides <- function() {
   rmds <- dir(pattern = "(index|\\d{2}-.*)\\.Rmd")
   file.copy(c("libs", "css", "img", "data", rmds), dest_dir, TRUE, TRUE)
   
-  withr::local_dir(dest_dir, {
-    sapply(rmds, rmarkdown::render)
-    unlink(c(rmds, "data"), TRUE, TRUE)
-    git("add", "-A", ".")
-    git("commit", "--allow-empty", "-m", "rebuilding slides")
-    git("push", "--force", "origin", "HEAD:gh-pages")
-  })
+  setwd(dest_dir)
+  
+  sapply(rmds, rmarkdown::render)
+  unlink(c(rmds, "data"), TRUE, TRUE)
+  git("add", "-A", ".")
+  git("commit", "--allow-empty", "-m", "rebuilding slides")
+  git("push", "--force", "origin", "HEAD:gh-pages")
 }
 
 rebuild_slides()
