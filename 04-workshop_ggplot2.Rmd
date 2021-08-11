@@ -54,8 +54,7 @@ opts_chunk$set(fig.width = 7.252,
                message = FALSE)
 
 # load data----------------------------------
-urlfile <- "https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/capacity_ae.csv"
-capacity_ae <- read_csv(url(urlfile)) %>% 
+capacity_ae <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/capacity_ae.csv")) %>% 
   mutate(outliers = case_when(site %in% c(42, 25) ~ 1,
                               TRUE ~ 0))
 
@@ -668,7 +667,7 @@ ggplot(data = capacity_ae) +
 
 # Layering geoms
 
-To avoid duplication, we can pass the common local aes() arguments to ggplot to make them global. Instead of duplicating the same aes(dcublicles, dwait):
+To avoid duplication, we can pass the common local aes() arguments to ggplot to make them global. Instead of duplicating the same aes(dcubicles, dwait):
 
 ```{r}
 ggplot(data = capacity_ae) +
@@ -719,7 +718,7 @@ class: center, middle
 
 ---
 
-# Q. How are “wait” values distributed?
+# Q. How are "wait" values distributed?
 
 ## Histogram
 
