@@ -34,13 +34,13 @@ This repository is split into 3 areas:
 
 ## Cloning this repository
 
-The [data/] folder is a submodule, in order to properly clone this repository you should run the following:
+The [data/](data/) folder is a submodule, in order to properly clone this repository you should run the following:
 
 ``` sh
 git clone --recurse-submodules https://github.com/nhs-r-community/intro_r.git
 ```
 
-Alternatively, if you have already cloned the repository locally, you can run the following to load the [data/] submodule:
+Alternatively, if you have already cloned the repository locally, you can run the following to load the [data/](data/) submodule:
 
 ``` sh
 git submodule init
