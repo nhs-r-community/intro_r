@@ -1,0 +1,279 @@
+---
+title: "Database connections in R"
+subtitle: "Session 11"
+institute: "NHS-R Community"
+output:
+  xaringan::moon_reader:
+    css: 
+      - default
+      - css/nhsr.css
+      - css/nhsr-fonts.css
+    lib_dir: libs
+    seal: false
+    self-contained: true
+    nature:
+      highlightStyle: googlecode
+      highlightLines: true
+      highlightLanguage: ["r"]
+      countIncrementalSlides: false
+      ratio: "16:9"
+    includes:
+      after_body: [css/insert-logo.html]
+
+---
+
+
+
+```{r libs, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, warning = FALSE)
+
+#Runs packages if available
+library(knitr)
+library(tidyverse)
+library(xaringan)
+library(nhsrtheme)
+library(magick)
+
+# Packages not on CRAN
+
+# install.packages("remotes")
+# remotes::install_github("mitchelloharawild/icons")
+library(icons) # icons need to be loaded to view so run following code if not already done
+# icons::download_fontawesome()
+
+# install.packages("devtools")
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+
+xaringanExtra::use_share_again() # need to get the slide button on html view
+
+opts_chunk$set(echo = FALSE,
+               fig.width = 7.252,
+               fig.height = 4,
+               dpi = 300,
+               dev.args = list(type = "cairo"))
+
+
+library(RSQLite)
+
+
+#############################################################################
+# Set up exercise database.  This will be held in memory, using RSQLite
+# You would likely be connecting to SQL Server, Oracle or similar in reality
+#############################################################################
+
+# Load beds_data.csv
+beds <- read_csv("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/26a2e39bd49d4aa95a8efc5b45c398386e6e4ed4/beds_data.csv", 
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+                      skip = 3)
+
+beds$year <- as.double(substring(beds$date,1,4))
+beds$month <- as.double(substring(beds$date,6,7))
+beds$day <- as.double(substring(beds$date,9,10))
+
+# Set up the database connection
+DBI_connection <- dbConnect(RSQLite::SQLite(), ":memory:")
+
+# Write beds table to the database
+dbWriteTable(DBI_connection, "MyTable", beds)
+
+#Remove the imported data frame so we have to work on the database
+rm(beds)
+
+############################################################################
+
+```
+
+
+
+
+class: title-slide, left, bottom
+
+# `r rmarkdown::metadata$title`
+----
+## **`r rmarkdown::metadata$subtitle`**
+### `r rmarkdown::metadata$author`
+### `r rmarkdown::metadata$date`
+
+---
+  
+# Two common methods
+  
+There are two common methods of connection, both of which use Open Database Connectivity (ODBC) drivers:
+  
+1.  The `RODBC` package (older method, not shown here)
+2.  The `DBI` system, using `dplyr,` `dbplyr` and `odbc`.
+
+<br>
++ Both of these create a connection, using a 'connection string' with server details.
++ This can be used to create a connection object that you use in `R`.
++ We can use the object to pull data into `R` or manipulate it in the database.
+
+--
+
+<br>
+
+For these examples, we will assume:
+
++ SQL Server connection, call 'MyServer'
++ A database called 'MyDB'
++ A table called 'MyTable'
+
+---
+
+# DBI connection
+
+Requires a couple of packages, and knowing your connection details:
++ `DBI` - a common Database Interface engine for use in `S` and `R` (see <a href="https://cran.r-project.org/web/packages/DBI/vignettes/DBI-1.html">here</a>)
++ `odbc`- provides the odbc drivers, but you could use the functions below with other drivers instead.
+
+```{r DBI1, message=FALSE, warning=FALSE, echo=TRUE}
+library(DBI)
+library(odbc)
+
+DBI_connection <- dbConnect(odbc()
+                     , Driver="SQL Server"
+                     , Server="MyServer"
+                     , database = "MyDB"
+                     , trusted_connection="true" 
+                     
+)
+```
+
+--
+
++ `trusted_connection=true` passes your windows credentials to the server.  
+  + Sometimes this is: `Trusted_Connection` and `yes` or `no`, instead of `true` or `false`.
++ You can, instead, specify a username (`uid`) and a password (`pwd`)
+
+
+---
+
+# Using SQL & returning data to `R` (1)
+  
++ Can write an SQL query directly using the `dbSendQuery` function.
++ Executes the query on the server-side only.
++ If you want the results back in `R`, you need to use `dbFetch` as well.
+
+```{r dplyrQuery, warning=FALSE, message=FALSE, echo=TRUE}
+SomeRecords <- 
+  dbFetch(
+    dbSendQuery(DBI_connection
+                , "Select TOP 100 * from MyTable"
+                )
+    )
+
+#or
+
+SomeRecords <- 
+  dbSendQuery(DBI_connection
+              , "Select TOP 100 * from MyTable") %>%
+  dbFetch()
+```
+
+---
+
+# Using tables in the database
+  
+Now we can define a table as if it was part of our `R` workspace, using the connection object and the names of the table in the database. 
++ `dplyr` - to make the `tbl` and use it, we'll work with `dplyr` syntax.
++ `dbplyr` - this add-on package allows translation from `dplyr` to SQL.
+
+<br>
+```{r dplyr4, message=FALSE, warning=FALSE, collapse=TRUE, eval=TRUE, echo=TRUE}
+MyTable<-tbl(DBI_connection, "MyTable")
+```
+
+`glimpse` is a useful function that shows you a summary:
+```{r dbplyr5, eval=TRUE, eval=TRUE, echo=TRUE}
+glimpse(MyTable)
+```
+
+
+---
+
+# Constructing `dplyr` query
+
++ We can then perform select or aggregate queries without translation.
++ Even though it returns results, the data are still in the database
+
+
+```{r dplyr5, message=FALSE, warning=FALSE, collapse=FALSE, eval=TRUE, echo=TRUE}
+library(dplyr)
+library(dbplyr)
+
+MyTable %>%
+  filter(year == 2015) %>%
+  group_by(org_name) %>%
+  summarise(AvgEvents = mean(beds_av)) %>%
+  arrange(month)
+```
+
+
+---
+
+# Using SQL & returning data to `R` (2)
+
++ May need to pull the data from the server into memory in `R` sometimes.
++ Can do this with `collect()`
+
+```{r dplyrCollect, warning=FALSE, message=FALSE,  eval=TRUE, echo=TRUE}
+MyTable_local<- MyTable %>%
+  filter(year == 2015) %>%
+  group_by(org_name) %>%
+  summarise(AvgEvents = mean(beds_av)) %>%
+  arrange(org_name) %>%
+  collect()
+print(MyTable_local)
+```
+
+---
+  
+# Writing to databases
+  
+You can also write back to a database using the `dbWriteTable` function.
++ For example:
++ Writing a new table current connection, call the table: 'NewDatabaseTable'
++ We are writing back the `R` `data.frame` called "MyTable_local" (that we created in the last section)
++ First time, `dbWriteTable` will create the table.
++ Subsequent uses, you can specify whether to `append` or `overwrite` options using TRUE/FALSE.
+
+```{r dplyrWrite, warning=FALSE, message=FALSE, eval=FALSE, echo=TRUE}
+dbWriteTable(DBI_connection
+             ,"NewDatabaseTable"
+             , MyTable_local
+             , overwrite=TRUE)
+```
+
+---
+class: middle, center
+
+# Exercise:
+### Follow the instructions in the `11_database_excerise.R` file
+
+---
+
+# Useful DBI commands
+
+|Command        | Summary                                                |
+| --------------|:------------------------------------------------------:|
+|dbConnect()    | Create a DBI connection object                         |
+|dbListTables() | List the tables on the connection                      |
+|dbListFields() | List the fields for a given table on a given connection|
+|dbSendQuery()  | Send a query to execute on the server/connection      |
+|dbFetch()      | Fetch the results from the server/connection           |
+|dbWriteTable() | Write a table to the connection                        |
+|               |                                                        |
+|tbl()          | Set a table on the connection as a 'tibble' for `dplyr`|
+|glimpse()      | See a summary of the rows, data types and top rows     |
+
+---
+
+#### This work is licensed as
+</br> Creative Commons
+</br> Attribution
+</br> ShareAlike 4.0
+</br> International
+</br> To view a copy of this license, visit
+</br> https://creativecommons.org/licenses/by/4.0/
