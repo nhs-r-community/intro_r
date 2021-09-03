@@ -34,7 +34,8 @@ library(tidyverse)
 library(xaringan)
 library(nhsrtheme)
 library(magick)
-
+library(dplyr)
+library(dbplyr)
 # Packages not on CRAN
 
 # install.packages("remotes")
@@ -156,7 +157,7 @@ DBI_connection <- dbConnect(odbc()
 + Executes the query on the server-side only.
 + If you want the results back in `R`, you need to use `dbFetch` as well.
 
-```{r dplyrQuery, warning=FALSE, message=FALSE, echo=TRUE}
+```{r DBIQuery, warning=FALSE, message=FALSE, echo=TRUE}
 SomeRecords <- 
   dbFetch(
     dbSendQuery(DBI_connection
@@ -180,10 +181,17 @@ Now we can define a table as if it was part of our `R` workspace, using the conn
 + `dplyr` - to make the `tbl` and use it, we'll work with `dplyr` syntax.
 + `dbplyr` - this add-on package allows translation from `dplyr` to SQL.
 
-<br>
-```{r dplyr4, message=FALSE, warning=FALSE, collapse=TRUE, eval=TRUE, echo=TRUE}
+--
+
+```{r dplyr1, message=FALSE, warning=FALSE, collapse=TRUE, eval=TRUE, echo=TRUE}
 MyTable<-tbl(DBI_connection, "MyTable")
 ```
+```{r dplyr2, message=FALSE, warning=FALSE, collapse=TRUE, echo=TRUE}
+# Or if your table was in a schema called 'ref', rather than defautl like'dbo'
+MyTable_inschema <- tbl(DBI_connection, in_schema("ref", "MyTable"))
+```
+
+--
 
 `glimpse` is a useful function that shows you a summary:
 ```{r dbplyr5, eval=TRUE, eval=TRUE, echo=TRUE}
@@ -213,7 +221,7 @@ MyTable %>%
 
 ---
 
-# Using SQL & returning data to `R` (2)
+# Returning data to `R` with `dbplyr`
 
 + May need to pull the data from the server into memory in `R` sometimes.
 + Can do this with `collect()`
@@ -267,6 +275,7 @@ class: middle, center
 |               |                                                        |
 |tbl()          | Set a table on the connection as a 'tibble' for `dplyr`|
 |glimpse()      | See a summary of the rows, data types and top rows     |
+|in_schema()    | Use a named schema, other than 'dbo' (`dbplyr` package)  |
 
 ---
 
