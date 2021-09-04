@@ -184,10 +184,10 @@ Now we can define a table as if it was part of our `R` workspace, using the conn
 --
 
 ```{r dplyr1, message=FALSE, warning=FALSE, collapse=TRUE, eval=TRUE, echo=TRUE}
-MyTable<-tbl(DBI_connection, "MyTable")
+MyTable <- tbl(DBI_connection, "MyTable")
 ```
 ```{r dplyr2, message=FALSE, warning=FALSE, collapse=TRUE, echo=TRUE}
-# Or if your table was in a schema called 'ref', rather than defautl like'dbo'
+# Or if your table was in a schema called 'ref', rather than default like'dbo'
 MyTable_inschema <- tbl(DBI_connection, in_schema("ref", "MyTable"))
 ```
 
