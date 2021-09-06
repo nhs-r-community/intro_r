@@ -44,9 +44,9 @@ rm(tb_cases)
 
 
 # Now let's declare 'tb_cases', on 'con', as a tibble, so now we can use dplyr.
-# Call it 'tb' to avoid confusion
+# Call it 'cases' to avoid confusion
 # This will now be treated as an R data.frame/tibble, but it is still in the database.
-tb <- 
+cases <- 
   
 # Use the glimpse() function to see the structure and data tapes.
 

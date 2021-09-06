@@ -44,31 +44,31 @@ dbFetch(dbSendQuery(con,'Select * from tb_cases'))
 
 
 # Now let's declare 'tb_cases', on 'con', as a tibble, so now we can use dplyr.
-# Call it 'tb' to avoid confusion
+# Call it 'cases' to avoid confusion
 # This will now be treated as an R data.frame/tibble, but it is still in the database.
-tb <- tbl(con, 'tb_cases')
+cases <- tbl(con, 'tb_cases')
   
 # Use the glimpse() function to see the structure and data tapes.
-glimpse(tb)
+glimpse(cases)
   
 
 # Use dplyr to count the rows in the table with with 'summarise(n())' or 'count()'.
-tb %>% 
+cases %>% 
   summarise(n())
 
-tb %>% 
+cases %>% 
   count()
 
 
 # Filter for the year 2001, and find the average number of cases using summarise.
-tb %>% 
+cases %>% 
   filter(year == 2001) %>% 
   summarise(avg(cases))
 
 
 # Finally, calculate the average cases, per-country over all years.
 # What additional function would you need?
-tb %>% 
+cases %>% 
   group_by(country) %>% 
   summarise(avg(cases))
   
