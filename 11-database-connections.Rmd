@@ -233,7 +233,8 @@ MyTable_local<- MyTable %>%
   summarise(AvgEvents = mean(beds_av)) %>%
   arrange(org_name) %>%
   collect()
-print(MyTable_local)
+
+MyTable_local
 ```
 
 ---
