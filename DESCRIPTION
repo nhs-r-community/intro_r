@@ -22,7 +22,8 @@ Imports:
     icons,
     NHSRdatasets,
     nhsrtheme,
-    rmarkdown
+    rmarkdown,
+    RSQLite
 Suggests:
     callr,
     withr,
