@@ -14,7 +14,7 @@ library(dbplyr)
 #############################################################################
 
 # Load the tb_cases datasets
-tb_cases<-read_csv("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/tb_cases.csv")
+tb_cases<-read_csv("data/tb_cases.csv")
 
 # Set up the database connection
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
