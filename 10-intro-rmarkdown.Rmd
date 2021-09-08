@@ -46,10 +46,7 @@ The next chunk should be familiar; it's the code to import the beds data. Code h
 
 ```{r load-data}
 
-beds_data <- read_csv("data/beds_data.csv",
-                      col_types = cols(date = col_date(format = "%d/%m/%Y")),
-                      skip = 3)
-
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), col_types = cols(date = col_date(format = "%d/%m/%Y")), skip = 3)
 
 ```
 

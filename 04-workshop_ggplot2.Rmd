@@ -53,8 +53,8 @@ opts_chunk$set(fig.width = 7.252,
                warning = FALSE,
                message = FALSE)
 
-# load data
-capacity_ae <- read_csv("data/capacity_ae.csv") %>% 
+# load data----------------------------------
+capacity_ae <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/capacity_ae.csv")) %>% 
   mutate(outliers = case_when(site %in% c(42, 25) ~ 1,
                               TRUE ~ 0))
 
@@ -178,7 +178,7 @@ In the tidyverse you may see the term "tibble" </br>
 </br>
 >A tibble... is a modern reimagining of the data.frame...
 >
->Tibbles are data.frames that are .blue[lazy and surly]: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and .blue[complain more] (e.g. when a variable does not exist). 
+>Tibbles are data.frames that are .blue[**lazy and surly**]: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and .blue[**complain more**] (e.g. when a variable does not exist). 
 >
 > This forces you to confront problems earlier, typically leading to cleaner, more expressive code. 
 
@@ -243,60 +243,30 @@ _(and what they mean)_
 
 ---
 
-# Graphs with ggplot2
-
-</br>
-
-## Q. Is a change in the number of cubicles available in A&E associated with a change in length of attendance?
+# Q. Is a change in the number of cubicles available in A&E associated with a change in length of attendance?
 
 --
 
-<img class="center" src="img/session04/axes-description.png">
+### Let's explain the code
 
----
+We begin our plot with ggplot2
 
-# Q. Is a change in the number of cubicles available in A&E associated with a change in length of attendance?
-
-Note that R is case sensitive.
-
-```{r}
-
-ggplot(data = capacity_ae) +
-  geom_point(aes(x = dcubicles, y = dwait))
-
-```
-
----
-
-# Let's explain the code
-
-1. We begin our plot with ggplot2
 
 ```{r }
 ggplot() + 
 ```
 
----
+--
 
-# Let's explain the code
-
-1. We begin our plot with ggplot2
-
-1. Inside ggplot() we can specify the dataset
+Inside ggplot() we can specify the dataset
 
 ```{r }
 ggplot(data = capacity_ae)  
 ```
 
----
+--
 
-# Let's explain the code
-
-1. We begin our plot with ggplot2
-
-1. Inside ggplot() we can specify the dataset
-
-1. Next, we add layer(s) with + at the end
+Next, we add layer(s) with + at the end
 
 ```{r}
 ggplot(data = capacity_ae) + 
@@ -418,7 +388,7 @@ class: center, middle
 
 2\. What visual (.blue[**aes**]thetic attributes do we give to the geom?)
 
-# `r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`
+# `r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2, fill = "green")`
 
 .pull-right[
 ## colour
@@ -544,7 +514,7 @@ We can display more than one geom in a plot:
 
 ggplot(data = capacity_ae) .blue[`r icons::fontawesome("plus")`] 
 </br> .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[`r icons::fontawesome("plus")`] 
-</br> .blue[geom_smooth] aes(x = dcubicles, y = dwait))
+</br> .blue[geom_smooth](aes(x = dcubicles, y = dwait))
 
 </br>
 
@@ -556,7 +526,7 @@ ggplot(data = capacity_ae) .blue[`r icons::fontawesome("plus")`]
 
 This is our current plot:
 
-```{r plot-capacity-ae}
+```{r }
 
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait))
@@ -571,7 +541,7 @@ ggplot(data = capacity_ae) +
 
 # Your turn - Answer
 
-```{r }
+```{r plot-capacity-ae}
 
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait)) +
@@ -688,7 +658,7 @@ Or apply a size globally:
 ```{r}
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait), #<<
-                 size = "4") +#<<
+                 size = 4) +#<<
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") 
 ```
@@ -697,7 +667,7 @@ ggplot(data = capacity_ae) +
 
 # Layering geoms
 
-To avoid duplication, we can pass the common local aes() arguments to ggplot to make them global. Instead of duplicating the same aes(dcublicles, dwait):
+To avoid duplication, we can pass the common local aes() arguments to ggplot to make them global. Instead of duplicating the same aes(dcubicles, dwait):
 
 ```{r}
 ggplot(data = capacity_ae) +
@@ -748,7 +718,7 @@ class: center, middle
 
 ---
 
-# Q. How are “wait” values distributed?
+# Q. How are "wait" values distributed?
 
 ## Histogram
 
@@ -780,8 +750,8 @@ ggplot(data = capacity_ae) +
 
 ```{r}
 ggplot(data = capacity_ae) +
-  geom_col(aes (x = site,
-                y = attendance2018))
+  geom_col(aes(x = site,
+               y = attendance2018))
 ```
 
 --
@@ -790,8 +760,8 @@ ggplot(data = capacity_ae) +
 
 ```{r}
 ggplot(data = capacity_ae) +
-  geom_col(aes (x = reorder(site, attendance2018), #<<
-                y = attendance2018))
+  geom_col(aes(x = reorder(site, attendance2018), #<<
+               y = attendance2018))
 ```
 
 ---

@@ -54,11 +54,9 @@ opts_chunk$set(fig.width = 7.252,
                eval = FALSE, 
                echo = TRUE)
 
-# uncomment the following lines if you want to use the NHS-R theme colours by default
-scale_fill_continuous <- partial(scale_fill_nhs, discrete = FALSE)
-scale_fill_discrete <- partial(scale_fill_nhs, discrete = TRUE)
-scale_colour_continuous <- partial(scale_colour_nhs, discrete = FALSE)
-scale_colour_discrete <- partial(scale_colour_nhs, discrete = TRUE)
+# Load data -----------------------------------
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+    skip = 3)
 
 ```
 
@@ -200,8 +198,6 @@ Note you will have to move the cursor to another area for the number to have an 
 This is real data so there are real issues (which we'll work with)
 
 ```{r echo=FALSE, eval=TRUE}
-beds_data <- read_csv("data/beds_data.csv", col_types = cols(date = col_date(format = "%d/%m/%Y")), 
-    skip = 3)
 
 kableExtra::kbl(head(beds_data))
 ```
@@ -443,8 +439,15 @@ beds_data %>%
 ```
 
 The expression inside brackets should return TRUE or FALSE.
-
 We are choosing rows where this expression is TRUE.
+
+To exclude and test where the expression is NOT equal `!=`
+
+```{r}
+beds_data %>% 
+  filter(date != "2018-09-01") #<<
+```
+
 
 ---
 
@@ -870,6 +873,8 @@ You can create a vector with function: c() for concatenate/combine
 c(100, 80, 200)
 
 c("beds", "staff", "patients")
+
+c("beds", 80, "patients") # Mixing strings (characters) and numeric values results in all being strings
 ```
 
 ---
