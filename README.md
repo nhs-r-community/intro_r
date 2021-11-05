@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Welcome to the NHS-R Community Introduction to R and R Studio!
+# Welcome to the NHS-R Community Introduction to R and R Studio! <a alt="NHS-R Community's logo" href='https://nhsrcommunity.com/'><img src='https://nhs-r-community.github.io/assets/logo/nhsr-logo.png' align="right" height="80" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -34,13 +34,19 @@ This repository is split into 3 areas:
 
 ## Cloning this repository
 
-The [data/](https://github.com/nhs-r-community/intro_r_data/) folder is a submodule, in order to properly clone this repository you should run the following:
+Note that the following code is used in the `Terminal` not in R!
+
+The [data/](https://github.com/nhs-r-community/intro_r_data/) folder is
+a submodule, in order to properly clone this repository you should run
+the following:
 
 ``` sh
 git clone --recurse-submodules https://github.com/nhs-r-community/intro_r.git
 ```
 
-Alternatively, if you have already cloned the repository locally, you can run the following to load the [data/](https://github.com/nhs-r-community/intro_r_data/) submodule:
+Alternatively, if you have already cloned the repository locally, you
+can run the following to load the
+[data/](https://github.com/nhs-r-community/intro_r_data/) submodule:
 
 ``` sh
 git submodule init
