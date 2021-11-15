@@ -55,20 +55,11 @@ git submodule update
 
 ## Packages used
 
-The slides have been built using {xaringan} and you’ll need to install
-the following packages:
-
-``` r
-install.packages("tidyverse", "xaringan", "kableExtra", "magick", "NHSRdatasets", "rmarkdown", "RSQLite", "callr", "withr", "fs", "here")
-devtools::install_github("gadenbuie/xaringanExtra", "nhs-r-community/NHSRtheme", "mitchelloharawild/icons")
-```
-
-If you have forked and/or cloned this repository you can install all of
-the required packages to run this project with the following:
-
-``` r
-devtools::install_deps(dependencies = TRUE)
-```
+This project uses
+[`{renv}`](https://rstudio.github.io/renv/articles/renv.html) to manage
+dependencies. When you open the project it will create a new (local)
+library for this project. In order to restore the packages, simply run
+`renv::restore()`.
 
 ## Spotted a mistake?
 
