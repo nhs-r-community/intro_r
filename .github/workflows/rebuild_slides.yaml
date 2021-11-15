@@ -32,7 +32,7 @@ jobs:
           if (!icon_installed(fontawesome)) {
             download_fontawesome()
           }
-        shell: Rscript -e {0}
+        shell: Rscript {0}
         
       - name: Cache rendered html files
         uses: actions/cache@v2
