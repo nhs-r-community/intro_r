@@ -19,6 +19,9 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
       - uses: r-lib/actions/setup-pandoc@v1
       - uses: r-lib/actions/setup-renv@v1
+      
+      - name: Install system dependencies
+        run: ./system_requirements.sh
 
       - name: Cache icons
         uses: actions/cache@v2
