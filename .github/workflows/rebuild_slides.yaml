@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [main, *]
+    branches: [update_deploy_action]
 
 name: rebuild_slides
 
