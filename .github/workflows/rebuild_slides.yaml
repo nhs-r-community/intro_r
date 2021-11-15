@@ -21,7 +21,7 @@ jobs:
       - uses: r-lib/actions/setup-renv@v1
       
       - name: Install system dependencies
-        run: ./system_requirements.sh
+        run: sudo /bin/sh system_requirements.sh
 
       - name: Cache icons
         uses: actions/cache@v2
