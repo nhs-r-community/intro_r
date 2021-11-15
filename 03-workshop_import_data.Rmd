@@ -10,7 +10,7 @@ output:
       - css/nhsr-fonts.css
     lib_dir: libs
     seal: false
-    self-contained: true
+    self_contained: true
     nature:
       highlightStyle: googlecode
       highlightLines: true
