@@ -23,6 +23,7 @@ Imports:
     NHSRdatasets,
     NHSRtheme,
     rmarkdown,
+    markdown,
     RSQLite
 Suggests:
     callr,
