@@ -61,6 +61,12 @@ dependencies. When you open the project it will create a new (local)
 library for this project. In order to restore the packages, simply run
 `renv::restore()`.
 
+This project uses the
+[`{icons}`](https://github.com/mitchelloharawild/icons) package. This
+requires you to run `icons::download_fontawesome()` once before
+rendering any slides, but it will save a copy of the font’s to disk so
+this does not need to be run everytime.
+
 ## Spotted a mistake?
 
 Please let us know if there are mistakes or improvements by creating an
