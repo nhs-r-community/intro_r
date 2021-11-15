@@ -21,7 +21,7 @@ Imports:
     magick,
     icons,
     NHSRdatasets,
-    nhsrtheme,
+    NHSRtheme,
     rmarkdown,
     RSQLite
 Suggests:
@@ -31,5 +31,5 @@ Suggests:
     here
 Remotes:
     gadenbuie/xaringanExtra,
-    nhs-r-community/nhsrtheme,
+    nhs-r-community/NHSRtheme,
     mitchelloharawild/icons

@@ -59,8 +59,8 @@ The slides have been built using {xaringan} and you’ll need to install
 the following packages:
 
 ``` r
-install.packages("tidyverse", "xaringan", "kableExtra", "magick", "NHSRdatasets", "rmarkdown", "callr", "withr", "fs", "here")
-devtools::install_github("gadenbuie/xaringanExtra", "nhs-r-community/nhsrtheme", "mitchelloharawild/icons")
+install.packages("tidyverse", "xaringan", "kableExtra", "magick", "NHSRdatasets", "rmarkdown", "RSQLite", "callr", "withr", "fs", "here")
+devtools::install_github("gadenbuie/xaringanExtra", "nhs-r-community/NHSRtheme", "mitchelloharawild/icons")
 ```
 
 If you have forked and/or cloned this repository you can install all of
