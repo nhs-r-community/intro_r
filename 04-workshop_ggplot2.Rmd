@@ -251,7 +251,7 @@ _(and what they mean)_
 We begin our plot with ggplot2
 
 
-```{r }
+```{r renv.ignore=TRUE}
 ggplot() + 
 ```
 
@@ -426,13 +426,13 @@ class: center
 
 </br> You can explicitly name arguments; </br> 
 
-```{r}
+```{r, renv.ignore=TRUE}
 ggplot(data = capacity_ae) +
 ```
 
 </br> Or not: </br> 
 
-```{r}
+```{r, renv.ignore=TRUE}
 ggplot(capacity_ae) +
 ```
 
