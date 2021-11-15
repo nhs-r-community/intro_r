@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [update_deploy_action]
+    branches: [main]
 
 name: rebuild_slides
 
@@ -54,5 +54,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: gh-pages-test
+          branch: gh-pages
           folder: public
