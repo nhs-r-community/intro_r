@@ -29,7 +29,6 @@ output:
 library(knitr)
 library(tidyverse)
 library(xaringan)
-library(NHSRtheme)
 
 # Packages not on CRAN
 

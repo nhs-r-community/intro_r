@@ -15,7 +15,6 @@ knitr::opts_chunk$set(message=FALSE, warning=FALSE, echo=FALSE)
 # Lots of YAML global settings, switches off any messages, warnings and stops sharing and code.
 
 library(tidyverse)
-
 ```
 
 

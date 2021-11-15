@@ -28,7 +28,6 @@ library(knitr)
 library(magick)
 library(tidyverse)
 library(xaringan)
-library(NHSRtheme)
 library(kableExtra)
 
 # Packages not on CRAN
