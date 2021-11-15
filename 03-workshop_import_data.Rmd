@@ -31,7 +31,6 @@ output:
 library(knitr)
 library(tidyverse)
 library(xaringan)
-library(nhsrtheme)
 
 # Packages not on CRAN
 

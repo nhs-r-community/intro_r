@@ -4,11 +4,15 @@ author: NHS-R Community
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+library(magrittr)
+```
+
 ## View slides
 
 ```{r echo=FALSE, results="asis"}
 dir(pattern = "\\d{2}-.*\\.Rmd") %>%
-  str_replace(".Rmd", ".html") %>%
+  stringr::str_replace(".Rmd", ".html") %>%
   paste(" * [", ., "](", ., ")", sep = "", collapse = "\n") %>%
   cat("\n")
 ```

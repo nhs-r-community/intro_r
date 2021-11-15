@@ -27,7 +27,6 @@ output:
 library(knitr)
 library(tidyverse)
 library(xaringan)
-library(nhsrtheme)
 library(kableExtra)
 
 # Packages not on CRAN

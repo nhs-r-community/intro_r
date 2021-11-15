@@ -19,7 +19,6 @@ output:
       ratio: "16:9"
     includes:
       after_body: [css/insert-logo.html]
-
 ---
 
 
@@ -32,7 +31,6 @@ knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, warning = FAL
 library(knitr)
 library(tidyverse)
 library(xaringan)
-library(nhsrtheme)
 library(magick)
 
 # Packages not on CRAN
