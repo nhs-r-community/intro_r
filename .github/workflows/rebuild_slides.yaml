@@ -5,57 +5,54 @@ on:
 name: rebuild_slides
 
 jobs:
-  pkgdown:
-    runs-on: ${{ matrix.config.os }}
-
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - {os: ubuntu-20.04, r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+  build_slides:
+    runs-on: ubuntu-latest
           
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      RSPM: ${{ matrix.config.rspm }}
       
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - uses: r-lib/actions/setup-r@v1
-
       - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-renv@v1
+      
+      - name: Install system dependencies
+        run: sudo /bin/sh system_requirements.sh
 
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-        shell: Rscript {0}
-
-      - name: Cache R packages
+      - name: Cache icons
         uses: actions/cache@v2
         with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+          path: ~/.local/share/rpkg_icon
+          key: ${{ runner.os }}-icons-1
 
-      - name: Install dependencies
+      - name: Download icons
         run: |
-          remotes::install_deps(dependencies = TRUE)
+          library(icons)
+
+          # make sure the icons are downloaded
+          if (!icon_installed(fontawesome)) {
+            download_fontawesome()
+          }
         shell: Rscript {0}
         
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        run: |
-          while read -r cmd
-          do
-            eval sudo $cmd
-          done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "20.04"))')
-
-      - name: build slides
+      - name: Cache rendered html files
+        uses: actions/cache@v2
+        with:
+          path: ~/*.html
+          key: ${{ runner.os }}-html-1
+          
+      - name: Build slides
         run: |
           git config --local user.email "nhs.rcommunity@nhs.net"
           git config --local user.name "NHS-R Community"
-          Rscript .github/workflows/rebuild_slides.R
+          make all
+          
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: public

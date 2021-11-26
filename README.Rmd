@@ -52,33 +52,10 @@ git submodule update
 
 ## Packages used
 
-The slides have been built using {xaringan} and you'll need to install the following packages:
+This project uses [`{renv}`](https://rstudio.github.io/renv/articles/renv.html) to manage dependencies. When you open the project it will create a new (local) library for this project. In order to restore the packages, simply run `renv::restore()`.
 
-```{r echo=FALSE, results="asis"}
-p <- desc::desc_get_deps()$package
-r <- desc::desc_get_remotes()
-
-cat(
-  "``` r",
-  paste0(
-    "install.packages(",
-    paste("\"", p[!p %in% str_extract(r, "(?<=/).*$")], "\"", collapse = ", ", sep = ""),
-    ")\n",
-    "devtools::install_github(",
-    paste("\"", r, "\"", collapse = ", ", sep = ""),
-    ")"
-  ),
-  "```",
-  sep = "\n"
-)
-```
-
-If you have forked and/or cloned this repository you can install all of the required packages to run this project with the following:
-
-``` r
-devtools::install_deps(dependencies = TRUE)
-```
+This project uses the [`{icons}`](https://github.com/mitchelloharawild/icons) package. This requires you to run `icons::download_fontawesome()` once before rendering any slides, but it will save a copy of the font's to disk so this does not need to be run everytime.
 
 ## Spotted a mistake?
 
-Please let us know if there are mistakes or improvements by creating an [issue](https://github.com/nhs-r-community/intro_r/issues). 
+Please let us know if there are mistakes or improvements by creating an [issue](https://github.com/nhs-r-community/intro_r/issues).

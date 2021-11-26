@@ -10,7 +10,7 @@ output:
       - css/nhsr-fonts.css
     lib_dir: libs
     seal: false
-    self-contained: true
+    self_contained: true
     nature:
       highlightStyle: googlecode
       highlightLines: true
@@ -21,41 +21,29 @@ output:
       after_body: [css/insert-logo.html]
 ---
 
-
-
 ```{r libs, include=FALSE}
-
-knitr::opts_chunk$set(echo = FALSE, eval = FALSE, message = FALSE, warning = FALSE)
-
-#Runs packages if available
 library(knitr)
 library(tidyverse)
 library(xaringan)
 library(magick)
 library(dplyr)
 library(dbplyr)
-# Packages not on CRAN
-
-# install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icons")
-library(icons) # icons need to be loaded to view so run following code if not already done
-# icons::download_fontawesome()
-
-# install.packages("devtools")
-#devtools::install_github("gadenbuie/xaringanExtra")
+library(icons)
 library(xaringanExtra)
+library(RSQLite)
 
 xaringanExtra::use_share_again() # need to get the slide button on html view
 
-opts_chunk$set(echo = FALSE,
-               fig.width = 7.252,
-               fig.height = 4,
-               dpi = 300,
-               dev.args = list(type = "cairo"))
-
-
-library(RSQLite)
-
+opts_chunk$set(
+  echo = FALSE,
+  eval = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 7.252,
+  fig.height = 4,
+  dpi = 300,
+  dev.args = list(type = "cairo")
+)
 
 #############################################################################
 # Set up exercise database.  This will be held in memory, using RSQLite

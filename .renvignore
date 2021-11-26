@@ -1,0 +1,4 @@
+# files for renv to ignore
+
+# ignore all files in the exercises folder: this is potentially partial code
+exercises/

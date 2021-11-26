@@ -10,11 +10,19 @@ output:
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(message=FALSE, warning=FALSE, echo=FALSE)
-
-# Lots of YAML global settings, switches off any messages, warnings and stops sharing and code.
-
+library(knitr)
 library(tidyverse)
+
+opts_chunk$set(
+  echo = FALSE,
+  eval = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 7.252,
+  fig.height = 4,
+  dpi = 300,
+  dev.args = list(type = "cairo")
+)
 ```
 
 
