@@ -34,7 +34,7 @@ xaringanExtra::use_clipboard()
 xaringanExtra::use_share_again() # need to get the slide button on html view
 
 opts_chunk$set(
-  echo = FALSE,
+  echo = TRUE,
   eval = FALSE,
   message = FALSE,
   warning = FALSE,
