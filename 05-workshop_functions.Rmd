@@ -76,7 +76,8 @@ Either in the script or in the console, typing ? before the function and run if 
 Or if the package hasn't been loaded using the package::function() format:
 
 ```{r eval=FALSE}
-??beepr::beep # loaded in the Cloud
+?beepr::beep # is loaded in the Cloud
+??beep # without the path requires two ?? to be global
 ```
 
 ---
@@ -139,7 +140,7 @@ https://www.data-imaginist.com/art
 
 ---
 
-```{r echo = FALSE, out.width="80%"}
+```{r echo=FALSE, eval=TRUE, out.width="80%"}
 lines <- tibble(
   
   x = seq(0, 19, by = .5),
