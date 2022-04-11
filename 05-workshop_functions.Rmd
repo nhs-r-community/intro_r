@@ -178,7 +178,9 @@ ggplot() +
 
 ```
 
-https://ijeamaka-anyene.netlify.app/posts/2021-01-14-art-ggplot-exploring-radial-visualizations/ 
+[YouTube of the R Ladies talk](https://www.youtube.com/watch?v=h0i6KAahLY8) 
+[Source code](https://github.com/Ijeamakaanyene/aRt_ggplot)
+[Slides](https://ijeamakaanyene.github.io/aRt_ggplot/index.html#1)
 
 ---
 #### This work is licensed as
