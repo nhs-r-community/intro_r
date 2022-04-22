@@ -376,7 +376,7 @@ class: center, middle
 ## CRAN repository
 
 </br> [Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
-</br> 17,306 packages (March 20201). Free. Peer reviewed. </br>
+</br> 18,993 packages (March 2021). Free. Peer reviewed. </br>
 
 </br> (Manifold possibilities) eg. interactive graphics and </br>
 </br> dashboards, machine learning, mine twitter data, </br>
