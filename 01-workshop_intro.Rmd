@@ -384,7 +384,7 @@ class: center, middle
 </br>
 </br>
 
-</br>.blue[Other ways to get packages (eg. GitHub `r icons::fontawesome("github")`)]
+</br>.blue[ROpenSci now has fingertipsR package on (GitHub `r icons::fontawesome("https://github.com/ropensci/fingertipsR")`)]
 
 ---
 
