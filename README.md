@@ -32,6 +32,24 @@ This repository is split into 3 areas:
     are in a separate repository to help learners access the data files
     separate to the code for the slides
 
+Some of the packages used to make the slides are not from CRAN and will
+need to be installed separately including:
+
+-   {icons}
+
+``` r
+devtools::install_github("ropenscilabs/icon") 
+# After which the following code needs to be run to import the icons 
+icons::download_fontawesome()
+```
+
+-   {xaringanExtra}
+
+``` r
+# install.pacakges("devtools")
+devtools::install_github("gadenbuie/xaringanExtra")
+```
+
 ## Cloning this repository
 
 Note that the following code is used in the `Terminal` not in R!
