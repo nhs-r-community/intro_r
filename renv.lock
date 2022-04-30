@@ -45,6 +45,25 @@
         "tibble"
       ]
     },
+    "NHSRtheme": {
+      "Package": "NHSRtheme",
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "nhs-r-community",
+      "RemoteRepo": "nhsrtheme",
+      "RemoteRef": "main",
+      "RemoteSha": "6d2c3c8245c84b680a9de831d44090e2b40032ad",
+      "Hash": "3a487a3260e26bfebf0351854c94a6ac",
+      "Requirements": [
+        "dplyr",
+        "ggplot2",
+        "purrr",
+        "scales",
+        "xaringan"
+      ]
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.5.1",
@@ -604,6 +623,31 @@
         "jsonlite",
         "mime",
         "openssl"
+      ]
+    },
+    "icons": {
+      "Package": "icons",
+      "Version": "0.2.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "mitchelloharawild",
+      "RemoteRepo": "icons",
+      "RemoteRef": "master",
+      "RemoteSha": "6e4dc378ac86c1d4f4ea167f408bed07b3df14fb",
+      "Hash": "73775362cd0dcad43ba00cfb9c89a928",
+      "Requirements": [
+        "cli",
+        "crayon",
+        "glue",
+        "htmltools",
+        "jsonlite",
+        "knitr",
+        "rappdirs",
+        "rlang",
+        "rstudioapi",
+        "stringr",
+        "xml2"
       ]
     },
     "ids": {
@@ -1385,6 +1429,24 @@
         "rmarkdown",
         "servr",
         "xfun"
+      ]
+    },
+    "xaringanExtra": {
+      "Package": "xaringanExtra",
+      "Version": "0.5.5",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "gadenbuie",
+      "RemoteRepo": "xaringanextra",
+      "RemoteRef": "main",
+      "RemoteSha": "ee5092d2d27bf4b813ea50ec4c264b331283face",
+      "Hash": "7814bea7239ac0898b0e2d85fa994e09",
+      "Requirements": [
+        "htmltools",
+        "jsonlite",
+        "knitr",
+        "uuid"
       ]
     },
     "xfun": {
