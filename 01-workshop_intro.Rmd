@@ -357,8 +357,6 @@ with extra functions, datasets, documentation.
 
 ```{r}
 install.packages("tidyverse")
-
-install.packages('tidyverse')
 ```
 
 </br> will download a package to your personal library. Then: </br>
@@ -367,7 +365,7 @@ install.packages('tidyverse')
 library(tidyverse) 
 ```
 
-This tells R to load the package from your personal library and is _needed for every new session/script_]
+This tells R to load the package from your personal library and is _needed for every new session/script_
 
 ---
 
@@ -384,7 +382,7 @@ class: center, middle
 </br>
 </br>
 
-</br>.blue[ROpenSci now has fingertipsR package on (GitHub `r icons::fontawesome("https://github.com/ropensci/fingertipsR")`)]
+</br>.blue[ROpenSci now has fingertipsR package on (GitHub `r icons::fontawesome("github")` (https://github.com/ropensci/fingertipsR)]
 
 ---
 
