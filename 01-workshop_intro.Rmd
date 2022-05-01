@@ -58,29 +58,41 @@ class: center, middle
 
 
 # Agenda
-Using R Studio <br/>
-<br/> Importing data <br/>
-<br/> --------- Break --------- <br/>
-<br/> Introduction to ggplot2 <br/>
-<br/> What does this function do? <br/>
-<br/> --------- Lunch ----------- <br/>
-<br/> Data wrangling with dplyr <br/>
-<br/> Naming objects | Relational data <br/>
-<br/> --------- Break --------- <br/>
-<br/> R Markdown <br/>
-<br/> Ongoing learning <br/>
-<br/> .green[Finish about 4 - 430pm] <br/>
+Using R Studio  
+
+Importing data  
+
+--------- Break ---------  
+
+Introduction to ggplot2  
+
+What does this function do?  
+
+--------- Lunch -----------  
+
+Data wrangling with dplyr  
+
+Naming objects | Relational data  
+
+--------- Break ---------  
+
+R Markdown  
+
+Ongoing learning  
+
+.green[Finish about 4 - 430pm]  
 
 ---
 
 class: center, middle
 
-# Course Aims
-</br>
-####1. To show you some of the possibilities:
-####2. To give you a feel for how R works.
-####3. To show you enough for you to begin teaching yourself
-_(Excellent free resources available)_
+# Course Aims  
+
+####1. To show you some of the possibilities:  
+####2. To give you a feel for how R works.  
+####3. To show you enough for you to begin teaching yourself  
+
+.blue[(Excellent free resources available)]
 
 
 ---
@@ -89,8 +101,8 @@ class: inverse, middle, center
 
 
 .left-col[.center[
-###_elegant_
-#Graphics
+### elegant
+# Graphics
 ]]
 
 ---
@@ -106,8 +118,7 @@ The original blog is no longer available that featured this
 
 class: center, middle
 
-# Collaboration
-<br/>
+# Collaboration  
 
 `r icons::fontawesome("arrow-down")`
 
@@ -167,7 +178,7 @@ magick::image_animate(image_scale(img, "600x600"), fps = 1, dispose = "previous"
 class: inverse, middle, center
 
 .left-col[.center[
-_elegant_
+
 ## Course Philosophy
 ]]
 
@@ -185,10 +196,13 @@ class: center, middle
 
 # Course philosophy
 
-</br> Relaxed and informal </br>
-</br> Slides and code are available on [`r icons::fontawesome("github")` original](https://github.com/nhs-r-community/intro_r) and [`r icons::fontawesome("github")` updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion)) </br>
-</br> The truth; but it can’t be the whole truth… </br>
-</br> too much to cover in a day</br>
+Relaxed and informal  
+
+Slides and code are available on [`r icons::fontawesome("github")`   original](https://github.com/nhs-r-community/intro_r)  
+and [`r icons::fontawesome("github")`   updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion))  
+
+The truth; but it can’t be the whole truth…  
+too much to cover in a day
 
 ---
 
@@ -201,9 +215,11 @@ class: inverse, middle, center
 class: center, middle
 
 ## R vs. RStudio
-</br> R is a programming language </br>
-</br> RStudio is a software application with tools to </br>
-</br> improve your programming experience
+R is a programming language  
+
+RStudio is a software application with tools to  
+
+improve your programming experience
 
 ---
 
@@ -215,37 +231,35 @@ class: center, middle
 
 ---
 
-# RStudio 
+# RStudio  
 
-</br>
+Many excellent features to help you with your analyses.  
 
-</br> Many excellent features to help you with your analyses. </br>
+Never again have to think about R and RStudio as separate:
 
-</br> Never again have to think about R and RStudio as separate:
-Opening R Studio opens an R session. </br>
+Opening R Studio opens an R session.  
 
-</br> Analogy from the book Modern Dive:
+Analogy from the book Modern Dive:
 [www.moderndive.com](www.moderndive.com)
 
 ---
 
 class: center, middle
 
-# Open RStudio
+# Open RStudio  
 
-</br>
-</br> R Studio opens an R session.
+R Studio opens an R session
 
 ---
 
 .left-column[
-The Console is your window to R. </br>
+The Console is your window to R.  
 
-</br> You can code directly in the console… </br>
+You can code directly in the console…  
 
-</br> pi*2 <kbd> Enter </kbd> </br>
-</br> 37/12 <kbd> Enter <kbd> </br>
-</br> … but there is a better way…
+pi*2 <kbd> Enter </kbd>  
+37/12 <kbd> Enter <kbd>  
+… but there is a better way…
 ]
 
 .right-column[
@@ -258,16 +272,16 @@ The Console is your window to R. </br>
 
 .left-column[
 
-#### The Editor
-</br>
+#### The Editor  
 
-</br> If you don’t see the Editor pane, click top right button </br>
+If you don’t see the Editor pane, click top right button  
 
-</br> And choose "R Script" from the drop down.  </br>
+And choose "R Script" from the drop down.  
 
-</br> Or, shortcut:  </br>
-<kbd> Ctrl + Shift + N </kbd> </br>
-</br> .blue[_The cloud shortcut is <kbd> Ctrl + Shift + Alt + N </kbd>_]
+Or, shortcut:  
+<kbd> Ctrl + Shift + N </kbd>  
+
+.blue[The cloud shortcut is <kbd> Ctrl + Shift + Alt + N </kbd>]
 ]
 
 .pull-right[
@@ -278,20 +292,20 @@ The Console is your window to R. </br>
 ---
 
 .left-column[
-The Editor is just like any other text
-editor: you can copy, paste, and save text. </br>
+The Editor is just like any other text  
+editor: you can copy, paste, and save text.  
 
-</br> <kbd> Ctrl + Z </kbd> undoes *but*
-</br> <kbd> Ctrl + Shift + Z </kbd> to redo 
-</br> (_not <kbd> Ctrl + y</kbd>_)
+<kbd> Ctrl + Z </kbd> undoes *but*  
+<kbd> Ctrl + Shift + Z </kbd> to redo   
+(.blue[not <kbd> Ctrl + y</kbd>])  
 
-</br> Different text is coloured
-(the console is uniform) </br>
+Different text is coloured  
+(the console is uniform)  
 
-</br> Autocomplete </br>
+Autocomplete  
 
-</br> <kbd>Ctrl + Enter </kbd>
-(sends line of
+<kbd>Ctrl + Enter </kbd>  
+(sends line of  
 code to Console)
 ]
 
@@ -302,10 +316,9 @@ code to Console)
 ---
 
 .left-column[
-Comment code with a # </br>
+Comment code with a #  
 
-</br> E.g # this was a
-bad idea
+E.g # this was a bad idea
 
 Comment frequently, at least in the beginning
 
@@ -335,15 +348,14 @@ Accessbility and comfort for all
 
 class: center, middle
 
-# Packages
+# Packages  
 
-</br>
 ### R packages are like apps for your phone:
-</br>
+
 
 --
 
-</br> Extend the capabilities of the basic or "base R" </br>
+Extend the capabilities of the basic or "base R"  
 with extra functions, datasets, documentation.
 
 ---
@@ -354,20 +366,25 @@ with extra functions, datasets, documentation.
 
 # Packages
 
+Quotations in R can be either "" or '' but cannot be mixed:
 
-```{r}
+```{r echo=TRUE}
+
+# either
 install.packages("tidyverse")
 
+# or
 install.packages('tidyverse')
 ```
 
-</br> will download a package to your personal library. Then: </br>
 
-```{r}
+will download a package to your personal library. Then:  
+
+```{r echo=TRUE}
 library(tidyverse) 
 ```
 
-This tells R to load the package from your personal library and is _needed for every new session/script_]
+This tells R to load the package from your personal library and is .blue[needed for every new session/script]
 
 ---
 
@@ -375,16 +392,25 @@ class: center, middle
 
 ## CRAN repository
 
-</br> [Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
-</br> 18,993 packages (March 2021). Free. Peer reviewed. </br>
+[Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)  
 
-</br> (Manifold possibilities) eg. interactive graphics and </br>
-</br> dashboards, machine learning, mine twitter data, </br>
-</br> create PowerPoint docs, maps… </br>
-</br>
-</br>
+18,903 packages (April 2022). Free. Peer reviewed.  
 
-</br>.blue[ROpenSci now has fingertipsR package on (GitHub `r icons::fontawesome("https://github.com/ropensci/fingertipsR")`)]
+
+(Manifold possibilities) eg. interactive graphics and  
+
+dashboards, machine learning, mine twitter data,  
+
+create PowerPoint docs, maps…  
+
+
+## GitHub
+
+Many useful packages in development or subject to a lot of change are not on CRAN and are available through GitHub including [{NHSRtheme}](https://github.com/nhs-r-community/NHSRtheme). These won't be peer reviewed.
+
+## ROpenSci
+
+ROpenSci offer a peer reviewed ecosystem of R packages through GitHub including UKHSA's [{fingertipsR}](https://github.com/ropensci/fingertipsR)
 
 ---
 
@@ -394,15 +420,14 @@ class: center, middle
 
 class: center, middle
 
-## What is the tidyverse?
-</br>
+## What is the tidyverse?  
 
-</br> The [tidyverse package](https://www.tidyverse.org/) collects (some of) the most popular </br>
-R packages into one. </br>
+The [tidyverse package](https://www.tidyverse.org/) collects (some of) the most popular  
+R packages into one.  
 
-</br> All have the same underlying principles: </br>
+All have the same underlying principles:
 
-</br> Provide simple tools (with consistent structure) which may </br>
+Provide simple tools (with consistent structure) which may  
 be used together to help solve complex problems.
 
 ---
@@ -410,12 +435,11 @@ be used together to help solve complex problems.
 class: center, middle
 
 ## What is the tidyverse?
-</br>
 
-</br> During the workshop we will use the [ggplot2](https://ggplot2.tidyverse.org/), [dplyr](https://dplyr.tidyverse.org/), </br>
-and [readr](https://readr.tidyverse.org/) packages. These are bundled up in the </br>
-tidyverse package. Load it by running: </br>
-</br>
+During the workshop we will use the [ggplot2](https://ggplot2.tidyverse.org/), [dplyr](https://dplyr.tidyverse.org/),  
+and [readr](https://readr.tidyverse.org/) packages. These are bundled up in the  
+tidyverse package. Load it by running:  
+
 
 ```{r}
 library(tidyverse)
@@ -452,31 +476,31 @@ Warning messages:
 
 ---
 
-#### This work is licensed as
-</br> Creative Commons
-</br> Attribution
-</br> ShareAlike 4.0
-</br> International
-</br> To view a copy of this license, visit
-</br> https://creativecommons.org/licenses/by/4.0/
+#### This work is licensed as  
+Creative Commons  
+Attribution  
+ShareAlike 4.0  
+International  
+To view a copy of this license, visit  
+https://creativecommons.org/licenses/by/4.0/  
 
 ---
 
 name: goodbye
 class: middle, inverse
 
-# **Thank you!**
+# **Thank you!**  
 
-<br/> Acknowledgements: for creating the original training slides and delivering training:
+Acknowledgements: for creating the original training slides and delivering training:
 
-Andrew Jones | Ozayr Mohammed <br/>
+Andrew Jones | Ozayr Mohammed  
 Healthcare Analysts | The Strategy Unit
 
-[`r icons::fontawesome("paper-plane")` andrew.jones40@nhs.net](mailto:andrew.jones40@nhs.net)<br/>
+[`r icons::fontawesome("paper-plane")` andrew.jones40@nhs.net](mailto:andrew.jones40@nhs.net)  
 
 [`r icons::fontawesome("paper-plane")` ozayr.mohammed@nhs.net](mailto:ozayr.mohammed@nhs.net)
 
-And to Silvia Canelón who created the Xaringan presentation using NHS and NHR-R colour branding and shared this at the 2020 [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html). <br/>
+And to Silvia Canelón who created the Xaringan presentation using NHS and NHR-R colour branding and shared this at the 2020 [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html).  
 
 Details of the workshops she ran at the [NHS-R Community conference](https://spcanelon.github.io/xaringan-basics-and-beyond/index.html).
 

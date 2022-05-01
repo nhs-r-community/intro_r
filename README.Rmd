@@ -33,6 +33,23 @@ This repository is split into 3 areas:
 * [html pages](https://github.com/nhs-r-community/intro_r/tree/gh-pages) - are automatically rendered using GitHub actions (no need to knit every file!) and are kept on a separate branch. The html files are published though GitHub [here](https://nhs-r-community.github.io/intro_r/) and being {xaringan} they are interactive and accessible
 * [data files](https://github.com/nhs-r-community/intro_r_data/tree/26a2e39bd49d4aa95a8efc5b45c398386e6e4ed4) are in a separate repository to help learners access the data files separate to the code for the slides
 
+Some of the packages used to make the slides are not from CRAN and will need to be installed separately including:
+
+* {icons}
+
+```r
+devtools::install_github("ropenscilabs/icon") 
+# After which the following code needs to be run to import the icons 
+icons::download_fontawesome()
+```
+* {xaringanExtra}
+
+```r
+# install.pacakges("devtools")
+devtools::install_github("gadenbuie/xaringanExtra")
+
+```
+
 ## Cloning this repository
 
 Note that the following code is used in the `Terminal` not in R!
