@@ -441,7 +441,7 @@ and [readr](https://readr.tidyverse.org/) packages. These are bundled up in the
 tidyverse package. Load it by running:  
 
 
-```{r}
+```{r, echo=TRUE}
 library(tidyverse)
 ```
 
