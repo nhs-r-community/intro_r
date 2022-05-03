@@ -48,17 +48,13 @@ jobs:
           key: ${{ runner.os }}-html-1
           
       - name: Build slides
-        run: |
-          git config --local user.email "nhs.rcommunity@nhs.net"
-          git config --local user.name "NHS-R Community"
-          make all
+        run: make all
           
       - name: Archive slides artifacts
         uses: actions/upload-artifact@v3
         with:
           name: public
-          path: |
-            public
+          path: public
           
   deploy_slides:
     runs-on: ubuntu-latest
