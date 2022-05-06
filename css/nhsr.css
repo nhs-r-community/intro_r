@@ -154,7 +154,7 @@ blockquote {
 
 /*-- NHS organisation logo --*/
 .title-slide {
-  background-image:    url(../img/nhsr-logo.png);
+  background-image:    url(../img/nhsr-logo.svg);
   background-position: 95% 10%;
   background-size:     400px;
 }
