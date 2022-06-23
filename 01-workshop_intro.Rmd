@@ -198,8 +198,7 @@ class: center, middle
 
 Relaxed and informal  
 
-Slides and code are available on [`r icons::fontawesome("github")`   original](https://github.com/nhs-r-community/intro_r)  
-and [`r icons::fontawesome("github")`   updated](https://github.com/Lextuga007/intro_r/tree/feature_conversion))  
+Slides and code are available on [`r icons::fontawesome("github")`   GitHub](https://github.com/nhs-r-community/intro_r)    
 
 The truth; but it can’t be the whole truth…  
 too much to cover in a day
