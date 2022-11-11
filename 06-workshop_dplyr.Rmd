@@ -648,7 +648,7 @@ Often it's safest to remove the grouping after you've performed the required ope
 ```{r}
 beds_data %>% 
   group_by(date) %>% 
-  summarise(mean_beds = mean(beds_av, na.rm = NA)) %>% 
+  summarise(mean_beds = mean(beds_av, na.rm = TRUE)) %>% 
   ungroup()
 ```
 
