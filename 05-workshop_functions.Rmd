@@ -84,7 +84,7 @@ Or if the package hasn't been loaded using the package::function() format:
 
 # Getting help on Stackoverflow
 
-... or [R Studio Community](https://community.rstudio.com/) or [NHS-R Slack group](nhsrcommunity.slack.com)
+... or [R Studio Community](https://community.rstudio.com/) or [NHS-R Slack group](https://nhsrcommunity.com/)
 
 <img class="center" src="img/session05/stackoverflow_example.PNG"/>
 
