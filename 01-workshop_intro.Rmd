@@ -239,7 +239,7 @@ Never again have to think about R and RStudio as separate:
 Opening R Studio opens an R session.  
 
 Analogy from the book Modern Dive:
-[www.moderndive.com](www.moderndive.com)
+[www.moderndive.com](https://moderndive.com/)
 
 ---
 

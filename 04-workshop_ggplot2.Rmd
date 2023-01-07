@@ -625,7 +625,7 @@ If you want a visual attribute to be applied across the whole plot, the argument
 ```{r}
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait), #<<
-                 colour = "red") + 
+             colour = "red") + 
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") 
 ```
@@ -635,7 +635,7 @@ ggplot(data = capacity_ae) +
 ```{r}
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait, #<<
-                 colour = "red")) + 
+             colour = "red")) + 
   geom_smooth(aes(x = dcubicles, y = dwait),
               method = "lm") 
 ```

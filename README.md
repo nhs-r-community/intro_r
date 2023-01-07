@@ -10,7 +10,7 @@
 
 If you are attending the course all the course materials and preparation
 instructions are
-[here](https://philosopher-analyst.netlify.app/collection/nhsr-intro/prework/).
+[here](https://philosopher-analyst.netlify.app/intro-r/nhsr-intro/prework/).
 
 ## Are you wanting to update or use the slide code?
 
