@@ -57,21 +57,21 @@ class: title-slide, left, bottom
 
 class: center, middle
 
-# Import data to R
+# Import data to R  
 
-</br> There are R packages to import all types of data. 
-</br> In this course, we'll cover the most
-</br> common imports: 
-</br>
-</br> csvs and Excel workbooks
+ There are R packages to import all types of data.   
+ In this course, we'll cover the most  
+ common imports:   
+
+ csvs and Excel workbooks  
 
 --
 
-</br> We'd like to import the `capacity_ae.csv` file. </br> 
+ We'd like to import the `capacity_ae.csv` file.    
 
-</br> While we could write code from scratch to do this,
-</br> it's often easier to get the import wizard to do this
-</br> for you.
+ While we could write code from scratch to do this,  
+ it's often easier to get the import wizard to do this  
+ for you.  
 
 ---
 
@@ -79,17 +79,17 @@ class: center, middle
 
 # Import data to R
 
-We will use the "Import Dataset" button (but you can also click on the file itself):
+We will use the "Import Dataset" button (but you can also click on the file itself):  
 
-</br> <img class="center" src="img/session03/import-screenshot.PNG" width="80%"/>
+ <img class="center" src="img/session03/import-screenshot.PNG" width="80%"/>  
 
 ---
 
 # Import data to R
 
-We will use the "Import Dataset" button:
+We will use the "Import Dataset" button:  
 
-</br> <img class="center" src="img/session03/drop-down-import.PNG" width="60%"/>
+ <img class="center" src="img/session03/drop-down-import.PNG" width="60%"/>  
 
 ---
 
@@ -97,41 +97,41 @@ We will use the "Import Dataset" button:
 
 The package used to install csvs is {readr} which is loaded with the {tidyverse} package.
 
-Excel workbooks require the package {readxl}.
+Excel workbooks require the package {readxl}.  
 
-</br> <img class="center" src="img/session03/drop-down-import-csv.PNG" width="60%"/>
-
----
-
-# Import wizard
-
-Locate the file capacity_ae.csv
-
-</br> <img src="img/session03/wizard.PNG"/>
+ <img class="center" src="img/session03/drop-down-import-csv.PNG" width="60%"/>  
 
 ---
 
 # Import wizard
 
-</br> <img src="img/session03/capacity-ae-preview.PNG"/>
+Locate the file capacity_ae.csv  
+
+ <img src="img/session03/wizard.PNG"/>  
 
 ---
 
-# Import wizard
+# Import wizard  
 
-</br> <img src="img/session03/import-button.PNG"/>
-
----
-
-# Import wizard
-
-</br> <img src="img/session03/copy-wizard-code.PNG"/>
+ <img src="img/session03/capacity-ae-preview.PNG"/>  
 
 ---
 
-# Import wizard
+# Import wizard  
 
-</br> <img src="img/session03/copy-code-preview.PNG"/>
+ <img src="img/session03/import-button.PNG"/>  
+
+---
+
+# Import wizard  
+
+ <img src="img/session03/copy-wizard-code.PNG"/>  
+
+---
+
+# Import wizard  
+
+ <img src="img/session03/copy-code-preview.PNG"/>  
 
 ---
 
@@ -156,23 +156,23 @@ Where just one line copied:
 ]
 
 
+---  
+
+# Run code from the editor  
+
+ <img class="center" src="img/session03/run-code.PNG"/>  
+
+No need to highlight all code to run.  
+
+  Put the cursor in the line you want to run then select the button to Run or <kbd> Ctrl + Return </kbd>  
+
+
 ---
 
-# Run code from the editor
-
-</br> <img class="center" src="img/session03/run-code.PNG"/>
-
-No need to highlight all code to run.
-
-</br>  Put the cursor in the line you want to run then select the button to Run or <kbd> Ctrl + Return </kbd>
-
-
----
-
-#### This work is licensed as
-</br> Creative Commons
-</br> Attribution
-</br> ShareAlike 4.0
-</br> International
-</br> To view a copy of this license, visit
-</br> https://creativecommons.org/licenses/by/4.0/
+#### This work is licensed as  
+ Creative Commons  
+ Attribution  
+ ShareAlike 4.0  
+ International  
+ To view a copy of this license, visit  
+ https://creativecommons.org/licenses/by/4.0/  
