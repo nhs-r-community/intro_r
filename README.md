@@ -8,9 +8,8 @@
 
 ## Attending the course?
 
-If you are attending the course all the course materials and preparation
-instructions are
-[here](https://philosopher-analyst.netlify.app/intro-r/nhsr-intro/prework/).
+If you are attending the course check all of our 
+[course materials and preparation instructions](https://philosopher-analyst.netlify.app/intro-r/).
 
 ## Are you wanting to update or use the slide code?
 
@@ -24,8 +23,8 @@ This repository is split into 3 areas:
     pages](https://github.com/nhs-r-community/intro_r/tree/gh-pages) -
     are automatically rendered using GitHub actions (no need to knit
     every file!) and are kept on a separate branch. The html files are
-    published though GitHub
-    [here](https://nhs-r-community.github.io/intro_r/) and being
+    published through 
+    [GitHub](https://nhs-r-community.github.io/intro_r/) and being
     {xaringan} they are interactive and accessible
 -   [data files](https://github.com/nhs-r-community/intro_r_data/) are
     in a separate repository to help learners access the data files
@@ -61,3 +60,4 @@ tab in RStudio.
 
 Please let us know if there are mistakes or improvements by creating an
 [issue](https://github.com/nhs-r-community/intro_r/issues).
+

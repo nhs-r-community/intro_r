@@ -92,7 +92,8 @@ Or if the package hasn't been loaded using the package::function() format:
 
 # Cheat sheets
 
-Popular packages have cheat sheets and R Studio's can be found [here](https://rviews.rstudio.com/2021/03/10/rstudio-open-source-resorurces/) which download as a pdf.
+Popular packages have 
+[cheat sheets and R Studio's](https://rviews.rstudio.com/2021/03/10/rstudio-open-source-resorurces/) which download as a pdf.
 
 <img class="center" src="img/session05/cheat-sheets.PNG"/>
 
@@ -190,3 +191,4 @@ ggplot() +
 </br> International
 </br> To view a copy of this license, visit
 </br> https://creativecommons.org/licenses/by/4.0/
+
