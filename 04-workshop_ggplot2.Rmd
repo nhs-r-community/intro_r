@@ -133,6 +133,7 @@ class: inverse, middle, center
 ]
 
 ---
+class: center
 
 # Data: Capacity in A&E  
 
@@ -280,11 +281,7 @@ class: center, middle
 
 # Choices  
 
- 
-
- 1. What shape will represent the data points?  
- 
- 
+</br>1. What shape will represent the data points?  
 
 # .black[`r icons::icon_style(fontawesome("square-full"), scale = 2)`]
 
@@ -293,11 +290,8 @@ class: center, middle
 class: center, middle
 
 # Choices  
- 
 
- 1. What shape will represent the data points?  
-
- 
+</br>1. What shape will represent the data points?  
 
 # .black[`r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
 
