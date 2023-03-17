@@ -87,11 +87,11 @@ Is one of several plotting systems in R
 ---
 
 # Why is ggplot popular?
-</br>
 
-</br> 1. Well designed and supported </br> 
-</br> 2. Highly versatile </br> 
-</br> 3. Attractive graphics (with a little work)
+
+ 1. Well designed and supported    
+ 2. Highly versatile    
+ 3. Attractive graphics (with a little work)  
 
 .footnote[1. Why start with ggplot : http://varianceexplained.org/r/teach_ggplot2_to_beginners/
 2. Argument against:
@@ -99,15 +99,15 @@ https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/]
 
 ---
 
-[</br> <img class="center" src="img/session04/bbc-plots.PNG"/>](https://bbc.github.io/rcookbook/#left-alignright-align_text)
+[ <img class="center" src="img/session04/bbc-plots.PNG"/>](https://bbc.github.io/rcookbook/#left-alignright-align_text)
 
 ---
 
 # ggplot2
-</br>
 
-</br> ggplot2 is part of the tidyverse. </br>
-</br> So, at the top of your script type:
+
+ ggplot2 is part of the tidyverse.   
+ So, at the top of your script type:  
 
 ```{r}
 library(tidyverse)
@@ -117,15 +117,15 @@ library(tidyverse)
 
 class: inverse, middle, center
 
-## Project 1: </br>
-</br> Let’s explore a perennial </br>
-</br> challenge for the NHS:
+## Project 1:   
+ Let’s explore a perennial   
+ challenge for the NHS:  
 
 ---
 
-# Pressures in A&E
+# Pressures in A&E  
 
-</br> <img class="center" src="img/session04/demand-and-capacity.PNG"/>
+ <img class="center" src="img/session04/demand-and-capacity.PNG"/>  
 
 .footnote[
 1. [Picture 1](https://www.deviantart.com/luckymarine577/art/Animated-Ambulance-338970039) by Unknown Author is licensed under [CC BY SA NC](https://creativecommons.org/licenses/by-nc-sa/3.0/)
@@ -134,19 +134,19 @@ class: inverse, middle, center
 
 ---
 
-# Data: Capacity in A&E
-</br>
+# Data: Capacity in A&E  
 
-The dataset we loaded earlier, `capacity_ae`, shows </br>
-</br> changes in the capacity of A&E departments from </br>
-</br> 2017 to 2018
+
+The dataset we loaded earlier, `capacity_ae`, shows   
+ changes in the capacity of A&E departments from   
+ 2017 to 2018  
 
 .footnote[Closely based on datasets collected by the NHS Benchmarking Network]
 
 --
-</br>
 
-</br> The object named .green[capacity_ae] is a data frame
+
+ The object named .green[capacity_ae] is a data frame
 
 ---
 
@@ -163,10 +163,10 @@ A data frame stores tabular data:
 
 ## tibble = data frame
 
-In the tidyverse you may see the term "tibble" </br>
-</br> We’ll take "tibble" to be synonymous with "data frame"
+In the tidyverse you may see the term "tibble"   
+ We’ll take "tibble" to be synonymous with "data frame"  
 
-</br>
+
 >A tibble... is a modern reimagining of the data.frame...
 >
 >Tibbles are data.frames that are .blue[**lazy and surly**]: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and .blue[**complain more**] (e.g. when a variable does not exist). 
@@ -278,13 +278,13 @@ There are choices about the chart to use but also the details of the chart
 
 class: center, middle
 
-# Choices
+# Choices  
 
-</br> 
+ 
 
-</br> 1. What shape will represent the data points?
-</br> 
-</br> 
+ 1. What shape will represent the data points?  
+ 
+ 
 
 # .black[`r icons::icon_style(fontawesome("square-full"), scale = 2)`]
 
@@ -292,12 +292,12 @@ class: center, middle
 
 class: center, middle
 
-# Choices
-</br> 
+# Choices  
+ 
 
-</br> 1. What shape will represent the data points?
-</br>
-</br> 
+ 1. What shape will represent the data points?  
+
+ 
 
 # .black[`r icons::icon_style(fontawesome("circle", style = "solid"), scale = 2)`]
 
@@ -404,25 +404,25 @@ class: middle, center
 
 # Functions ()
 
-ggplot(), geom_point(), and aes() are functions </br> 
+ggplot(), geom_point(), and aes() are functions    
 
-</br> Running a function does something </br> 
-</br> Functions are given zero or more inputs (arguments) </br> 
-</br> Arguments of a function are separated by commas
+ Running a function does something    
+ Functions are given zero or more inputs (arguments)    
+ Arguments of a function are separated by commas  
 
 ---
 
 class: center
 
-# Functions ()
+# Functions ()  
 
-</br> You can explicitly name arguments; </br> 
+ You can explicitly name arguments;  
 
 ```{r, renv.ignore=TRUE}
 ggplot(data = capacity_ae) +
 ```
 
-</br> Or not: </br> 
+ Or not:  
 
 ```{r, renv.ignore=TRUE}
 ggplot(capacity_ae) +
@@ -430,16 +430,16 @@ ggplot(capacity_ae) +
 
 ---
 
-# Functions ()
+# Functions ()  
 
-</br> Other arguments like axes x and y are in a particular order; </br> 
+ Other arguments like axes x and y are in a particular order;  
 
 ```{r}
 ggplot(data = capacity_ae) + 
   geom_point(aes(x = dcubicles, y = dwait)) #<<
 ```
 
-</br> It is possible to write it like:
+ It is possible to write it like:
 
 ```{r}
 ggplot(data = capacity_ae) + 
@@ -454,23 +454,23 @@ But could be confusing.
 Here, we have provided **ggplot()** with one named argument
 
 .pull-right[
-.darkgrey[ggplot(.blue[**data = capacity_ae**]) + 
-</br>
+.darkgrey[ggplot(.blue[**data = capacity_ae**]) +   
+
 geom_point(.blue[**aes(x = dcubicles, y = dwait)**])]
 ]
 
 
-And given **aes()** two named arguments </br>
+And given **aes()** two named arguments   
 
-</br> Unspecified (yet required) arguments will often revert to .green[default values]
+ Unspecified (yet required) arguments will often revert to .green[default values]  
 
 ---
 
 # Shorthand
 
-Since ggplot2 knows the order of essential arguments, it is not necessary to name arguments:
+Since ggplot2 knows the order of essential arguments, it is not necessary to name arguments:  
 
-.green[data = can be omitted </br>] 
+.green[data = can be omitted ]   
 
 and 
 
@@ -489,9 +489,9 @@ ggplot(capacity_ae) +
 
 # geoms
 
-We tend to describe plots in terms of the geom used:
+We tend to describe plots in terms of the geom used:  
 
-</br> <img class="center" src="img/session04/geoms.PNG" width="80%"/>
+ <img class="center" src="img/session04/geoms.PNG" width="80%"/>  
 
 ---
 
@@ -501,13 +501,13 @@ We can display more than one geom in a plot:
 
 .blue[`r icons::fontawesome("plus")`] to add a layer
 
-</br>
 
-ggplot(data = capacity_ae) .blue[`r icons::fontawesome("plus")`] 
-</br> .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[`r icons::fontawesome("plus")`] 
-</br> .blue[geom_smooth](aes(x = dcubicles, y = dwait))
 
-</br>
+ggplot(data = capacity_ae) .blue[`r icons::fontawesome("plus")`]   
+ .blue[geom_point](aes(x = dcubicles, y = dwait)) .blue[`r icons::fontawesome("plus")`]   
+ .blue[geom_smooth](aes(x = dcubicles, y = dwait))  
+
+
 
 .blue[then specify another geom...]
   
@@ -524,9 +524,9 @@ ggplot(data = capacity_ae) +
 
 ```
 
-</br> Add a geom_smooth layer (to help identify patterns)
+ Add a geom_smooth layer (to help identify patterns)  
 
-</br> Hint: Don't forget the .blue[+] and aes() values in the new layer
+ Hint: Don't forget the .blue[+] and aes() values in the new layer  
 
 ---
 
@@ -583,11 +583,11 @@ class: center, middle
 
 # Hypothesis
 
-</br> The two sites have seen staffing increases
+ The two sites have seen staffing increases  
 
-</br> We can map point .blue[colour] (aesthetic attribute) to the staff_increase variable to find out
+ We can map point .blue[colour] (aesthetic attribute) to the staff_increase variable to find out  
 
-</br> We will add colour to the chart depending on the value of staff_increase (TRUE or FALSE, 1 or 0)
+ We will add colour to the chart depending on the value of staff_increase (TRUE or FALSE, 1 or 0)  
 
 ---
 
@@ -604,7 +604,7 @@ ggplot(data = capacity_ae) +
               method = "lm") 
 ```
 
-</br> We could have equally have chosen size or shape but these make graphic less clear
+ We could have equally have chosen size or shape but these make graphic less clear
 
 ---
 
@@ -630,7 +630,7 @@ ggplot(data = capacity_ae) +
               method = "lm") 
 ```
 
-</br> This works too because the colour is generically applied:
+ This works too because the colour is generically applied:
 
 ```{r}
 ggplot(data = capacity_ae) + 
@@ -666,7 +666,7 @@ ggplot(data = capacity_ae) +
   geom_smooth(aes(dcubicles, dwait)) #<<
 ```
 
-</br> Move the aes to the "global":
+ Move the aes to the "global":
 
 ```{r}
 ggplot(data = capacity_ae, aes(dcubicles, dwait)) +
@@ -704,8 +704,8 @@ class: center, middle
 
 # Demonstrating geom charts
 
-(note: these are simple,
-</br> unpolished graphics)
+(note: these are simple,  
+ unpolished graphics)
 
 ---
 
@@ -730,7 +730,7 @@ ggplot(data = capacity_ae) +
                  binwidth = 10)
 ```
 
-</br> With "bins" set so more uniformed in spread:
+ With "bins" set so more uniformed in spread:
 
 
 ---
@@ -747,7 +747,7 @@ ggplot(data = capacity_ae) +
 
 --
 
-</br> Reorder site __by__ attendances
+ Reorder site __by__ attendances
 
 ```{r}
 ggplot(data = capacity_ae) +
@@ -804,15 +804,15 @@ ggplot(data = capacity_ae) +
          height = 10, width = 8) #<<
 ```
 
-</br> By default saves a plot in the same dimensions as plot window.
+ By default saves a plot in the same dimensions as plot window.  
 
 In future, you'll wish to add height, width and "units" arguments to specify plot dimensions.
 
 ---
-#### This work is licensed as
-</br> Creative Commons
-</br> Attribution
-</br> ShareAlike 4.0
-</br> International
-</br> To view a copy of this license, visit
-</br> https://creativecommons.org/licenses/by/4.0/
+#### This work is licensed as  
+ Creative Commons  
+ Attribution  
+ ShareAlike 4.0  
+ International  
+ To view a copy of this license, visit  
+ https://creativecommons.org/licenses/by/4.0/  
