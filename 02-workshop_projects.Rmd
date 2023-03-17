@@ -63,41 +63,41 @@ class: title-slide, left, bottom
 # Working Directory
 
 If you tell R/R Studio to look for a file, or save a plot, it will (by default) look in a place called the working
-directory (wd) </br>
+directory (wd)   
 
-</br> <img class="center" src="img/session02/working-directory.PNG"/>
+ <img class="center" src="img/session02/working-directory.PNG"/>  
 
-</br> You can (usually) see your working directory path at the top of the console panel...</br>
+ You can (usually) see your working directory path at the top of the console panel...  
 
-</br> ... it often defaults to the "Documents" folder. </br>
+ ... it often defaults to the "Documents" folder.   
 
-</br> This example is ~/workshop-r/ and ~ is in Documents
+ This example is ~/workshop-r/ and ~ is in Documents  
 
 ---
 
 # Browsing in RStudio
 
-If you click the arrow next to the file pathway ~/workshop-r/
+If you click the arrow next to the file pathway ~/workshop-r/  
 
-</br> <img src="img/session02/working-directory.PNG"/>
+ <img src="img/session02/working-directory.PNG"/>  
 
-it will return you to the working directory and you can see all the files in that folder:
+it will return you to the working directory and you can see all the files in that folder:  
 
-</br> <img class="center" src="img/session02/wd-files.PNG"/>
+ <img class="center" src="img/session02/wd-files.PNG"/>  
 
 ---
 
 class: center, middle
 
-# Organisation
+# Organisation  
 
-</br> <img class="center"src="img/session02/cognitive-load.PNG" width="15%"/>
+ <img class="center"src="img/session02/cognitive-load.PNG" width="15%"/>  
 
-</br> Sooner or later (but probably sooner) you will wish to change where files are saved (and loaded from). </br>
+ Sooner or later (but probably sooner) you will wish to change where files are saved (and loaded from).   
 
-</br> Being organised is key:</br>
+ Being organised is key:  
 
-</br> Reduces cognitive load (and frustration).
+ Reduces cognitive load (and frustration).  
 
 .footnote[Artwork by @allison_horst]
 
@@ -105,26 +105,26 @@ class: center, middle
 
 # RStudio Projects
 
-</br> make it *far easier* for you to: </br>
+make it *far easier* for you to:   
 
-</br> 1) .blue[*Organise*] files and workflow </br>
-</br> 2) .blue[*Switch*] between projects </br>
-</br> 3) .blue[*Share*] scripts / projects with others </br>
+1) .blue[*Organise*] files and workflow   
+2) .blue[*Switch*] between projects   
+3) .blue[*Share*] scripts / projects with others   
 
 
-</br> .green[(when collaborating or getting assistance)] </br>
+.green[(when collaborating or getting assistance)] 
 
-</br> Recommended for all tasks (large or small).
+Recommended for all tasks (large or small).
 
 ---
 
 # Create a project
 
-</br> File `r icons::fontawesome("arrow-right")` New Project `r icons::fontawesome("arrow-right")` New Directory `r icons::fontawesome("arrow-right")` New Project
+File `r icons::fontawesome("arrow-right")` New Project `r icons::fontawesome("arrow-right")` New Directory `r icons::fontawesome("arrow-right")` New Project
 
-</br> Name the directory "workshop-r" </br>
-</br> Create as a subdirectory somewhere useful for you </br>
-</br> Create project! </br>
+Name the directory "workshop-r"  
+Create as a subdirectory somewhere useful for you  
+Create project!  
 
 ---
 
@@ -132,10 +132,10 @@ class: center, middle
 
 Now your working directory is your project directory:
 
-</br> <img class="center" src="img/session02/workshop-r-project.PNG"/>
+<img class="center" src="img/session02/workshop-r-project.PNG"/>  
 
-</br> R will save and load files from here (by default). </br>
-</br> If starting another project, repeat this process.
+R will save and load files from here (by default).  
+If starting another project, repeat this process.  
 
 ---
 
@@ -143,9 +143,9 @@ class: middle, center
 
 # R Studio Projects
 
-Switching between projects is simple
+Switching between projects is simple  
 
-</br> <img class="center" src="img/session02/project-list.PNG"/>
+<img class="center" src="img/session02/project-list.PNG"/>  
 
 ---
 
@@ -155,9 +155,9 @@ Artwork by @allison_horst
 
 #### This work is licensed as
 
-</br> Creative Commons
-</br> Attribution
-</br> ShareAlike 4.0
-</br> International
-</br> To view a copy of this license, visit
-</br> https://creativecommons.org/licenses/by/4.0/
+ Creative Commons  
+ Attribution  
+ ShareAlike 4.0  
+ International  
+ To view a copy of this license, visit  
+ https://creativecommons.org/licenses/by/4.0/  
