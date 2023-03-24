@@ -93,7 +93,7 @@ Or if the package hasn't been loaded using the package::function() format:
 # Cheat sheets
 
 Popular packages have 
-[cheat sheets and R Studio's](https://rviews.rstudio.com/2021/03/10/rstudio-open-source-resorurces/) which download as a pdf.
+[cheat sheets](https://rviews.rstudio.com/2021/03/10/rstudio-open-source-resorurces/) which are available as pdf downloads.
 
 <img class="center" src="img/session05/cheat-sheets.PNG"/>
 
